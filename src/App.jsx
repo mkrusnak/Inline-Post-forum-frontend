@@ -9,6 +9,7 @@ import IsAnon from './components/isAnon'
 import ForumPage from './pages/ForumPage'
 import GalleryPage from './pages/GalleryPage'
 import MarketPage from './pages/MarketPage'
+import AddListing from './pages/AddListing'
 
 
 
@@ -23,6 +24,8 @@ function App() {
     <Routes>
 
       <Route path="/" element={<HomePage />} />
+      <Route path="/test" element={<AddListing />} />
+
       <Route path="/signup" element={<IsAnon><SignupPage /> </IsAnon>} />
       <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
       <Route path="/forum" element={<IsPrivate> <ForumPage /> </IsPrivate>} />

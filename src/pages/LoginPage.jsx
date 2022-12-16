@@ -34,7 +34,7 @@ const handleSubmit = e => {
 
 return(
     <>
-    <div className="AddApartmentPage">
+    <div>
     <h1>Log In</h1>
      <form onSubmit={handleSubmit}>
 
