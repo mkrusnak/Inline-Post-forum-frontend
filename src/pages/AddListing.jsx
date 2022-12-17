@@ -30,7 +30,12 @@ const updateState = event => setState({
 
 const handleSubmit = e => {
     e.preventDefault()
-  axios.post('http://localhost:3001/listings/add', state)
+  axios.post('http://localhost:3001/listings/add', state, {
+    //this is the configuration object - 3rd argument of axios post and put requests
+    headers: {
+      authorization: `Bearer ${localStorage.getItem('authToken')}`
+    }
+  })
   .then(axiosResponse => {
     console.log(axiosResponse.data)
     navigate('/')
