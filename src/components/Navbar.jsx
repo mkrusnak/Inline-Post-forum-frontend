@@ -56,6 +56,7 @@ return(
           </li>
 
 
+          
 
 
 
@@ -95,7 +96,7 @@ return(
           </li>
     
           <li className="nav-item ">
-            <Link className="nav-link" to="/marketplace">
+            <Link className="nav-link" to="/listings">
             Marketplace
             </Link>   
           </li>
@@ -107,6 +108,16 @@ return(
             </Link>   
           </li>
     
+
+          <li className="nav-item ">
+             <Link className="nav-link" to="/messages">
+                Messages
+             </Link>
+          </li>
+
+
+
+
           <li className="nav-item ">
           <a className="nav-link" onClick={logOutUser} href="/">Logout</a>
           </li>
