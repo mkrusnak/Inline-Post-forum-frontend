@@ -14,7 +14,9 @@ import ListingDetails from './pages/ListingDetails'
 import Messages from './pages/Messages'
 import ForumPostPage from './pages/ForumPostPage'
 import AddDiy from './pages/AddDiy'
-
+import DiyPage from './pages/DiyPage'
+import SingleDiy from './pages/SingleDiy'
+import SendMessage from './pages/SendMessage'
 
 
 
@@ -32,9 +34,15 @@ function App() {
 
 
 
-      <Route path="/messages" element={<Messages />} />
+      
       <Route path="/signup" element={<IsAnon><SignupPage /> </IsAnon>} />
       <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
+
+
+      <Route path="/messages/send/:authorId" element={<IsPrivate> <SendMessage /> </IsPrivate>} />
+      <Route path="/messages" element={<IsPrivate> <Messages /> </IsPrivate>} />
+      <Route path="/diy" element={<IsPrivate> <DiyPage /> </IsPrivate>} />
+      <Route path="/diy/:diyId" element={<IsPrivate> <SingleDiy /> </IsPrivate>} />
       <Route path="/forum" element={<IsPrivate> <ForumPage /> </IsPrivate>} />
       <Route path="/listings/:listingId" element={<IsPrivate> <ListingDetails /> </IsPrivate>} />
       <Route path="/forum/:forumId" element={<IsPrivate> <ForumPostPage /> </IsPrivate>} />

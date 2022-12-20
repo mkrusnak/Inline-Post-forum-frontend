@@ -45,7 +45,10 @@ useEffect(() => {
   <Link to={`/forum/${single._id}`}>
                      <h4>Read / comment</h4>
   </Link>
-  <p>{single.createdAt}</p>
+
+     
+  <p>{single.createdAtTime}</p>
+    
   </>
   )
 })}

@@ -102,6 +102,13 @@ return(
           </li>
     
           <li className="nav-item ">
+            <Link className="nav-link" to="/diy">
+             DIY
+            </Link>   
+          </li>
+
+
+          <li className="nav-item ">
             <Link className="nav-link" to="/listings">
             Marketplace
             </Link>   

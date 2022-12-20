@@ -1,10 +1,16 @@
-import { useState} from 'react'
+import { useState, useContext} from 'react'
 import axios from 'axios'
-
-
+import { AuthContext } from "../context/auth.context";
+import { useParams } from 'react-router-dom';
 
 
 const SendMessage = (props) => {
+
+    console.log(props)
+    const {user} = useContext(AuthContext)
+
+    const { recipientUsername } = useParams();
+
 
     const [state, setState] = useState({
         subject: '',
@@ -24,8 +30,8 @@ const SendMessage = (props) => {
         axios.post(`http://localhost:3001/messages/send`,{
             subject: state.subject,
             body: state.body,
-            sender: state.sender ,
-            recipient: state.recipient
+            sender: user._id,
+            recipient: authorId
         } ,
         {
             headers: {
@@ -43,7 +49,7 @@ const SendMessage = (props) => {
     return(
         <>
     <div>
-    <h1>Send Message:</h1>
+    <h1>Message to {recipientUsername}</h1>
      <form onSubmit={submitFormHandler}>
 
          <label>Subject: </label>
@@ -51,12 +57,6 @@ const SendMessage = (props) => {
 
          <label>Body: </label>
          <input name="body" type="text" value={state.body} onChange={updateState}/>
-
-         <label>sender: </label>
-         <input name="sender" type="text" value={state.sender} onChange={updateState}/>
-
-         <label>recipient: </label>
-         <input name="recipient" type="text" value={state.recipient} onChange={updateState}/>
 
         <button>Send</button>
      
