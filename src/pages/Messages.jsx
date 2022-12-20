@@ -34,9 +34,10 @@ const Messages = () => {
 
     {messagesArr.map(singleMessage => {
        return (<>
-        <h4>{singleMessage.sender.username}</h4>
-        <h4>{singleMessage.subject}</h4>
-        <h4>{singleMessage.body}</h4>
+        <h4>Sender:{singleMessage.sender.username}</h4>
+        <h3>{singleMessage.subject}</h3>
+        <p>{singleMessage.body}</p>
+        
         </>
        )
     })}

@@ -56,6 +56,12 @@ return(
           </li>
 
 
+          <li className="nav-item ">
+             <Link className="nav-link" to="/test2">
+                test2
+             </Link>
+          </li>
+
           
 
 

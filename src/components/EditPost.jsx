@@ -19,7 +19,7 @@ const EditPost = (props) => {
       });
 
       const submitFormHandler = e => {
-        e.preventDefault()
+        // e.preventDefault()
         console.log('form submit works');
         axios.put(`http://localhost:3001/forum/edit/${props.forumId}`,{
           subject: state.subject,
@@ -34,6 +34,7 @@ const EditPost = (props) => {
         } )
           .then(axiosResponse => {
             console.log(axiosResponse.data);
+            navigate(`/forum/${props.forumId}`)
             
           })
           .catch(err => console.log(err))

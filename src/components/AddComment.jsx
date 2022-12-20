@@ -1,16 +1,20 @@
-import { useState} from 'react'
+import { useState, useContext} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from "../context/auth.context";
+import { useParams } from 'react-router-dom';
 
 const AddComment = (props) => {
+
+
+  // const { postId } = useParams();
+
+  const {user} = useContext(AuthContext)
 
     // const navigate = useNavigate();
 
     const [state, setState] = useState({
-        video: '',
-        image: '',
-        subject: '',
-        body: ''
+        text: ''
       });
 
       const updateState = e => setState({
@@ -19,13 +23,13 @@ const AddComment = (props) => {
       });
 
       const submitFormHandler = e => {
-        
-        console.log('form submit works');
-        axios.post(`http://localhost:3001/forum/add`,{
-          video: state.video,
-          image: state.image,
-          subject: state.subject,
-          body: state.body
+        e.preventDefault()
+        console.log('FORM SUBMIT WORKED');
+        axios.post(`http://localhost:3001/comments/add`,{
+          profilePic: user.profilePic,
+          text: state.text,
+          author: user._id,
+          reference: props.postId
         } ,
         {
             headers: {
@@ -41,23 +45,13 @@ const AddComment = (props) => {
     return(
         <>
     <div>
-    <h1>Post new discussion:</h1>
-     <form onSubmit={submitFormHandler}>
+    <h1></h1>
+     <form onSubmit={submitFormHandler} >
 
-         <label>Subject: </label>
-         <input name="subject" value={state.subject} placeholder="" onChange={updateState}/>
+         <label>Add comment: </label>
+         <input name="text"  value={state.text} onChange={updateState}/>
 
-         <label>Body: </label>
-         <input name="body"  value={state.body} onChange={updateState}/>
-
-         <label>Image:</label>
-         <input name="image"  value={state.image} onChange={updateState}/>
-          
-          <label>Video:</label>
-          <input name="video" value={state.video} onChange={updateState}/>
-       
-
-        <button>Post</button>
+         <button>Post</button>
      
      </form>
   </div>

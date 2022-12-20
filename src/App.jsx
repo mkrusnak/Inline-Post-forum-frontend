@@ -13,6 +13,7 @@ import AddListing from './pages/AddListing'
 import ListingDetails from './pages/ListingDetails'
 import Messages from './pages/Messages'
 import ForumPostPage from './pages/ForumPostPage'
+import AddDiy from './pages/AddDiy'
 
 
 
@@ -27,7 +28,7 @@ function App() {
 
       <Route path="/" element={<HomePage />} />
       <Route path="/test" element={<AddListing />} />
-
+      <Route path="/test2" element={<AddDiy />} />
 
 
 

@@ -19,7 +19,7 @@ const UpdateListing = (props) => {
       });
 
       const submitFormHandler = e => {
-        
+        e.preventDefault();
         console.log('form submit works');
         axios.put(`http://localhost:3001/listings/edit/${props.listingId}`,{
           title: state.title,
@@ -35,6 +35,8 @@ const UpdateListing = (props) => {
           .then(axiosResponse => {
             console.log(axiosResponse.data);
             props.getListingDetails();
+            console.log('here is test here')
+            // navigate(`/listings/${props.listingId}`)
           })
           .catch(err => console.log(err))
       }

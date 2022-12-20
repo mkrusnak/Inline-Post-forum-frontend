@@ -3,8 +3,12 @@ import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import UpdateListing from "../components/UpdateListing";
 import { AuthContext } from "../context/auth.context";
+import { useNavigate } from "react-router-dom";
+
 
 const ListingDetails = () => {
+
+  const navigate = useNavigate();
 
 const {user} = useContext(AuthContext)
 
@@ -29,6 +33,22 @@ const {user} = useContext(AuthContext)
     getListingDetails();
   }, [])
 
+  const deleteHandler = e => {
+    e.preventDefault();
+    axios.delete(`http://localhost:3001/listings/delete/${listingId}`, {
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('authToken')}`
+        }
+    })
+    .then(axiosResponse => {
+        console.log(axiosResponse.data)
+        navigate('/listings')
+    })
+    .catch(err => console.log(err))
+}
+
+
+
   return (
     <div className="ProjectDetails">
       <h1>Listing details</h1>
@@ -51,16 +71,22 @@ const {user} = useContext(AuthContext)
          
 
 
-          <UpdateListing
+     
+       {(user._id === listing.owner._id) ?
+       
+       <>
+       <UpdateListing
             title={listing.title}
             description={listing.description}
             odometr={listing.odometr}
             price={listing.price}
             getListingDetails={getListingDetails}
             listingId={listing._id}
-          />
-        
-       {(user._id === listing.owner._id) ? <h1>delete</h1> : null}
+/>
+
+<button onClick={deleteHandler}>Delete</button>
+</>
+ : null}
           
 
         </div>

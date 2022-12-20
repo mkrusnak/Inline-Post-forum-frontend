@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import UpdateListing from "../components/UpdateListing";
 import { AuthContext } from "../context/auth.context";
 import YoutubeEmbed from "../components/YoutubeEmbed";
 import EditPost from "../components/EditPost";
+import AddComment from "../components/AddComment";
 
 const ForumPostPage = () => {
 
@@ -31,6 +31,25 @@ const {user} = useContext(AuthContext)
     getForumDetails();
   }, [])
 
+
+  const deleteHandler = e => {
+    e.preventDefault();
+    axios.delete(`http://localhost:3001/forum/delete/${forumId}`, {
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('authToken')}`
+        }
+    })
+    .then(axiosResponse => {
+        console.log(axiosResponse.data)
+        navigate('/forum')
+    })
+    .catch(err => console.log(err))
+}
+
+
+
+
+
   return (
     <div>
       
@@ -45,25 +64,34 @@ const {user} = useContext(AuthContext)
         <p>{forumPost.createdAt}</p>
 
 
-<EditPost body={forumPost.body}
+        <h2>Comments:</h2>
+        {forumPost.comments.map(comment => {
+            <>
+            <img src={comment.profilePic} height='50px' alt='profilePic' />
+            <h5>{comment.author}</h5>
+            <p>{comment.text}</p>
+            </>
+        })}
+
+        <AddComment postId={forumPost._id} />
+
+
+       {(user._id === forumPost.author._id) ?  
+       
+       <>
+       <EditPost body={forumPost.body}
 subject={forumPost.subject}
 image={forumPost.image}
 video={forumPost.video}
 forumId={forumPost._id} />
 
 
+<button onClick={deleteHandler}>Delete</button>
+
+       </>   : null}
 
 
-          {/* <UpdateListing
-            title={listing.title}
-            description={listing.description}
-            odometr={listing.odometr}
-            price={listing.price}
-            getListingDetails={getListingDetails}
-            listingId={listing._id}
-          />
-         */}
-       {/* {(user._id === listing.owner._id) ? <h1>delete</h1> : null} */}
+
           
 
         </div>

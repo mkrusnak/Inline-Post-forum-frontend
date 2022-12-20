@@ -3,17 +3,17 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 
-// import { useContext } from 'react'
-// import { AuthContext } from '../context/auth.context'
+import { useContext } from 'react'
+import { AuthContext } from '../context/auth.context'
 
-const AddListing = () => {
+const AddDiy = () => {
 
-    // const { authenticateUser } = useContext(AuthContext)
+    const { authenticateUser, user } = useContext(AuthContext)
 
     const navigate = useNavigate();
 
 
-    const [imagesArr, setImagesArr] = useState(['']);
+    const [imagesArr, setImagesArr] = useState(['', '']);
 
     const updateImagesArr = i => e => {
       const copy = [...imagesArr];
@@ -35,15 +35,13 @@ const AddListing = () => {
 
 
     const [state, setState] = useState({
+        profilePic: user.profilePic,
         title: '',
-        makeModel: '',
-        year: '',
-        odometr: '',
-
+        reqTools: '',
+        time: '',
         description: '',
-        price: '',
-        knownFlaws: '',
-        tradeOk: false
+        video: '',
+        author: user._id
     })
 
 const updateState = event => setState({
@@ -53,7 +51,7 @@ const updateState = event => setState({
 
 const handleSubmit = e => {
     e.preventDefault()
-  axios.post('http://localhost:3001/listings/add', { ...state, imagesUrl: imagesArr }, {
+  axios.post('http://localhost:3001/diy/add', { ...state, imagesUrl: imagesArr }, {
     //this is the configuration object - 3rd argument of axios post and put requests
     headers: {
       authorization: `Bearer ${localStorage.getItem('authToken')}`
@@ -69,23 +67,24 @@ const handleSubmit = e => {
     return(
         <>
     <div>
-    <h1>Add your listing</h1>
+    <h1>Add your DIY</h1>
      <form onSubmit={handleSubmit}>
 
-         <label>Title:</label>
+         <label>Title: </label>
          <input name="title" value={state.title} onChange={updateState}/>
 
-         <label>Make / model:</label>
-         <input name="makeModel" value={state.makeModel} onChange={updateState}/>
+         <label>Required tools: </label>
+         <input name="reqTools" value={state.reqTools} onChange={updateState}/>
 
-         <label>Year:</label>
-         <input name="year" type="number" value={state.year} onChange={updateState}/>
+         <label>Time to complete(minutes): </label>
+         <input name="time" type="number" value={state.time} onChange={updateState}/>
 
-         <label>Mileage:</label>
-         <input name="odometr" type="number" value={state.odometr} onChange={updateState}/>
+         <label>Video: </label>
+         <input name="video" type="text" value={state.video} onChange={updateState}/>
           
           <label>Description:</label>
           <input name="description" value={state.description} onChange={updateState}/>
+
          {imagesArr.map((img, index) => {
           return (
             <>
@@ -99,32 +98,7 @@ const handleSubmit = e => {
 
          <button onClick={increaseImagesArr}>Add Image</button>
 
-         
 
-         
-
-          {/* <label>Image #2:</label>
-         <input name="imageUrl" value={state.imageUrl} onChange={updateState}/>
-
-         <label>Image #3:</label>
-         <input name="imageUrl" value={state.imageUrl} onChange={updateState}/>   */}
-
-         <label>Price:</label>
-         <input name="price" type="number" value={state.price} onChange={updateState}/>
-
-         <label>Known flaws:</label>
-         <input name="knownFlaws" value={state.knownFlaws} onChange={updateState}/>
-
-         <label>Accepting trades:</label>
-         <input type="checkbox" name="tradeOk" value={state.tradeOk} onChange={e => {
-          //console.log('current value', state.tradeOk, 'new value', !state.tradeOk)
-          updateState({
-            target: {
-              name: 'tradeOk',
-              value: !state.tradeOk
-            }
-          })
-         }}/>
 
         <button>Post</button>
      
@@ -134,4 +108,4 @@ const handleSubmit = e => {
     )
 }
 
-export default AddListing;
+export default AddDiy;
