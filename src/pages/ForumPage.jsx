@@ -10,7 +10,7 @@ const ForumPage = () => {
 const [postsArr, setPostsArr] = useState([])
 
 useEffect(() => {
-  axios.get('http://localhost:3001/forum', {
+  axios.get(`${import.meta.env.VITE_BACKEND_URL}/forum`, {
       headers: {
           authorization: `Bearer ${localStorage.getItem('authToken')}`
       }

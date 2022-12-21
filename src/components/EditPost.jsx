@@ -21,7 +21,7 @@ const EditPost = (props) => {
       const submitFormHandler = e => {
         // e.preventDefault()
         console.log('form submit works');
-        axios.put(`http://localhost:3001/forum/edit/${props.forumId}`,{
+        axios.put(`${import.meta.env.VITE_BACKEND_URL}/forum/edit/${props.forumId}`,{
           subject: state.subject,
           body: state.body,
           image: state.image,

@@ -29,7 +29,7 @@ const navigate = useNavigate()
     const submitFormHandler = e => {
       e.preventDefault();
       console.log('message sent');
-      axios.post(`http://localhost:3001/messages/send`,{
+      axios.post(`${import.meta.env.VITE_BACKEND_URL}/messages/send`,{
           subject: state.subject,
           body: state.body,
           sender: user._id,

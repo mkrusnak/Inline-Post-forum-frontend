@@ -18,7 +18,7 @@ const UserProfilePage = () => {
   const getUserProfilePage = () => {
     console.log(guestId);
     axios
-      .get(`http://localhost:3001/user/profile/${guestId}`, {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/user/profile/${guestId}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },

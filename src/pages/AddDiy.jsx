@@ -51,7 +51,7 @@ const updateState = event => setState({
 
 const handleSubmit = e => {
     e.preventDefault()
-  axios.post('http://localhost:3001/diy/add', { ...state, imagesUrl: imagesArr }, {
+  axios.post(`${import.meta.env.VITE_BACKEND_URL}/diy/add`, { ...state, imagesUrl: imagesArr }, {
     //this is the configuration object - 3rd argument of axios post and put requests
     headers: {
       authorization: `Bearer ${localStorage.getItem('authToken')}`

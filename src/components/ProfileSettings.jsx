@@ -28,7 +28,7 @@ const updateState = event => setState({
 
 const handleSubmit = e => {
     e.preventDefault()
-  axios.put(`http://localhost:3001/user/settings/${user._id}`, state, {
+  axios.put(`${import.meta.env.VITE_BACKEND_URL}/user/settings/${user._id}`, state, {
     headers: {
         authorization: `Bearer ${localStorage.getItem('authToken')}`
     }

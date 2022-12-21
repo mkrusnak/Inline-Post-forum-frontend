@@ -25,7 +25,7 @@ const AddCommentForum = (props) => {
       const submitFormHandler = e => {
         e.preventDefault()
         console.log('FORM SUBMIT WORKED');
-        axios.post(`http://localhost:3001/comments/add/forum`,{
+        axios.post(`${import.meta.env.VITE_BACKEND_URL}/comments/add/forum`,{
           profilePic: user.profilePic,
           text: state.text,
           author: user._id,

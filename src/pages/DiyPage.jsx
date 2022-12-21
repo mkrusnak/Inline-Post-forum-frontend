@@ -10,7 +10,7 @@ const DiyPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/diy", {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/diy`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },

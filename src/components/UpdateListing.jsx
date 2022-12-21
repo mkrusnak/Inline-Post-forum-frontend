@@ -21,7 +21,7 @@ const UpdateListing = (props) => {
       const submitFormHandler = e => {
         e.preventDefault();
         console.log('form submit works');
-        axios.put(`http://localhost:3001/listings/edit/${props.listingId}`,{
+        axios.put(`${import.meta.env.VITE_BACKEND_URL}/listings/edit/${props.listingId}`,{
           title: state.title,
           description: state.description,
           odometr: state.odometr,

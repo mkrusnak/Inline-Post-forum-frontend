@@ -14,7 +14,7 @@ const Messages = () => {
 
     if (user) {
       axios
-        .get(`http://localhost:3001/messages/${user._id}`, {
+        .get(`${import.meta.env.VITE_BACKEND_URL}/messages/${user._id}`, {
           headers: {
             authorization: `Bearer ${localStorage.getItem("authToken")}`,
           },

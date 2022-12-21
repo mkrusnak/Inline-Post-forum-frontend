@@ -18,7 +18,7 @@ const {user} = useContext(AuthContext)
   const [listing, setListing] = useState(null);
 
   const getListingDetails = () => {
-    axios.get(`http://localhost:3001/listings/${listingId}`, {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/listings/${listingId}`, {
       headers: {
           authorization: `Bearer ${localStorage.getItem('authToken')}`
       }
@@ -36,7 +36,7 @@ const {user} = useContext(AuthContext)
 
   const deleteHandler = e => {
     e.preventDefault();
-    axios.delete(`http://localhost:3001/listings/delete/${listingId}`, {
+    axios.delete(`${import.meta.env.VITE_BACKEND_URL}/listings/delete/${listingId}`, {
         headers: {
             authorization: `Bearer ${localStorage.getItem('authToken')}`
         }

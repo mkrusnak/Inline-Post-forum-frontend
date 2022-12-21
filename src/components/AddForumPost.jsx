@@ -21,7 +21,7 @@ const AddForumPost = (props) => {
       const submitFormHandler = e => {
         
         console.log('form submit works');
-        axios.post(`http://localhost:3001/forum/add`,{
+        axios.post(`${import.meta.env.VITE_BACKEND_URL}/forum/add`,{
           video: state.video,
           image: state.image,
           subject: state.subject,

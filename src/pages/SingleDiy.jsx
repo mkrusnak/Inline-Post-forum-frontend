@@ -16,7 +16,7 @@ const SingleDiy = () => {
 
   const getDiyDetails = () => {
     axios
-      .get(`http://localhost:3001/diy/${diyId}`, {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/diy/${diyId}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },
