@@ -1,10 +1,10 @@
 import { useState} from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 const AddForumPost = (props) => {
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const [state, setState] = useState({
         video: '',
@@ -33,6 +33,7 @@ const AddForumPost = (props) => {
             }
         } )
           .then(axiosResponse => {
+            navigate('/')
             console.log(axiosResponse.data);
           })
           .catch(err => console.log(err))
