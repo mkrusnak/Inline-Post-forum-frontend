@@ -5,7 +5,7 @@ import { Route, Routes} from 'react-router-dom'
 import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
 import IsPrivate from './components/IsPrivate'
-import IsAnon from './components/isAnon'
+import IsAnon from './components/IsAnon'
 import ForumPage from './pages/ForumPage'
 import MarketplacePage from './pages/MarketplacePage'
 import AddListing from './pages/AddListing'
@@ -32,22 +32,12 @@ function App() {
     <Routes>
 
       <Route path="/" element={<HomePage />} />
-      <Route path="/addlisting" element={<AddListing />} />
-      <Route path="/addpost" element={<AddDiy />} />
-      {/* <Route path="/profile/settings" element={<AccountSettings />} /> */}
-      {/* <Route path="/profile" element={<ProfilePage />} /> */}
-
-      {/* <Route path="/profile" element={<ProfilePage />} /> */}
-
-      <Route path="/profile/:guestId" element={<UserProfilePage />} />
-
-
-
-      
-      <Route path="/signup" element={<IsAnon><SignupPage /> </IsAnon>} />
+      <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
       <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
-
-
+      
+      <Route path="/profile/:guestId" element={<IsPrivate>  <UserProfilePage /> </IsPrivate> } />
+      <Route path="/addlisting" element={<IsPrivate>  <AddListing />  </IsPrivate> } />
+      <Route path="/addpost" element={<IsPrivate>  <AddDiy />  </IsPrivate> } />
       <Route path="/messages/send/:recipientId" element={<IsPrivate> <SendMessage /> </IsPrivate>} />
       <Route path="/messages" element={<IsPrivate> <Messages /> </IsPrivate>} />
       <Route path="/diy" element={<IsPrivate> <DiyPage /> </IsPrivate>} />
@@ -55,7 +45,6 @@ function App() {
       <Route path="/forum" element={<IsPrivate> <ForumPage /> </IsPrivate>} />
       <Route path="/listings/:listingId" element={<IsPrivate> <ListingDetails /> </IsPrivate>} />
       <Route path="/forum/:forumId" element={<IsPrivate> <ForumPostPage /> </IsPrivate>} />
-   
       <Route path="/listings" element={<IsPrivate> <MarketplacePage /> </IsPrivate>} />
     </Routes>
     </div>
