@@ -56,25 +56,35 @@ const SingleDiy = () => {
           <p>Time to complete: {diyPost.time} minutes.</p>
 
           {diyPost.imagesUrl.map((singleImg) => {
-            return <img src={singleImg} height="200px" alt="carphoto" />;
+            return <img src={singleImg} width="200px" alt="carphoto" />;
           })}
           <YoutubeEmbed embedId={diyPost.video} />
 
           <img src={diyPost.author.profilePic} width="50px" alt="profilePic" />
           <h2>Author: {diyPost.author.username}</h2>
           <p>Posted: {diyPost.createdAt}</p>
+          <Link  to={`/messages/send/${diyPost.author._id}`} >
+                     <h4>Send Message</h4>
+             </Link>
+          <Link  to={`/profile/${diyPost.author._id}`} >
+                     <h4>View Profile</h4>
+             </Link>
 
           <h2>Comments: </h2>
 
           {diyPost.comments.map((comment) => {
             return (
               <>
-                <img src={comment.profilePic} height="50px" alt="profilePic" />
+                <img src={comment.profilePic} width="50px" alt="profilePic" />
                 <h5>{comment.author.username}</h5>
                 <p>{comment.text}</p>
                 <p>{comment.createdAt}</p>
-                <Link username={comment.author.username} to={`/messages/send/${comment.author._id}`} >
+                <Link  to={`/messages/send/${comment.author._id}`} >
                      <h4>Send Message</h4>
+             </Link>
+
+             <Link  to={`/profile/${comment.author._id}`} >
+                     <h4>View Profile</h4>
              </Link>
               </>
             );
@@ -88,7 +98,7 @@ const SingleDiy = () => {
        
        <>
        and girls
-       
+
 forumId={diyPost._id} />
 
 

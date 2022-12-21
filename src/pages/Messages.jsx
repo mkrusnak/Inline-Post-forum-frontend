@@ -2,6 +2,7 @@ import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 import { useContext } from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Messages = () => {
   const { user } = useContext(AuthContext);
@@ -35,9 +36,13 @@ const Messages = () => {
     {messagesArr.map(singleMessage => {
        return (<>
         <h4>Sender:{singleMessage.sender.username}</h4>
+        <img src={singleMessage.sender.profilePic} width="100px" alt="profilePic" />
         <h3>{singleMessage.subject}</h3>
         <p>{singleMessage.body}</p>
-        
+        <p>{singleMessage.createdAtTime}</p>
+        <Link  to={`/messages/send/${singleMessage.sender._id}`} >
+                     <h4>Reply</h4>
+        </Link>
         </>
        )
     })}

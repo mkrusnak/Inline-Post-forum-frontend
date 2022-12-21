@@ -40,7 +40,7 @@ return(
          <input name="email" value={state.email} onChange={updateState}/>
 
          <label>Password:</label>
-         <input name="password" value={state.password} onChange={updateState}/>
+         <input name="password" type="password" value={state.password} onChange={updateState}/>
 
         <button>Sign Up</button>
      

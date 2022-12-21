@@ -4,9 +4,36 @@ import { useParams } from 'react-router-dom';
 import { AuthContext } from "../context/auth.context";
 import YoutubeEmbed from "../components/YoutubeEmbed";
 import EditPost from "../components/EditPost";
-import AddComment from "../components/AddComment";
+import AddCommentForum from "../components/AddCommentForum";
+import { Link } from "react-router-dom";
+import SendMessageComp from "../components/SendMessage";
 
 const ForumPostPage = () => {
+
+
+    const [isShown, setIsShown] = useState(false);
+
+    const handleClick = e => {
+      
+      setIsShown(current => !current);
+    
+      
+    };
+    
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const {user} = useContext(AuthContext)
 
@@ -66,14 +93,38 @@ const {user} = useContext(AuthContext)
 
         <h2>Comments:</h2>
         {forumPost.comments.map(comment => {
+            return(
             <>
-            <img src={comment.profilePic} height='50px' alt='profilePic' />
-            <h5>{comment.author}</h5>
+            <img src={comment.profilePic} width='50px' alt='profilePic' />
+            <h5>{comment.author.username}</h5>
             <p>{comment.text}</p>
+            <Link  to={`/messages/send/${comment.author._id}`} >
+                     <h4>Send Message</h4>
+             </Link>
+
+
+
+             
+             <button onClick={handleClick}>Message</button>
+
+             {isShown && <SendMessageComp to={comment.author._id} recipient={comment.author.username} /> }
+
+
+
+
+
+
+
+             {/* <SendMessageComp recipient={comment.author.username} /> */}
+
+             <Link  to={`/profile/${comment.author._id}`} >
+                     <h4>View Profile</h4>
+             </Link>
             </>
+            )
         })}
 
-        <AddComment postId={forumPost._id} />
+        <AddCommentForum postId={forumPost._id} />
 
 
        {(user._id === forumPost.author._id) ?  

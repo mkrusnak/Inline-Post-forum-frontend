@@ -13,7 +13,7 @@ const AddDiy = () => {
     const navigate = useNavigate();
 
 
-    const [imagesArr, setImagesArr] = useState(['', '']);
+    const [imagesArr, setImagesArr] = useState(['']);
 
     const updateImagesArr = i => e => {
       const copy = [...imagesArr];

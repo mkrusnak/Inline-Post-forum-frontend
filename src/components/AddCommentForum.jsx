@@ -4,14 +4,14 @@ import { useNavigate } from 'react-router-dom'
 import { AuthContext } from "../context/auth.context";
 import { useParams } from 'react-router-dom';
 
-const AddComment = (props) => {
+const AddCommentForum = (props) => {
 
 
   // const { postId } = useParams();
 
   const {user} = useContext(AuthContext)
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const [state, setState] = useState({
         text: ''
@@ -25,7 +25,7 @@ const AddComment = (props) => {
       const submitFormHandler = e => {
         e.preventDefault()
         console.log('FORM SUBMIT WORKED');
-        axios.post(`http://localhost:3001/comments/add/diy`,{
+        axios.post(`http://localhost:3001/comments/add/forum`,{
           profilePic: user.profilePic,
           text: state.text,
           author: user._id,
@@ -38,7 +38,6 @@ const AddComment = (props) => {
         } )
           .then(axiosResponse => {
             console.log(axiosResponse.data);
-            navigate(`/diy/${props.postId}`)
           })
           .catch(err => console.log(err))
       }
@@ -60,4 +59,4 @@ const AddComment = (props) => {
     )
 }
 
-export default AddComment;
+export default AddCommentForum;

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import UpdateListing from "../components/UpdateListing";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const ListingDetails = () => {
@@ -66,10 +67,15 @@ const {user} = useContext(AuthContext)
                 <div>Accepting trades: { listing.tradeOk ? <p>Yes</p> : <p>No</p>}</div>
           
             {listing.imagesUrl.map(singleImg => {
-              return <img src={singleImg} alt="carphoto" />
+              return <img src={singleImg} width="300px" alt="carphoto" />
             })}
          
-
+            <Link  to={`/messages/send/${listing.owner._id}`} >
+                     <h4>Send Message</h4>
+             </Link>
+          <Link  to={`/profile/${listing.owner._id}`} >
+                     <h4>View Profile</h4>
+             </Link>
 
      
        {(user._id === listing.owner._id) ?

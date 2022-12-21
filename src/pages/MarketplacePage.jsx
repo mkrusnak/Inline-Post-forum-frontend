@@ -31,7 +31,8 @@ useEffect(() => {
             return (
                 <>
                 <h3>{single.title}</h3>
-                <img src={single.imagesUrl[0]} alt="photo" />
+                <h4>Seller: {single.owner.username}</h4>
+                <img src={single.imagesUrl[0]} width="300px" alt="photo" />
                 <h4>Price:{single.price}</h4>
                 <div key={single._id}>
 

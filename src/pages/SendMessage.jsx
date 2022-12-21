@@ -1,17 +1,17 @@
 import { useState, useContext} from 'react'
 import axios from 'axios'
 import { AuthContext } from "../context/auth.context";
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 
-const SendMessage = (props) => {
+const SendMessage = () => {
 
-    console.log(props)
+    
     const {user} = useContext(AuthContext)
 
-    const { recipientUsername } = useParams();
+    const  {recipientId}  = useParams();
 
-
+    
     const [state, setState] = useState({
         subject: '',
         body: '',
@@ -31,7 +31,7 @@ const SendMessage = (props) => {
             subject: state.subject,
             body: state.body,
             sender: user._id,
-            recipient: authorId
+            recipient: recipientId
         } ,
         {
             headers: {
@@ -39,6 +39,7 @@ const SendMessage = (props) => {
             }
         } )
           .then(axiosResponse => {
+            Navigate('/messages')
             console.log(axiosResponse.data);
           })
           .catch(err => console.log(err))
@@ -49,7 +50,7 @@ const SendMessage = (props) => {
     return(
         <>
     <div>
-    <h1>Message to {recipientUsername}</h1>
+    <h1>Message to {recipientId}</h1>
      <form onSubmit={submitFormHandler}>
 
          <label>Subject: </label>
