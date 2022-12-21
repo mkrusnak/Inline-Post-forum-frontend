@@ -3,7 +3,7 @@
 import { useState, useEffect, createContext } from "react";
 import axios from "axios";
 // import { Navigate } from "react-router-dom";
-const API_URL = `${process.env.VITE_BACKEND_URL}`;
+// const API_URL = `${process.env.VITE_BACKEND_URL}`;
 
 const AuthContext = createContext();
 
@@ -26,7 +26,7 @@ function AuthProviderWrapper(props) {
     if (storedToken) {
       // We must send the JWT token in the request's "Authorization" Headers
       axios.get(
-        `${process.env.VITE_BACKEND_URL}/auth/verify`, 
+        `${import.meta.env.VITE_BACKEND_URL}}/auth/verify`, 
         { headers: { Authorization: `Bearer ${storedToken}`} }
       )
       .then((response) => {
