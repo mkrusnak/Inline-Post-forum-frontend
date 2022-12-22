@@ -38,7 +38,7 @@ const DiyPage = () => {
               alt="profilePic"
             />
             <Link to={`/diy/${single._id}`}>
-              <h4>Open</h4>
+              <button>Open</button>
             </Link>
             <p>{single.createdAt}</p>
           </>

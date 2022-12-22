@@ -13,7 +13,7 @@ function Navbar() {
 
       <nav className="navbar customNav navbar-expand-lg sticky-top navbar-light">
         <Link className="navbar-brand" to="/">
-          Car Forum
+          Inline-Post
         </Link>
 
         <button
@@ -54,9 +54,9 @@ function Navbar() {
 
                
 
-                <li class="nav-item dropdown">
+                <ul className="nav-item dropdown">
                   <a
-                    class="nav-link dropdown-toggle"
+                    className="nav-link dropdown-toggle"
                     href="#"
                     id="navbarDropdown"
                     role="button"
@@ -66,7 +66,7 @@ function Navbar() {
                   >
                     Marketplace
                   </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li className="nav-item ">
                       <Link className="nav-link" to="/listings">
                         Browse Listings
@@ -78,11 +78,11 @@ function Navbar() {
                       </Link>
                     </li>
                   </div>
-                </li>
+                </ul>
 
-                <li class="nav-item dropdown">
+                <ul className="nav-item dropdown">
                   <a
-                    class="nav-link dropdown-toggle"
+                    className="nav-link dropdown-toggle"
                     href="#"
                     id="navbarDropdown"
                     role="button"
@@ -92,7 +92,7 @@ function Navbar() {
                   >
                     Do It Yourself
                   </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li className="nav-item ">
                       <Link className="nav-link" to="/diy">
                         Browse DIY's
@@ -104,7 +104,7 @@ function Navbar() {
                       </Link>
                     </li>
                   </div>
-                </li>
+                </ul>
 
                 <li className="nav-item ">
                   <Link className="nav-link" to="/forum">

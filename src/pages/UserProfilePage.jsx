@@ -3,11 +3,19 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import ProfileSettings from "../components/ProfileSettings";
 import { AuthContext } from "../context/auth.context";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import SendMessageComp from "../components/SendMessage";
 
 const UserProfilePage = () => {
-  
+  const [isShown, setIsShown] = useState(false);
+  const [isShownEdit, setIsShownEdit] = useState(false);
+
+  const handleClick = (e) => {
+    setIsShown((current) => !current);
+  };
+
+  const handleClickEdit = (e) => {
+    setIsShownEdit((current) => !current);
+  };
 
   const { user } = useContext(AuthContext);
 
@@ -40,38 +48,48 @@ const UserProfilePage = () => {
         <div>
           <img src={profile.profilePic} width="70px" alt="profilePic" />
           <h2>{profile.username} profile</h2>
-           <p>Joined {profile.createdAtTime}</p>
+          <p>Joined {profile.createdAtTime}</p>
 
+          {profile.drivingNow ? (
+            <>
+              <h4>"{profile.status}..."</h4>
 
-{profile.drivingNow  ? (
-<>
-          <h4>"{profile.status}..."</h4>
-          
-          
+              <h4>Now driving: {profile.drivingNow}</h4>
+              <img src={profile.drivingNowImg} width="200px" alt="profilePic" />
+              <h4>Previous car: {profile.prevCar}</h4>
+              <img src={profile.prevCarImg} width="200px" alt="profilePic" />
+              <h4>Dream car: {profile.dreamCar}</h4>
+              <img src={profile.dreamCarImg} width="200px" alt="profilePic" />
+            </>
+          ) : null}
 
-         
+          {user._id === profile._id ? null : (
+            <button onClick={handleClick}>Message</button>
+          )}
 
-          <h4>Now driving: {profile.drivingNow}</h4>
-          <img src={profile.drivingNowImg} width="200px" alt="profilePic" />
-          <h4>Previous car: {profile.prevCar}</h4>
-          <img src={profile.prevCarImg} width="200px" alt="profilePic" />
-          <h4>Dream car: {profile.dreamCar}</h4>
-          <img src={profile.dreamCarImg} width="200px" alt="profilePic" />
+          {user._id === profile._id ? <button onClick={handleClickEdit}>Update profile</button> : (
+            null
+          )}
 
-          </>
-
-) : null }
-
-
-
-{user._id === guestId ? null : (
-            <Link to={`/messages/send/${profile._id}`}>
-              <h4>Send Message</h4>
-            </Link>
+          {isShown && (
+            <SendMessageComp to={profile._id} recipient={profile.username} />
           )}
 
 
-          {user._id === guestId ? (
+          {isShownEdit && (
+            <ProfileSettings
+                profilePic={profile.profilePic}
+                drivingNow={profile.drivingNow}
+                drivingNowImg={profile.drivingNowImg}
+                prevCar={profile.prevCar}
+                prevCarImg={profile.prevCarImg}
+                status={profile.status}
+                dreamCar={profile.dreamCar}
+                dreamCarImg={profile.dreamCarImg}
+              />
+          )}
+
+          {/* {user._id === guestId ? (
             <>
               <ProfileSettings
                 profilePic={profile.profilePic}
@@ -84,7 +102,7 @@ const UserProfilePage = () => {
                 dreamCarImg={profile.dreamCarImg}
               />
             </>
-          ) : null}
+          ) : null} */}
         </div>
       ) : (
         <p>loading...</p>

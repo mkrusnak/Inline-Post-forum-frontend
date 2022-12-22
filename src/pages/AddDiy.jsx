@@ -59,7 +59,7 @@ const handleSubmit = e => {
   })
   .then(axiosResponse => {
     console.log(axiosResponse.data)
-    navigate('/')
+    navigate('/diy')
   })
   .catch(err => console.log(err))
 }

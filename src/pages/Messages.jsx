@@ -3,8 +3,21 @@ import axios from "axios";
 import { useContext } from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import SendMessageComp from "../components/SendMessage";
 
 const Messages = () => {
+
+  const [isShown, setIsShown] = useState(false);
+
+
+  const handleClick = (e) => {
+    setIsShown((current) => !current);
+  };
+
+
+
+
+
   const { user } = useContext(AuthContext);
 
   const [messagesArr, setMessagesArr] = useState([]);
@@ -40,9 +53,19 @@ const Messages = () => {
         <h3>{singleMessage.subject}</h3>
         <p>{singleMessage.body}</p>
         <p>{singleMessage.createdAtTime}</p>
-        <Link  to={`/messages/send/${singleMessage.sender._id}`} >
-                     <h4>Reply</h4>
-        </Link>
+
+
+
+        <button onClick={handleClick}>Reply</button>
+
+
+
+        {isShown && (
+                  <SendMessageComp
+                    to={singleMessage.sender._id}
+                    recipient={singleMessage.sender.username}
+                  />
+                )}
         </>
        )
     })}

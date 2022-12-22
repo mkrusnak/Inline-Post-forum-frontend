@@ -27,7 +27,7 @@ const updateState = event => setState({
 })
 
 const handleSubmit = e => {
-    e.preventDefault()
+    // e.preventDefault()
   axios.put(`${import.meta.env.VITE_BACKEND_URL}/user/settings/${user._id}`, state, {
     headers: {
         authorization: `Bearer ${localStorage.getItem('authToken')}`
@@ -43,7 +43,7 @@ const handleSubmit = e => {
 return(
     <>
     <div className="AddApartmentPage">
-    <h1>Update Your Account</h1>
+    <h1>Update profile info</h1>
      <form onSubmit={handleSubmit}>
 
          <label>Profile picture:</label>

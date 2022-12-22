@@ -1,6 +1,6 @@
 import { useState, useContext} from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { AuthContext } from "../context/auth.context";
 import { useParams } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ const AddCommentForum = (props) => {
 
   const {user} = useContext(AuthContext)
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const [state, setState] = useState({
         text: ''
@@ -23,7 +23,7 @@ const AddCommentForum = (props) => {
       });
 
       const submitFormHandler = e => {
-        e.preventDefault()
+        // e.preventDefault()
         console.log('FORM SUBMIT WORKED');
         axios.post(`${import.meta.env.VITE_BACKEND_URL}/comments/add/forum`,{
           profilePic: user.profilePic,
@@ -37,6 +37,7 @@ const AddCommentForum = (props) => {
             }
         } )
           .then(axiosResponse => {
+            
             console.log(axiosResponse.data);
           })
           .catch(err => console.log(err))

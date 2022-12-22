@@ -61,7 +61,7 @@ const handleSubmit = e => {
   })
   .then(axiosResponse => {
     console.log(axiosResponse.data)
-    navigate('/')
+    navigate('/listings')
   })
   .catch(err => console.log(err))
 }
@@ -73,19 +73,19 @@ const handleSubmit = e => {
      <form onSubmit={handleSubmit}>
 
          <label>Title:</label>
-         <input name="title" value={state.title} onChange={updateState}/>
+         <input name="title" value={state.title} onChange={updateState} required/>
 
          <label>Make / model:</label>
-         <input name="makeModel" value={state.makeModel} onChange={updateState}/>
+         <input name="makeModel" value={state.makeModel} onChange={updateState} required/>
 
          <label>Year:</label>
-         <input name="year" type="number" value={state.year} onChange={updateState}/>
+         <input name="year" type="number" value={state.year} onChange={updateState} required/>
 
          <label>Mileage:</label>
-         <input name="odometr" type="number" value={state.odometr} onChange={updateState}/>
+         <input name="odometr" type="number" value={state.odometr} onChange={updateState} required/>
           
           <label>Description:</label>
-          <input name="description" value={state.description} onChange={updateState}/>
+          <input name="description" value={state.description} onChange={updateState} required/>
          {imagesArr.map((img, index) => {
           return (
             <>
@@ -97,7 +97,7 @@ const handleSubmit = e => {
           );
          })}
 
-         <button onClick={increaseImagesArr}>Add Image</button>
+         <button onClick={increaseImagesArr}>Add More</button>
 
          
 
@@ -110,10 +110,10 @@ const handleSubmit = e => {
          <input name="imageUrl" value={state.imageUrl} onChange={updateState}/>   */}
 
          <label>Price:</label>
-         <input name="price" type="number" value={state.price} onChange={updateState}/>
+         <input name="price" type="number" value={state.price} onChange={updateState} required/>
 
          <label>Known flaws:</label>
-         <input name="knownFlaws" value={state.knownFlaws} onChange={updateState}/>
+         <input name="knownFlaws" value={state.knownFlaws} onChange={updateState} required/>
 
          <label>Accepting trades:</label>
          <input type="checkbox" name="tradeOk" value={state.tradeOk} onChange={e => {

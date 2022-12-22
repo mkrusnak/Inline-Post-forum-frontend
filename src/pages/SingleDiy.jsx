@@ -6,8 +6,17 @@ import YoutubeEmbed from "../components/YoutubeEmbed";
 import EditPost from "../components/EditPost";
 import AddComment from "../components/AddComment";
 import { Link } from "react-router-dom";
+import SendMessageComp from "../components/SendMessage";
 
 const SingleDiy = () => {
+
+  const [isShown, setIsShown] = useState(false);
+
+  const handleClick = (e) => {
+    setIsShown((current) => !current);
+  };
+
+
   const { user } = useContext(AuthContext);
 
   const { diyId } = useParams();
@@ -50,7 +59,7 @@ const SingleDiy = () => {
     <div>
       {diyPost ? (
         <div>
-          <h3>{diyPost.title}</h3>
+          <h3>Title: {diyPost.title}</h3>
           <p>What to do: {diyPost.description}</p>
           <p>Required tools: {diyPost.reqTools}</p>
           <p>Time to complete: {diyPost.time} minutes.</p>
@@ -64,10 +73,10 @@ const SingleDiy = () => {
           <h2>Author: {diyPost.author.username}</h2>
           <p>Posted: {diyPost.createdAt}</p>
           <Link  to={`/messages/send/${diyPost.author._id}`} >
-                     <h4>Send Message</h4>
+                     <button>Contact</button>
              </Link>
           <Link  to={`/profile/${diyPost.author._id}`} >
-                     <h4>View Profile</h4>
+                     <button>View Profile</button>
              </Link>
 
           <h2>Comments: </h2>
@@ -79,12 +88,30 @@ const SingleDiy = () => {
                 <h5>{comment.author.username}</h5>
                 <p>{comment.text}</p>
                 <p>{comment.createdAt}</p>
-                <Link  to={`/messages/send/${comment.author._id}`} >
-                     <h4>Send Message</h4>
-             </Link>
+
+
+
+{user._id === comment.author._id ? null : <button onClick={handleClick}>Message</button> }
+
+
+                
+
+{isShown && (
+  <SendMessageComp
+    to={comment.author._id}
+    recipient={comment.author.username}
+  />
+)}
+
+
+
+
+                {/* <Link  to={`/messages/send/${comment.author._id}`} >
+                     <button>Send Message</button>
+             </Link> */}
 
              <Link  to={`/profile/${comment.author._id}`} >
-                     <h4>View Profile</h4>
+                     <button>View Profile</button>
              </Link>
               </>
             );

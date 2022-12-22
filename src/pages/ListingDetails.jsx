@@ -5,9 +5,21 @@ import UpdateListing from "../components/UpdateListing";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import SendMessageComp from "../components/SendMessage";
 
 
 const ListingDetails = () => {
+
+    const [isShown, setIsShown] = useState(false);
+    const [isShownEdit, setIsShownEdit] = useState(false);
+
+    const handleClick = (e) => {
+        setIsShown((current) => !current);
+      };
+
+      const handleClickEdit = (e) => {
+        setIsShownEdit((current) => !current);
+      };
 
   const navigate = useNavigate();
 
@@ -55,7 +67,7 @@ const {user} = useContext(AuthContext)
       <h1>Listing details</h1>
       {listing ? (
         <div>
-        <h3>{listing.title}</h3>
+        <h3>Title: {listing.title}</h3>
         {/* <img src={listing.imagesUrl[0]} alt='carPhoto' /> */}
         <h4>Make / model: {listing.makeModel}</h4>
                 <h4>Odo: {listing.odometr}</h4>
@@ -70,18 +82,39 @@ const {user} = useContext(AuthContext)
               return <img src={singleImg} width="300px" alt="carphoto" />
             })}
          
-            <Link  to={`/messages/send/${listing.owner._id}`} >
+
+
+          
+
+
+            {/* <Link  to={`/messages/send/${listing.owner._id}`} >
                      <h4>Send Message</h4>
-             </Link>
+             </Link> */}
           <Link  to={`/profile/${listing.owner._id}`} >
-                     <h4>View Profile</h4>
+                     <button>View Profile</button>
              </Link>
+
+
+             
+
+
+
+     
+
+
+
 
      
        {(user._id === listing.owner._id) ?
-       
        <>
-       <UpdateListing
+        <button onClick={handleClickEdit}t>Edit listing</button>
+
+    
+
+<button onClick={deleteHandler}>Delete</button>
+</>
+ : <button onClick={handleClick}>Message</button>}
+ {isShownEdit && (    <UpdateListing
             title={listing.title}
             description={listing.description}
             odometr={listing.odometr}
@@ -89,11 +122,14 @@ const {user} = useContext(AuthContext)
             getListingDetails={getListingDetails}
             listingId={listing._id}
 />
+)}
 
-<button onClick={deleteHandler}>Delete</button>
-</>
- : null}
-          
+{isShown && (
+        <SendMessageComp
+           to={listing.owner._id}
+          recipient={listing.owner.username}
+      />
+     )}
 
         </div>
       ) : <p>loading...</p>}

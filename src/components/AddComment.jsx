@@ -23,7 +23,7 @@ const AddComment = (props) => {
       });
 
       const submitFormHandler = e => {
-        e.preventDefault()
+        // e.preventDefault()
         console.log('FORM SUBMIT WORKED');
         axios.post(`${import.meta.env.VITE_BACKEND_URL}/comments/add/diy`,{
           profilePic: user.profilePic,

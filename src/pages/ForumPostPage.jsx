@@ -10,9 +10,14 @@ import SendMessageComp from "../components/SendMessage";
 
 const ForumPostPage = () => {
   const [isShown, setIsShown] = useState(false);
+  const [isShownEdit, setIsShownEdit] = useState(false);
 
   const handleClick = (e) => {
     setIsShown((current) => !current);
+  };
+
+  const handleClickEdit = (e) => {
+    setIsShownEdit((current) => !current);
   };
 
   const { user } = useContext(AuthContext);
@@ -68,40 +73,22 @@ const ForumPostPage = () => {
             alt="profilePic"
           />
           <h2>Author: {forumPost.author.username}</h2>
-          <p>{forumPost.createdAt}</p>
+          <p>{forumPost.createdAtTime}</p>
 
-          <h2>Comments:</h2>
-          {forumPost.comments.map((comment) => {
-            return (
-              <>
-                <img src={comment.profilePic} width="50px" alt="profilePic" />
-                <h5>{comment.author.username}</h5>
-                <p>{comment.text}</p>
-                <Link to={`/messages/send/${comment.author._id}`}>
-                  <h4>Send Message</h4>
-                </Link>
 
-                <button onClick={handleClick}>Message</button>
+{user._id === forumPost.author._id ? <button onClick={handleClickEdit}>Edit post</button> : null}
 
-                {isShown && (
-                  <SendMessageComp
-                    to={comment.author._id}
-                    recipient={comment.author.username}
-                  />
-                )}
 
-                {/* <SendMessageComp recipient={comment.author.username} /> */}
+{isShownEdit &&    <EditPost
+                body={forumPost.body}
+                subject={forumPost.subject}
+                image={forumPost.image}
+                video={forumPost.video}
+                forumId={forumPost._id}
+              />
+               }
 
-                <Link to={`/profile/${comment.author._id}`}>
-                  <h4>View Profile</h4>
-                </Link>
-              </>
-            );
-          })}
-
-          <AddCommentForum postId={forumPost._id} />
-
-          {user._id === forumPost.author._id ? (
+          {/* {user._id === forumPost.author._id ? (
             <>
               <EditPost
                 body={forumPost.body}
@@ -113,7 +100,43 @@ const ForumPostPage = () => {
 
               <button onClick={deleteHandler}>Delete</button>
             </>
-          ) : null}
+          ) : null} */}
+
+
+
+
+          <h2>Comments:</h2>
+          {forumPost.comments.map((comment) => {
+            return (
+              <>
+                <img src={comment.profilePic} width="50px" alt="profilePic" />
+                <h5>{comment.author.username}</h5>
+                <p>{comment.text}</p>
+                {/* <Link to={`/messages/send/${comment.author._id}`}>
+                  <h4>Send Message</h4>
+                </Link> */}
+
+                {user._id === comment.author._id ? null : <button onClick={handleClick}>Message</button> }
+
+                {isShown && (
+                  <SendMessageComp
+                    to={comment.author._id}
+                    recipient={comment.author.username}
+                  />
+                )}
+
+                {/* <SendMessageComp recipient={comment.author.username} /> */}
+
+                <Link to={`/profile/${comment.author._id}`}>
+                  <button>View Profile</button>
+                </Link>
+              </>
+            );
+          })}
+
+          <AddCommentForum postId={forumPost._id} />
+
+          
         </div>
       ) : (
         <p>loading...</p>

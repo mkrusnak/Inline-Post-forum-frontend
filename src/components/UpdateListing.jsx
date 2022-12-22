@@ -48,16 +48,16 @@ const UpdateListing = (props) => {
      <form onSubmit={submitFormHandler}>
 
          <label>Title: </label>
-         <input name="title" value={state.title} placeholder="" onChange={updateState}/>
+         <input name="title" value={state.title} placeholder="" onChange={updateState} required/>
 
          <label>Price: </label>
-         <input name="price" type="number" value={state.price} onChange={updateState}/>
+         <input name="price" type="number" value={state.price} onChange={updateState} required/>
 
          <label>Mileage:</label>
-         <input name="odometr" type="number" value={state.odometr} onChange={updateState}/>
+         <input name="odometr" type="number" value={state.odometr} onChange={updateState} required/>
           
           <label>Description:</label>
-          <input name="description" value={state.description} onChange={updateState}/>
+          <input name="description" value={state.description} onChange={updateState} required/>
        
 
         <button>Update</button>

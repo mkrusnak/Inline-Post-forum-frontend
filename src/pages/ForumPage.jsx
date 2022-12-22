@@ -42,12 +42,19 @@ useEffect(() => {
   {/* <YoutubeEmbed embedId={single.video} /> */}
   <h2>Author: {single.author.username}</h2>
   <img src={single.author.profilePic} width="100px" alt="profilePic" />
-  <Link to={`/forum/${single._id}`}>
-                     <h4>Read / comment</h4>
+
+  
+
+  {/* <Button component={Link} to={`/forum/${single._id}`>
+        </p>
+      </Button> */}
+
+  <p>{single.createdAtTime}</p>
+
+  <Link className="linkbttn" to={`/forum/${single._id}`}>
+  <button>Read more</button>
   </Link>
 
-     
-  <p>{single.createdAtTime}</p>
     
   </>
   )

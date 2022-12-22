@@ -27,7 +27,7 @@ const navigate = useNavigate()
     });
 
     const submitFormHandler = e => {
-      e.preventDefault();
+      // e.preventDefault();
       console.log('message sent');
       axios.post(`${import.meta.env.VITE_BACKEND_URL}/messages/send`,{
           subject: state.subject,
@@ -56,10 +56,10 @@ const navigate = useNavigate()
    <form onSubmit={submitFormHandler}>
 
        <label>Subject: </label>
-       <input name="subject" type="text" value={state.subject}  onChange={updateState}/>
+       <input name="subject" type="text" value={state.subject}  onChange={updateState} required/>
 
        <label>Body: </label>
-       <input name="body" type="text" value={state.body} onChange={updateState}/>
+       <input name="body" type="text" value={state.body} onChange={updateState} required/>
 
       <button>Send</button>
    
