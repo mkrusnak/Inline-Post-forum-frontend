@@ -3,7 +3,7 @@
 import { useState, useEffect, createContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import e from "cors";
+// import e from "cors";
 // const API_URL = `${process.env.VITE_BACKEND_URL}`;
 
 const AuthContext = createContext();
@@ -70,16 +70,6 @@ const navigate = useNavigate();
   useEffect(() => {
     authenticateUser();
   }, [])
-
-
-  /* 
-    Functions for handling the authentication status (isLoggedIn, isLoading, user)
-    will be added here later in the next step
-  */
-
-
-
-
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, isLoading, user,
