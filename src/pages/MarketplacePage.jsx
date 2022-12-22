@@ -63,7 +63,17 @@ useEffect(() => {
     return(
         <div>
         <h1>MARKETPLACE </h1>
+
+
+
+
         <Search searchPosts = {searchPosts} />
+
+    
+        
+        
+        
+        
         {myPosts.map( single => {
             return (
                 <>
@@ -79,7 +89,7 @@ useEffect(() => {
 
 
                 <Link to={`/listings/${single._id}`}>
-                     <button>More details</button>
+                     <button className="customBttn" role="button">More details</button>
                 </Link>
                 </div>
                 </>
@@ -90,3 +100,8 @@ useEffect(() => {
 }
 
 export default MarketplacePage;
+
+
+
+
+

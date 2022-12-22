@@ -8,8 +8,6 @@ import { Divider, Input } from 'antd';
 const AddComment = (props) => {
 
 
-  // const { postId } = useParams();
-
   const {user} = useContext(AuthContext)
 
     const navigate = useNavigate();
@@ -53,7 +51,7 @@ const AddComment = (props) => {
          <label>Add comment: </label>
          <Input name="text"  value={state.text} onChange={updateState}/>
 
-         <button>Post</button>
+         <button className="customBttn" role="button">Post</button>
      
      </form>
   </div>

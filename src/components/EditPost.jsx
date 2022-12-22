@@ -60,7 +60,7 @@ const EditPost = (props) => {
           <Input name="video" value={state.video} onChange={updateState}/>
        
 
-        <button>Edit</button>
+        <button className="customBttn" role="button">Edit</button>
      
      </form>
   </div>

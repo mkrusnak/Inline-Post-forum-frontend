@@ -42,7 +42,7 @@ const navigate = useNavigate()
           }
       } )
         .then(axiosResponse => {
-          navigate('/messages')
+          // navigate(`${props.postId}`)
           console.log(axiosResponse.data);
         })
         .catch(err => console.log(err))
@@ -62,7 +62,7 @@ const navigate = useNavigate()
        <label>Body: </label>
        <Input name="body" type="text" value={state.body} onChange={updateState} required/>
 
-      <button>Send</button>
+      <button className="customBttn" role="button">Send</button>
    
    </form>
 </div>

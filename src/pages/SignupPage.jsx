@@ -43,7 +43,7 @@ return(
          <label>Password:</label>
          <Input name="password" type="password" value={state.password} onChange={updateState}/>
 
-        <button>Sign Up</button>
+        <button className="customBttn" role="button">Sign Up</button>
      
      </form>
   </div>

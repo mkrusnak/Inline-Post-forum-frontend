@@ -4,8 +4,17 @@ import { useParams } from "react-router-dom";
 import ProfileSettings from "../components/ProfileSettings";
 import { AuthContext } from "../context/auth.context";
 import SendMessageComp from "../components/SendMessage";
+import { useNavigate } from "react-router-dom";
 
 const UserProfilePage = () => {
+  const navigate = useNavigate();
+
+  const { user } = useContext(AuthContext);
+
+  const { guestId } = useParams();
+
+  const [profile, setProfile] = useState(null);
+
   const [isShown, setIsShown] = useState(false);
   const [isShownEdit, setIsShownEdit] = useState(false);
 
@@ -17,11 +26,44 @@ const UserProfilePage = () => {
     setIsShownEdit((current) => !current);
   };
 
-  const { user } = useContext(AuthContext);
+  const handleSubmitGiveAdmin = (e) => {
+    // e.preventDefault()
+    axios
+      .put(
+        `${import.meta.env.VITE_BACKEND_URL}/user/settings/${guestId}`,
+        { admin: true },
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        }
+      )
+      .then((axiosResponse) => {
+        console.log("here is added admin", axiosResponse.data);
+        // navigate(`/profile/${guestId}`)
+      })
+      .catch((err) => console.log(err));
+  };
 
-  const { guestId } = useParams();
-
-  const [profile, setProfile] = useState(null);
+  const handleSubmitRemoveAdmin = (e) => {
+    // e.preventDefault()
+    axios
+      .put(
+        `${import.meta.env.VITE_BACKEND_URL}/user/settings/${guestId}`,
+        { admin: false },
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        }
+      )
+      .then((axiosResponse) => {
+        console.log("here is removed admin", axiosResponse.data);
+        setProfile(axiosResponse.data);
+        // navigate(`/profile/${guestId}`)
+      })
+      .catch((err) => console.log(err));
+  };
 
   const getUserProfilePage = () => {
     console.log(guestId);
@@ -50,6 +92,41 @@ const UserProfilePage = () => {
           <h2>{profile.username} profile</h2>
           <p>Joined {profile.createdAtTime}</p>
 
+          {user._id !== profile._id && user.admin && !profile.admin && (
+            <button
+              className="customBttn"
+              role="button"
+              onClick={handleSubmitGiveAdmin}
+            >
+              Make admin
+            </button>
+          )}
+
+          {user._id !== profile._id && user.admin && profile.admin && (
+            <button
+              className="customBttn"
+              role="button"
+              onClick={handleSubmitRemoveAdmin}
+            >
+              Remove admin
+            </button>
+          )}
+
+          {user._id === profile._id ? null : (
+            <button className="customBttn" role="button" onClick={handleClick}>
+              Message
+            </button>
+          )}
+          {user._id === profile._id ? (
+            <button
+              className="customBttn"
+              role="button"
+              onClick={handleClickEdit}
+            >
+              Update profile
+            </button>
+          ) : null}
+
           {profile.drivingNow ? (
             <>
               <h4>"{profile.status}..."</h4>
@@ -62,34 +139,24 @@ const UserProfilePage = () => {
               <img src={profile.dreamCarImg} width="200px" alt="profilePic" />
             </>
           ) : null}
-
-          {user._id === profile._id ? null : (
-            <button onClick={handleClick}>Message</button>
-          )}
-
-          {user._id === profile._id ? <button onClick={handleClickEdit}>Update profile</button> : (
-            null
-          )}
+          <br></br>
 
           {isShown && (
             <SendMessageComp to={profile._id} recipient={profile.username} />
           )}
 
-
           {isShownEdit && (
             <ProfileSettings
-                profilePic={profile.profilePic}
-                drivingNow={profile.drivingNow}
-                drivingNowImg={profile.drivingNowImg}
-                prevCar={profile.prevCar}
-                prevCarImg={profile.prevCarImg}
-                status={profile.status}
-                dreamCar={profile.dreamCar}
-                dreamCarImg={profile.dreamCarImg}
-              />
+              profilePic={profile.profilePic}
+              drivingNow={profile.drivingNow}
+              drivingNowImg={profile.drivingNowImg}
+              prevCar={profile.prevCar}
+              prevCarImg={profile.prevCarImg}
+              status={profile.status}
+              dreamCar={profile.dreamCar}
+              dreamCarImg={profile.dreamCarImg}
+            />
           )}
-
-    
         </div>
       ) : (
         <p>loading...</p>

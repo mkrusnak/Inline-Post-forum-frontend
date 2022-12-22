@@ -9,12 +9,17 @@ import { Link } from "react-router-dom";
 import SendMessageComp from "../components/SendMessage";
 
 const ForumPostPage = () => {
-  const [isShown, setIsShown] = useState(false);
+
+    const [isShown, setIsShown] = useState([]);
+
+    const handleClick = index => (e) => {
+      const copy = [...isShown];
+      copy[index] = !copy[index]
+      setIsShown(copy);
+    };
+
   const [isShownEdit, setIsShownEdit] = useState(false);
 
-  const handleClick = (e) => {
-    setIsShown((current) => !current);
-  };
 
   const handleClickEdit = (e) => {
     setIsShownEdit((current) => !current);
@@ -44,20 +49,20 @@ const ForumPostPage = () => {
     getForumDetails();
   }, []);
 
-  const deleteHandler = (e) => {
-    e.preventDefault();
-    axios
-      .delete(`${import.meta.env.VITE_BACKEND_URL}/forum/delete/${forumId}`, {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-      })
-      .then((axiosResponse) => {
-        console.log(axiosResponse.data);
-        navigate("/forum");
-      })
-      .catch((err) => console.log(err));
-  };
+//   const deleteHandler = (e) => {
+//     e.preventDefault();
+//     axios
+//       .delete(`${import.meta.env.VITE_BACKEND_URL}/forum/delete/${forumId}`, {
+//         headers: {
+//           authorization: `Bearer ${localStorage.getItem("authToken")}`,
+//         },
+//       })
+//       .then((axiosResponse) => {
+//         console.log(axiosResponse.data);
+//         navigate("/forum");
+//       })
+//       .catch((err) => console.log(err));
+//   };
 
   return (
     <div>
@@ -76,7 +81,12 @@ const ForumPostPage = () => {
           <p>{forumPost.createdAtTime}</p>
 
 
-{user._id === forumPost.author._id ? <button onClick={handleClickEdit}>Edit post</button> : null}
+          <Link  to={`/profile/${forumPost.author._id}`} >
+                     <button className="customBttn" role="button">View Profile</button>
+             </Link>
+
+
+{user._id === forumPost.author._id ? <button className="customBttn" role="button" onClick={handleClickEdit}>Edit post</button> : null}
 
 
 {isShownEdit &&    <EditPost
@@ -88,47 +98,26 @@ const ForumPostPage = () => {
               />
                }
 
-          {/* {user._id === forumPost.author._id ? (
-            <>
-              <EditPost
-                body={forumPost.body}
-                subject={forumPost.subject}
-                image={forumPost.image}
-                video={forumPost.video}
-                forumId={forumPost._id}
-              />
-
-              <button onClick={deleteHandler}>Delete</button>
-            </>
-          ) : null} */}
-
-
-
-
           <h2>Comments:</h2>
-          {forumPost.comments.map((comment) => {
+          {forumPost.comments.map((comment, index) => {
             return (
               <>
                 <img src={comment.profilePic} width="50px" alt="profilePic" />
                 <h5>{comment.author.username}</h5>
                 <p>{comment.text}</p>
-                {/* <Link to={`/messages/send/${comment.author._id}`}>
-                  <h4>Send Message</h4>
-                </Link> */}
+              
+                {user._id === comment.author._id ? null : <button className="customBttn" role="button" onClick={handleClick(index)}>Message</button> }
 
-                {user._id === comment.author._id ? null : <button onClick={handleClick}>Message</button> }
-
-                {isShown && (
+                {isShown[index] && (
                   <SendMessageComp
+                  postId={ forumId }
                     to={comment.author._id}
                     recipient={comment.author.username}
                   />
                 )}
 
-                {/* <SendMessageComp recipient={comment.author.username} /> */}
-
                 <Link to={`/profile/${comment.author._id}`}>
-                  <button>View Profile</button>
+                  <button className="customBttn" role="button">View Profile</button>
                 </Link>
               </>
             );

@@ -25,10 +25,11 @@ const handleSubmit = e => {
     e.preventDefault()
   axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/login`, state)
   .then(axiosResponse => {
+    navigate('/home')
     console.log(axiosResponse.data)
     storeToken(axiosResponse.data.authToken)
     authenticateUser()
-    navigate('/')
+    navigate('/home')
   })
   .catch(err => console.log(err))
 }
@@ -45,7 +46,7 @@ return(
          <label>Password:</label>
          <Input name="password" type="password" value={state.password} onChange={updateState}/>
 
-        <button>Log In</button>
+        <button className="customBttn" role="button">Log In</button>
      
      </form>
   </div>

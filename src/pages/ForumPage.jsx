@@ -58,7 +58,7 @@ useEffect(() => {
       <>
         <h1>THIS IS FORUM PAGE</h1>
         <Search searchPosts = {searchPosts} />
-        <button onClick={handleClick}>Create new thread</button>
+        <button className="customBttn" role="button" onClick={handleClick}>Create new thread</button>
 
 
            {isShown &&    <AddForumPost />}
@@ -72,22 +72,16 @@ useEffect(() => {
   return(
   <>
   <h3>{single.subject}</h3>
-  {/* <h4>{single.body}</h4>
-  <img src={single.image} width="300px" alt="carPhoto" /> */}
-  {/* <YoutubeEmbed embedId={single.video} /> */}
+
   <h2>Author: {single.author.username}</h2>
   <img src={single.author.profilePic} width="100px" alt="profilePic" />
 
   
 
-  {/* <Button component={Link} to={`/forum/${single._id}`>
-        </p>
-      </Button> */}
-
   <p>{single.createdAtTime}</p>
 
   <Link className="linkbttn" to={`/forum/${single._id}`}>
-  <button>Read more</button>
+  <button className="customBttn" role="button">Read more</button>
   </Link>
 
     

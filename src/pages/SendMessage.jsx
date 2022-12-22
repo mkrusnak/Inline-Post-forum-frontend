@@ -60,7 +60,7 @@ const SendMessage = () => {
          <label>Body: </label>
          <Input name="body" type="text" value={state.body} onChange={updateState}/>
 
-        <button>Send</button>
+        <button className="customBttn" role="button">Send</button>
      
      </form>
   </div>

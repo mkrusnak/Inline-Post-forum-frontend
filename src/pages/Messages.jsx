@@ -56,12 +56,13 @@ const Messages = () => {
 
 
 
-        <button onClick={handleClick}>Reply</button>
+        <button className="customBttn" role="button" onClick={handleClick}>Reply</button>
 
 
 
         {isShown && (
                   <SendMessageComp
+                  link={`messages`}
                     to={singleMessage.sender._id}
                     recipient={singleMessage.sender.username}
                   />

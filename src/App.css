@@ -2,19 +2,149 @@
     background: white;
 }
 .customNav {
-    font-weight: bolder;
+    font-weight: 700;
     /* height: 160px; */
+    padding-left: 0;
 
 }
+.customNav1 {
+    padding-left: 25px;
+}
 
-/* .linkbttn {
-    color: black;
+
+
+
+
+/* .customBttn {
+  background-color: #222;
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  max-width: none;
+  min-height: 44px;
+  min-width: 10px;
+  outline: none;
+  overflow: hidden;
+  padding: 9px 20px 8px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.customBttn:hover,
+.customBttn:focus {
+  opacity: .75;
 } */
+
+
+
+/* CSS */
+.customBttn {
+  background-color: #e1ecf4;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #39739d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.customBttn:hover,
+.customBttn:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
+}
+
+.customBttn:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.customBttn:active {
+  background-color: #a0c7e4;
+  box-shadow: none;
+  color: #2c5777;
+}
+
+
+
+
+/* 
+.customBttn {
+    align-items: center;
+    appearance: button;
+    background-color: #0276FF;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    font-family: "RM Neue",sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    padding: 10px 21px;
+    text-align: center;
+    text-transform: none;
+    transition: color .13s ease-in-out, background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .customBttn:active {
+    background-color: #006AE8;
+  }
+  
+  .customBttn:hover {
+    background-color: #1C84FF;
+  } */
+
+  button a {
+    color: #39739d;
+    text-decoration: none;
+  }
 
 header img {
     width: 100%;
     list-style: none;
 }
+
+/* button a {
+    text-decoration: none;
+    color: black;
+} */
 
 .video-responsive {
     overflow: hidden;
@@ -29,3 +159,4 @@ header img {
     /* width: ; */
     position: absolute;
   }
+

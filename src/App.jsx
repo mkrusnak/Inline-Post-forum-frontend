@@ -31,10 +31,17 @@ function App() {
     <Navbar />
     <Routes>
 
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<IsPrivate> <HomePage /> </IsPrivate> } />
+      
       <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
       <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
+
+
+
       
+
+
+      <Route path="/home" element={<IsPrivate> <HomePage /> </IsPrivate> } />
       <Route path="/profile/:guestId" element={<IsPrivate>  <UserProfilePage /> </IsPrivate> } />
       <Route path="/addlisting" element={<IsPrivate>  <AddListing />  </IsPrivate> } />
       <Route path="/addpost" element={<IsPrivate>  <AddDiy />  </IsPrivate> } />

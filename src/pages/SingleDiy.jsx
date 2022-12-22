@@ -6,14 +6,33 @@ import YoutubeEmbed from "../components/YoutubeEmbed";
 import EditPost from "../components/EditPost";
 import AddComment from "../components/AddComment";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
 import SendMessageComp from "../components/SendMessage";
 
 const SingleDiy = () => {
 
-  const [isShown, setIsShown] = useState(false);
+  const navigate = useNavigate();
 
-  const handleClick = (e) => {
-    setIsShown((current) => !current);
+  const [isShownEdit, setIsShownEdit] = useState(false);
+
+  const [isShownEdit2, setIsShownEdit2] = useState(false);
+
+
+  const handleClickEdit = (e) => {
+    setIsShownEdit((current) => !current);
+  };
+
+
+  const handleClickEdit2 = (e) => {
+    setIsShownEdit((current) => !current);
+  };
+
+  const [isShown, setIsShown] = useState([]);
+
+  const handleClick = index => (e) => {
+    const copy = [...isShown];
+    copy[index] = !copy[index]
+    setIsShown(copy);
   };
 
 
@@ -33,6 +52,7 @@ const SingleDiy = () => {
       .then((axiosResponse) => {
         console.log(axiosResponse.data);
         setDiyPost(axiosResponse.data);
+        setIsShown(Array(axiosResponse.data.comments.length).fill(false))
       })
       .catch((err) => console.log(err));
   };
@@ -41,19 +61,21 @@ const SingleDiy = () => {
     getDiyDetails();
   }, []);
 
-  //   const deleteHandler = e => {
-  //     e.preventDefault();
-  //     axios.delete(`http://localhost:3001/forum/delete/${diyId}`, {
-  //         headers: {
-  //             authorization: `Bearer ${localStorage.getItem('authToken')}`
-  //         }
-  //     })
-  //     .then(axiosResponse => {
-  //         console.log(axiosResponse.data)
-  //         navigate('/forum')
-  //     })
-  //     .catch(err => console.log(err))
-  // }
+    const deleteHandler = e => {
+      e.preventDefault();
+      axios.delete(`http://localhost:3001/diy/delete/${diyId}`, {
+          headers: {
+              authorization: `Bearer ${localStorage.getItem('authToken')}`
+          }
+      })
+      .then(axiosResponse => {
+          console.log(axiosResponse.data)
+          navigate(`/diy`)
+      })
+      .catch(err => console.log(err))
+  }
+
+  const linkmessage = `/diy/${diyId}`;
 
   return (
     <div>
@@ -72,16 +94,36 @@ const SingleDiy = () => {
           <img src={diyPost.author.profilePic} width="50px" alt="profilePic" />
           <h2>Author: {diyPost.author.username}</h2>
           <p>Posted: {diyPost.createdAt}</p>
-          <Link  to={`/messages/send/${diyPost.author._id}`} >
-                     <button>Contact</button>
-             </Link>
+
+
+
+
+
+
+
+      
+
+
+
+
+          {user._id === diyPost.author._id ? <button className="customBttn" role="button" onClick={deleteHandler}>Delete Post</button> : <button onClick={handleClickEdit}>Contact</button> }
+          {isShownEdit && (
+        <SendMessageComp
+        // postId={linkmessage}
+           to={diyPost.author._id}
+          recipient={diyPost.author.username}
+      />
+     )}
+
+
+
           <Link  to={`/profile/${diyPost.author._id}`} >
-                     <button>View Profile</button>
+                     <button className="customBttn" role="button">View Profile</button>
              </Link>
 
           <h2>Comments: </h2>
 
-          {diyPost.comments.map((comment) => {
+          {diyPost.comments.map((comment, index) => {
             return (
               <>
                 <img src={comment.profilePic} width="50px" alt="profilePic" />
@@ -91,13 +133,14 @@ const SingleDiy = () => {
 
 
 
-{user._id === comment.author._id ? null : <button onClick={handleClick}>Message</button> }
+{user._id === comment.author._id ? null : <button className="customBttn" role="button" onClick={handleClick(index)}>Message</button> }
 
 
                 
 
-{isShown && (
+{isShown[index] && (
   <SendMessageComp
+  postId={ linkmessage }
     to={comment.author._id}
     recipient={comment.author.username}
   />
@@ -106,12 +149,8 @@ const SingleDiy = () => {
 
 
 
-                {/* <Link  to={`/messages/send/${comment.author._id}`} >
-                     <button>Send Message</button>
-             </Link> */}
-
              <Link  to={`/profile/${comment.author._id}`} >
-                     <button>View Profile</button>
+                     <button className="customBttn" role="button">View Profile</button>
              </Link>
               </>
             );
@@ -119,19 +158,7 @@ const SingleDiy = () => {
 
           <AddComment postId={diyPost._id} />
 
-          {/*
-
-       {(user._id === diyPost.author._id) ?  
-       
-       <>
-       and girls
-
-forumId={diyPost._id} />
-
-
-<button onClick={deleteHandler}>Delete</button>
-
-       </>   : null} */}
+  
         </div>
       ) : (
         <p>loading...</p>

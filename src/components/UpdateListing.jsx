@@ -37,7 +37,7 @@ const UpdateListing = (props) => {
             console.log(axiosResponse.data);
             props.getListingDetails();
             console.log('here is test here')
-            // navigate(`/listings/${props.listingId}`)
+            navigate(`/listings/${props.listingId}`)
           })
           .catch(err => console.log(err))
       }
@@ -49,7 +49,7 @@ const UpdateListing = (props) => {
      <form onSubmit={submitFormHandler}>
 
          <label>Title: </label>
-         <Input name="title" value={state.title} placeholder="" onChange={updateState} required/>
+         <Input name="title" value={state.title}  onChange={updateState} required/>
 
          <label>Price: </label>
          <Input name="price" type="number" value={state.price} onChange={updateState} required/>
@@ -61,7 +61,7 @@ const UpdateListing = (props) => {
           <Input name="description" value={state.description} onChange={updateState} required/>
        
 
-        <button>Update</button>
+        <button className="customBttn" role="button">Update</button>
      
      </form>
   </div>

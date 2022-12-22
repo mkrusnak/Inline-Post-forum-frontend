@@ -53,7 +53,7 @@ const AddCommentForum = (props) => {
          <label>Add comment: </label>
          <Input name="text"  value={state.text} onChange={updateState}/>
 
-         <button>Post</button>
+         <button className="customBttn" role="button">Post</button>
      
      </form>
   </div>

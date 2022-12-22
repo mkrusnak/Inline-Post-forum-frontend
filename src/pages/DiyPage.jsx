@@ -58,7 +58,7 @@ const searchPosts = (word) => {
               alt="profilePic"
             />
             <Link to={`/diy/${single._id}`}>
-              <button>Open</button>
+              <button className="customBttn" role="button">Open</button>
             </Link>
             <p>{single.createdAt}</p>
           </>

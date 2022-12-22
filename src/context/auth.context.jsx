@@ -2,7 +2,8 @@
 
 import { useState, useEffect, createContext } from "react";
 import axios from "axios";
-// import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import e from "cors";
 // const API_URL = `${process.env.VITE_BACKEND_URL}`;
 
 const AuthContext = createContext();
@@ -12,7 +13,7 @@ function AuthProviderWrapper(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
   
-
+const navigate = useNavigate();
 
   const storeToken = (token) => {
     localStorage.setItem('authToken', token)
@@ -61,6 +62,7 @@ function AuthProviderWrapper(props) {
   const logOutUser = () => {
     removeToken()
     authenticateUser()
+    navigate('/login')
   }
 
 

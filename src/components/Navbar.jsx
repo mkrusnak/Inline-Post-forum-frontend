@@ -11,8 +11,8 @@ function Navbar() {
     <header>
       <img src={headerImg} alt="headerImg"></img>
 
-      <nav className="navbar customNav navbar-expand-lg sticky-top navbar-light">
-        <Link className="navbar-brand" to="/">
+      <nav className="navbar customNav customNav1 navbar-expand-lg sticky-top navbar-light">
+        <Link className="navbar-brand" to="/home">
           Inline-Post
         </Link>
 
@@ -54,7 +54,7 @@ function Navbar() {
 
                
 
-                <ul className="nav-item dropdown">
+                <ul className="nav-item dropdown customNav">
                   <a
                     className="nav-link dropdown-toggle"
                     href="#"
@@ -80,7 +80,7 @@ function Navbar() {
                   </div>
                 </ul>
 
-                <ul className="nav-item dropdown">
+                <ul className="nav-item dropdown customNav">
                   <a
                     className="nav-link dropdown-toggle"
                     href="#"

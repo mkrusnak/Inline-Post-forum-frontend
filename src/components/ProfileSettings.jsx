@@ -17,6 +17,7 @@ const ProfileSettings = (props) => {
        drivingNow: '',
        drivingNowImg: '',
        prevCar: '',
+       prevCarImg: '',
        status: '',
        dreamCar: '',
        dreamCarImg: ''
@@ -71,7 +72,7 @@ return(
          <label>Dream car photo:</label>
          <Input name="dreamCarImg" placeholder={props.dreamCarImg} value={state.dreamCarImg} onChange={updateState} required/>
          
-        <button>Update</button>
+        <button className="customBttn" role="button">Update</button>
      
      </form>
   </div>

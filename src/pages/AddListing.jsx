@@ -92,7 +92,7 @@ const handleSubmit = e => {
             <>
               <label>Image #{index + 1}:</label>
               <Input name="imageUrl" value={imagesArr[index]} onChange={updateImagesArr(index)}/>
-              <button onClick={decreaseImagesArr(index)}>Delete Image</button>
+              <button className="customBttn" role="button" onClick={decreaseImagesArr(index)}>Delete Image</button>
             </>
             
           );
@@ -101,7 +101,7 @@ const handleSubmit = e => {
 
 
 
-           <button onClick={increaseImagesArr}>Add More</button> 
+           <button className="customBttn" role="button" onClick={increaseImagesArr}>Add More</button> 
 
        
 
@@ -124,7 +124,7 @@ const handleSubmit = e => {
           })
          }}/>
 
-        <button>Post</button>
+        <button className="customBttn" role="button">Post</button>
      
      </form>
   </div>

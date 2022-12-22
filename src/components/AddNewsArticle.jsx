@@ -1,17 +1,21 @@
-import { useState} from 'react'
+import { useState, useContext} from 'react'
 import axios from 'axios'
-import { Navigate, useNavigate } from 'react-router-dom'
-import { Divider, Input } from 'antd';
+import {useNavigate } from 'react-router-dom'
+import {Input} from 'antd';
+import { AuthContext } from "../context/auth.context";
 
-const AddForumPost = (props) => {
+const AddNewsArticle = (props) => {
+
+
+    const {user} = useContext(AuthContext)
 
     const navigate = useNavigate();
 
     const [state, setState] = useState({
-        video: '',
-        image: '',
-        subject: '',
-        body: ''
+        title: '',
+        link: '',
+        text: '',
+        image: ''
       });
 
       const updateState = e => setState({
@@ -22,11 +26,13 @@ const AddForumPost = (props) => {
       const submitFormHandler = e => {
         
         console.log('form submit works');
-        axios.post(`${import.meta.env.VITE_BACKEND_URL}/forum/add`,{
-          video: state.video,
+        axios.post(`${import.meta.env.VITE_BACKEND_URL}/add`,{
+          title: state.title,
+          link: state.link,
+          text: state.text,
           image: state.image,
-          subject: state.subject,
-          body: state.body
+          author: user._id,
+          
         } ,
         {
             headers: {
@@ -43,22 +49,21 @@ const AddForumPost = (props) => {
     return(
         <>
     <div>
-    <h1>Add more info:</h1>
+    <h1>Add info:</h1>
      <form onSubmit={submitFormHandler}>
 
-         <label>Subject: </label>
-         <Input name="subject" value={state.subject} placeholder="" onChange={updateState}/>
+         <label>Title: </label>
+         <Input name="title" value={state.title}  onChange={updateState}/>
 
-         <label>Body: </label>
-         <Input name="body"  value={state.body} onChange={updateState}/>
+         <label>Text: </label>
+         <Input name="text"  value={state.text} onChange={updateState}/>
 
-         <label>Image:</label>
+         <label>Image: </label>
          <Input name="image"  value={state.image} onChange={updateState}/>
-          
-          <label>Video:</label>
-          <Input name="video" value={state.video} onChange={updateState}/>
-       
 
+         <label>Link: </label>
+         <Input name="link"  value={state.link} onChange={updateState}/>
+          
         <button className="customBttn" role="button">Post</button>
      
      </form>
@@ -67,4 +72,4 @@ const AddForumPost = (props) => {
     )
 }
 
-export default AddForumPost;
+export default AddNewsArticle;
