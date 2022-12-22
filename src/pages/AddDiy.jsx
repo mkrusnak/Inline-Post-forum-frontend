@@ -1,8 +1,7 @@
 import { useState} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-
-
+import { Divider, Input } from 'antd';
 import { useContext } from 'react'
 import { AuthContext } from '../context/auth.context'
 
@@ -71,25 +70,25 @@ const handleSubmit = e => {
      <form onSubmit={handleSubmit}>
 
          <label>Title: </label>
-         <input name="title" value={state.title} onChange={updateState}/>
+         <Input name="title" value={state.title} onChange={updateState}/>
 
          <label>Required tools: </label>
-         <input name="reqTools" value={state.reqTools} onChange={updateState}/>
+         <Input name="reqTools" value={state.reqTools} onChange={updateState}/>
 
          <label>Time to complete(minutes): </label>
-         <input name="time" type="number" value={state.time} onChange={updateState}/>
+         <Input name="time" type="number" value={state.time} onChange={updateState}/>
 
          <label>Video: </label>
-         <input name="video" type="text" value={state.video} onChange={updateState}/>
+         <Input name="video" type="text" value={state.video} onChange={updateState}/>
           
           <label>Description:</label>
-          <input name="description" value={state.description} onChange={updateState}/>
+          <Input name="description" value={state.description} onChange={updateState}/>
 
          {imagesArr.map((img, index) => {
           return (
             <>
               <label>Image #{index + 1}:</label>
-              <input name="imageUrl" value={imagesArr[index]} onChange={updateImagesArr(index)}/>
+              <Input name="imageUrl" value={imagesArr[index]} onChange={updateImagesArr(index)}/>
               <button onClick={decreaseImagesArr(index)}>Delete Image</button>
             </>
             

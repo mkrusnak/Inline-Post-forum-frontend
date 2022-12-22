@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from "../context/auth.context";
 import { useParams } from 'react-router-dom';
+import { Divider, Input } from 'antd';
 
 const AddComment = (props) => {
 
@@ -50,7 +51,7 @@ const AddComment = (props) => {
      <form onSubmit={submitFormHandler} >
 
          <label>Add comment: </label>
-         <input name="text"  value={state.text} onChange={updateState}/>
+         <Input name="text"  value={state.text} onChange={updateState}/>
 
          <button>Post</button>
      

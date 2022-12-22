@@ -1,6 +1,7 @@
 import { useState} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { Divider, Input } from 'antd';
 
 
 // import { useContext } from 'react'
@@ -73,50 +74,47 @@ const handleSubmit = e => {
      <form onSubmit={handleSubmit}>
 
          <label>Title:</label>
-         <input name="title" value={state.title} onChange={updateState} required/>
+         <Input name="title" value={state.title} onChange={updateState} required/>
 
          <label>Make / model:</label>
-         <input name="makeModel" value={state.makeModel} onChange={updateState} required/>
+         <Input name="makeModel" value={state.makeModel} onChange={updateState} required/>
 
          <label>Year:</label>
-         <input name="year" type="number" value={state.year} onChange={updateState} required/>
+         <Input name="year" type="number" value={state.year} onChange={updateState} required/>
 
          <label>Mileage:</label>
-         <input name="odometr" type="number" value={state.odometr} onChange={updateState} required/>
+         <Input name="odometr" type="number" value={state.odometr} onChange={updateState} required/>
           
           <label>Description:</label>
-          <input name="description" value={state.description} onChange={updateState} required/>
+          <Input name="description" value={state.description} onChange={updateState} required/>
          {imagesArr.map((img, index) => {
           return (
             <>
               <label>Image #{index + 1}:</label>
-              <input name="imageUrl" value={imagesArr[index]} onChange={updateImagesArr(index)}/>
+              <Input name="imageUrl" value={imagesArr[index]} onChange={updateImagesArr(index)}/>
               <button onClick={decreaseImagesArr(index)}>Delete Image</button>
             </>
             
           );
          })}
 
-         <button onClick={increaseImagesArr}>Add More</button>
 
-         
 
-         
 
-          {/* <label>Image #2:</label>
-         <input name="imageUrl" value={state.imageUrl} onChange={updateState}/>
+           <button onClick={increaseImagesArr}>Add More</button> 
 
-         <label>Image #3:</label>
-         <input name="imageUrl" value={state.imageUrl} onChange={updateState}/>   */}
+       
 
+      
+<br></br>
          <label>Price:</label>
-         <input name="price" type="number" value={state.price} onChange={updateState} required/>
+         <Input name="price" type="number" value={state.price} onChange={updateState} required/>
 
          <label>Known flaws:</label>
-         <input name="knownFlaws" value={state.knownFlaws} onChange={updateState} required/>
+         <Input name="knownFlaws" value={state.knownFlaws} onChange={updateState} required/>
 
          <label>Accepting trades:</label>
-         <input type="checkbox" name="tradeOk" value={state.tradeOk} onChange={e => {
+         <Input type="checkbox" name="tradeOk" value={state.tradeOk} onChange={e => {
           //console.log('current value', state.tradeOk, 'new value', !state.tradeOk)
           updateState({
             target: {

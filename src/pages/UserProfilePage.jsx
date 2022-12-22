@@ -89,20 +89,7 @@ const UserProfilePage = () => {
               />
           )}
 
-          {/* {user._id === guestId ? (
-            <>
-              <ProfileSettings
-                profilePic={profile.profilePic}
-                drivingNow={profile.drivingNow}
-                drivingNowImg={profile.drivingNowImg}
-                prevCar={profile.prevCar}
-                prevCarImg={profile.prevCarImg}
-                status={profile.status}
-                dreamCar={profile.dreamCar}
-                dreamCarImg={profile.dreamCarImg}
-              />
-            </>
-          ) : null} */}
+    
         </div>
       ) : (
         <p>loading...</p>

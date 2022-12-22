@@ -2,6 +2,7 @@ import { useState, useContext} from 'react'
 import axios from 'axios'
 import { AuthContext } from "../context/auth.context";
 import { useNavigate,  useParams } from 'react-router-dom';
+import { Divider, Input } from 'antd';
 
 
 const SendMessageComp = (props) => {
@@ -56,10 +57,10 @@ const navigate = useNavigate()
    <form onSubmit={submitFormHandler}>
 
        <label>Subject: </label>
-       <input name="subject" type="text" value={state.subject}  onChange={updateState} required/>
+       <Input name="subject" type="text" value={state.subject}  onChange={updateState} required/>
 
        <label>Body: </label>
-       <input name="body" type="text" value={state.body} onChange={updateState} required/>
+       <Input name="body" type="text" value={state.body} onChange={updateState} required/>
 
       <button>Send</button>
    

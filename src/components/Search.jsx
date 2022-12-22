@@ -15,7 +15,7 @@ function Search (props) {
 
  return (
     <>
-      <Divider>Search</Divider>
+      <h2>Search</h2>
       <Input value={searchWord} type="text" onChange={searchHandler} />
     </>
   );

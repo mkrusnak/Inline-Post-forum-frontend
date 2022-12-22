@@ -7,6 +7,12 @@ import {Link} from 'react-router-dom'
 
 const ForumPage = () => {
 
+  const [isShown, setIsShown] = useState(false);
+
+  const handleClick = (e) => {
+    setIsShown((current) => !current);
+  };
+
 const [postsArr, setPostsArr] = useState([])
 
 useEffect(() => {
@@ -32,7 +38,16 @@ useEffect(() => {
     return (
       <>
         <h1>THIS IS FORUM PAGE</h1>
-        <AddForumPost />
+        <button onClick={handleClick}>Create new thread</button>
+
+
+           {isShown &&    <AddForumPost />}
+
+
+
+
+
+        
 {postsArr.map(single => {
   return(
   <>

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../context/auth.context'
+import { Divider, Input } from 'antd';
 
 const LoginPage = () => {
 
@@ -39,10 +40,10 @@ return(
      <form onSubmit={handleSubmit}>
 
          <label>Email:</label>
-         <input name="email" value={state.email} onChange={updateState}/>
+         <Input name="email" value={state.email} onChange={updateState}/>
 
          <label>Password:</label>
-         <input name="password" type="password" value={state.password} onChange={updateState}/>
+         <Input name="password" type="password" value={state.password} onChange={updateState}/>
 
         <button>Log In</button>
      

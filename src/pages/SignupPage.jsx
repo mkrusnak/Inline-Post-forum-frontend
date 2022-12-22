@@ -1,6 +1,7 @@
 import { useState} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { Divider, Input } from 'antd';
 
 const SignupPage = () => {
 
@@ -34,13 +35,13 @@ return(
      <form onSubmit={handleSubmit}>
 
          <label>Username:</label>
-         <input name="username" value={state.username} onChange={updateState}/>
+         <Input name="username" value={state.username} onChange={updateState}/>
 
          <label>Email:</label>
-         <input name="email" value={state.email} onChange={updateState}/>
+         <Input name="email" value={state.email} onChange={updateState}/>
 
          <label>Password:</label>
-         <input name="password" type="password" value={state.password} onChange={updateState}/>
+         <Input name="password" type="password" value={state.password} onChange={updateState}/>
 
         <button>Sign Up</button>
      

@@ -2,6 +2,7 @@ import { useState, useContext} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from "../context/auth.context";
+import { Divider, Input } from 'antd';
 
 
 const ProfileSettings = (props) => {
@@ -47,28 +48,28 @@ return(
      <form onSubmit={handleSubmit}>
 
          <label>Profile picture:</label>
-         <input name="profilePic" placeholder={props.profilePic} value={state.profilePic} onChange={updateState} required/>
+         <Input name="profilePic" placeholder={props.profilePic} value={state.profilePic} onChange={updateState} required/>
          
          <label>Current car:</label>
-         <input name="drivingNow" placeholder={props.drivingNow} value={state.drivingNow} onChange={updateState} required/>
+         <Input name="drivingNow" placeholder={props.drivingNow} value={state.drivingNow} onChange={updateState} required/>
 
          <label>Current car photo:</label>
-         <input name="drivingNowImg" placeholder={props.drivingNowImg} value={state.drivingNowImg} onChange={updateState} required/>
+         <Input name="drivingNowImg" placeholder={props.drivingNowImg} value={state.drivingNowImg} onChange={updateState} required/>
 
          <label>Previous car:</label>
-         <input name="prevCar" placeholder={props.prevCar} value={state.prevCar} onChange={updateState} required/>
+         <Input name="prevCar" placeholder={props.prevCar} value={state.prevCar} onChange={updateState} required/>
 
          <label>Previous car photo:</label>
-         <input name="prevCarImg" placeholder={props.prevCarImg} value={state.prevCarImg} onChange={updateState} required/>
+         <Input name="prevCarImg" placeholder={props.prevCarImg} value={state.prevCarImg} onChange={updateState} required/>
 
          <label>Status:</label>
-         <input name="status" placeholder={props.status} value={state.status} onChange={updateState} required/>
+         <Input name="status" placeholder={props.status} value={state.status} onChange={updateState} required/>
 
          <label>Dream Car:</label>
-         <input name="dreamCar" placeholder={props.dreamCar} value={state.dreamCar} onChange={updateState} required/>
+         <Input name="dreamCar" placeholder={props.dreamCar} value={state.dreamCar} onChange={updateState} required/>
 
          <label>Dream car photo:</label>
-         <input name="dreamCarImg" placeholder={props.dreamCarImg} value={state.dreamCarImg} onChange={updateState} required/>
+         <Input name="dreamCarImg" placeholder={props.dreamCarImg} value={state.dreamCarImg} onChange={updateState} required/>
          
         <button>Update</button>
      

@@ -1,6 +1,7 @@
 import { useState} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { Divider, Input } from 'antd';
 
 const UpdateListing = (props) => {
 
@@ -48,16 +49,16 @@ const UpdateListing = (props) => {
      <form onSubmit={submitFormHandler}>
 
          <label>Title: </label>
-         <input name="title" value={state.title} placeholder="" onChange={updateState} required/>
+         <Input name="title" value={state.title} placeholder="" onChange={updateState} required/>
 
          <label>Price: </label>
-         <input name="price" type="number" value={state.price} onChange={updateState} required/>
+         <Input name="price" type="number" value={state.price} onChange={updateState} required/>
 
          <label>Mileage:</label>
-         <input name="odometr" type="number" value={state.odometr} onChange={updateState} required/>
+         <Input name="odometr" type="number" value={state.odometr} onChange={updateState} required/>
           
           <label>Description:</label>
-          <input name="description" value={state.description} onChange={updateState} required/>
+          <Input name="description" value={state.description} onChange={updateState} required/>
        
 
         <button>Update</button>

@@ -1,6 +1,7 @@
 import { useState} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { Divider, Input } from 'antd';
 
 const EditPost = (props) => {
 
@@ -47,16 +48,16 @@ const EditPost = (props) => {
      <form onSubmit={submitFormHandler}>
 
          <label>Subject: </label>
-         <input name="subject" value={state.subject} placeholder="" onChange={updateState}/>
+         <Input name="subject" value={state.subject} placeholder="" onChange={updateState}/>
 
          <label>Body: </label>
-         <input name="body"  value={state.body} onChange={updateState}/>
+         <Input name="body"  value={state.body} onChange={updateState}/>
 
          <label>Image:</label>
-         <input name="image"  value={state.image} onChange={updateState}/>
+         <Input name="image"  value={state.image} onChange={updateState}/>
           
           <label>Video:</label>
-          <input name="video" value={state.video} onChange={updateState}/>
+          <Input name="video" value={state.video} onChange={updateState}/>
        
 
         <button>Edit</button>
