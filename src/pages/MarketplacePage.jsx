@@ -12,17 +12,28 @@ const MarketplacePage = (props) => {
 
     // const [listingsArr, setListingsArr] = useState([])
 
+
+
+
+    const searchPosts = (word) => {
+        console.log(word)
+          const results = myPostsCopy.filter((el) => {
+            // console.log('here element' , el)
+          return el.makeModel.toLowerCase().includes(word.toLowerCase());
+        })
+        setMyPosts(results);
+      }
   
 
 
-  const searchPosts = (word) => {
-    console.log(word)
-      const results = myPostsCopy.filter((el) => {
-        // console.log('here element' , el)
-      return el.title.toLowerCase().includes(word.toLowerCase());
-    })
-    setMyPosts(results);
-  }
+//   const searchPosts = (word) => {
+//     console.log(word)
+//       const results = myPostsCopy.filter((el) => {
+//         // console.log('here element' , el)
+//       return el.title.toLowerCase().includes(word.toLowerCase());
+//     })
+//     setMyPosts(results);
+//   }
 
 
 useEffect(() => {
@@ -57,6 +68,7 @@ useEffect(() => {
             return (
                 <>
                 <h3>Title: {single.title}</h3>
+                <h3>Make / model: {single.makeModel}</h3>
                 <h4>Seller: {single.owner.username}</h4>
                 <img src={single.imagesUrl[0]} width="300px" alt="photo" />
                 <h4>Price:{single.price}</h4>
