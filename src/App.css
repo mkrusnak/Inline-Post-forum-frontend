@@ -1,24 +1,18 @@
-
 .newsCard {
-  
-        box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.059);
-        border-radius: 0;
-        margin: 20px;
-        padding: 0px;
+  box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.059);
+  border-radius: 0;
+  margin: 20px;
+  padding: 0px;
 }
 
 .newsCard img {
   width: 400px;
 }
 
-
-
 .listingDetails {
-    margin: 40px;
-    margin-top: 10px;
+  margin: 40px;
+  margin-top: 10px;
 }
-
-
 
 .commentText a {
   text-decoration: none;
@@ -31,16 +25,11 @@
 }
 
 .carImages {
-  
   width: 100rem;
- display: flex;
- /* flex-direction: row; */
- justify-content: center;
+  display: flex;
 
+  justify-content: center;
 }
-
-
-
 
 .row1 {
   display: flex;
@@ -59,7 +48,7 @@
 
 .footerStyle {
   background-color: #327cb0;
-  /* margin-top: 140px; */
+
   height: 50px;
   margin-bottom: 0px;
 }
@@ -69,38 +58,26 @@
   padding: 0px;
 }
 
-
-
-
 .footerBottom a {
   text-decoration: none;
   color: white;
-
-  /* margin-top: 140px; */
 }
 
 .listingDetails img {
-    margin: 15px;
-
+  margin: 15px;
 }
-
 
 .listingPad {
   margin: 10px;
   padding: 0px;
 }
 
-
-
-.carImg img{
+.carImg img {
   margin: 0px;
-
 }
-
 
 .carImg {
   width: 400px;
-
 }
 
 .noRadius {
@@ -112,9 +89,8 @@
   margin-bottom: 0px;
 }
 
-
 .messagesList {
-  box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.059); ;
+  box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.059);
 }
 
 .messageBttn {
@@ -135,14 +111,12 @@
 .commentButtons {
   display: flex;
   flex-direction: row;
-justify-content: end;
+  justify-content: end;
 }
 
 .commentHead {
-
   display: flex;
   flex-direction: row;
-
 }
 .noBorder {
   border: 0px;
@@ -150,7 +124,7 @@ justify-content: end;
 
 .comment {
   display: flex;
-flex-direction: row;
+  flex-direction: row;
 }
 
 .card1 {
@@ -161,14 +135,13 @@ flex-direction: row;
 
 .card1 img {
   width: 25%;
-  /* box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.059); */
 }
 
 .newsTitle {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.cardText  {
+.cardText {
   padding: 5px;
   margin: 5px;
 }
@@ -178,11 +151,7 @@ flex-direction: row;
   padding: 0px;
 }
 
-
-
-
-
-.cardText1  {
+.cardText1 {
   padding: 0px;
   margin: 0px;
 }
@@ -192,12 +161,10 @@ flex-direction: row;
   padding: 0px;
 }
 
-
 .commentText {
   display: flex;
   flex-direction: column;
   align-self: center;
-
 }
 
 .commentDiv {
@@ -208,7 +175,6 @@ flex-direction: row;
 
 .commentBody {
   padding: 15px;
-
 }
 
 .profileList {
@@ -256,9 +222,8 @@ flex-direction: row;
 }
 
 .authorText2 h3 {
-  margin: 0px
+  margin: 0px;
 }
-
 
 .authorText2 p {
   margin: 0px;
@@ -270,7 +235,6 @@ flex-direction: row;
   align-content: flex-end;
   padding-bottom: 0px;
   margin-top: 32px;
-  
 }
 
 .authorText p {
@@ -279,65 +243,52 @@ flex-direction: row;
 }
 
 .addDiyForm {
-    margin: 30px;
-    margin-top: 5px;
+  margin: 30px;
+  margin-top: 5px;
 }
 
 .headerText1 {
-    display: flex;
-    justify-content: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+  display: flex;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .searchBar {
- margin-left: 40px;
- margin-right: 40px;
- margin-bottom: 5px;
-
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 5px;
 }
-
-
 
 label {
   margin-top: 8px;
 }
 
 .forumBttnDiv {
-margin-left: 50px;
+  margin-left: 50px;
 }
 
 .forumItem {
   display: flex;
   flex-direction: column;
-  /* align-items: stretch; */
-
 }
-
-
-
 
 .searchInput {
-    box-shadow: 5px 5px rgba(128, 128, 128, 0.081);
+  box-shadow: 5px 5px rgba(128, 128, 128, 0.081);
 }
 
-
-
 .marketplaceGroup {
-    margin: 10px;
-    margin-bottom: 50px;
+  margin: 10px;
+  margin-bottom: 50px;
 }
 
 .marketCard {
-    margin: 25px;
-    box-shadow: 7px 7px rgba(128, 128, 128, 0.081);
+  margin: 25px;
+  box-shadow: 7px 7px rgba(128, 128, 128, 0.081);
 }
 
 .customNav2 {
   padding-left: 0px;
 }
-
-
 
 .bttnForum1 {
   display: flex;
@@ -345,34 +296,20 @@ margin-left: 50px;
   justify-content: end;
 }
 
-
-
-
-
 .customNav {
   background-color: white;
-  
-    /* font-weight: 550; */
-    /* height: 160px; */
-    /* padding-top: 100px; */
-    /* padding-left: 0; */
-    margin-top: 170;
-/* margin-left: 30px; */
-/* margin-right:20px; */
-font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  margin-top: 170;
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .customNav1 {
-    padding-left: 25px;
+  padding-left: 25px;
 }
-
 
 .postAuthor {
-  
   padding-left: 10px;
 }
-
-
-
 
 .description {
   text-align: left;
@@ -385,23 +322,23 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-indent: 30px;
 }
 
-
 .customBttn {
   background-color: #e1ecf4;
   border-radius: 3px;
   border: 1px solid #7aa7c7;
-  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+  box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
   box-sizing: border-box;
   color: #39739d;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+    sans-serif;
   font-size: 13px;
   font-weight: 400;
   line-height: 1.15385;
   margin: 15px 15px 15px 0px;
   outline: none;
-  padding: 8px .8em;
+  padding: 8px 0.8em;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -419,7 +356,7 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .customBttn:focus {
-  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
 }
 
 .customBttn:active {
@@ -428,34 +365,24 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #2c5777;
 }
 
-
-
-  button a {
-    color: #39739d;
-    text-decoration: none;
-  }
-
-header img {
-    width: 100%;
-    /* height: 100px; */
+button a {
+  color: #39739d;
+  text-decoration: none;
 }
 
+header img {
+  width: 100%;
+}
 
 .video-responsive {
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center; */
+  overflow: hidden;
 
-    overflow: hidden;
-    /* padding-bottom: 56.25%; */
-    
-    position:sticky;
-    height: 600px;
-  }
-  
-  .video-responsive iframe {
-    left: 0;
-    top: 0;
-    position: absolute;
-  }
+  position: sticky;
+  height: 600px;
+}
 
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  position: absolute;
+}
