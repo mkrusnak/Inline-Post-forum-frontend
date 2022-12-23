@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import headerImg from "../assets/header.jpeg";
+import headerImage from '../assets/head4.jpeg'
+import img5 from '../assets/img5.jpeg'
+
 // import {useParams} from 'react-router-dom'
 
 function Navbar() {
@@ -9,7 +12,7 @@ function Navbar() {
 
   return (
     <header className="headerImage">
-      <img src={headerImg} alt="headerImg"></img>
+      <img classname="img-fluid"  src={headerImg} alt="headerImg"></img>
 
       <nav className="navbar customNav customNav1  navbar-expand-lg  navbar-light">
         <Link className="navbar-brand" to="/home">
@@ -28,8 +31,8 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarText">
-          <ul className="navbar-nav mr-auto">
+        <div className="collapse navbar-collapse " id="navbarText">
+          <ul className="navbar-nav mr-auto navLeft">
            
 
             {!isLoggedIn && (
@@ -54,7 +57,7 @@ function Navbar() {
 
                
 
-                <ul className="nav-item dropdown customNav">
+                <ul className="nav-item dropdown customNav2">
                   <a
                     className="nav-link dropdown-toggle"
                     href="#"
@@ -80,7 +83,7 @@ function Navbar() {
                   </div>
                 </ul>
 
-                <ul className="nav-item dropdown customNav">
+                <ul className="nav-item dropdown customNav2">
                   <a
                     className="nav-link dropdown-toggle"
                     href="#"

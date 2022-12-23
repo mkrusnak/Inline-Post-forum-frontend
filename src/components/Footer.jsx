@@ -6,7 +6,7 @@ const Footer = () => {
  return (
 
 
-  <footer className="text-center text-white footerStyle fixed-bottom" >
+  <footer className="text-center text-white footerStyle  " >
   
 
   <div className="text-center  p-3 footerBottom" >

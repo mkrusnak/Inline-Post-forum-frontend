@@ -59,14 +59,24 @@
 
 .footerStyle {
   background-color: #327cb0;
-  margin-top: 40px;
+  /* margin-top: 140px; */
   height: 50px;
+  margin-bottom: 0px;
 }
+
+.footerBottom p {
+  margin-bottom: 0px;
+  padding: 0px;
+}
+
+
+
 
 .footerBottom a {
   text-decoration: none;
   color: white;
-  
+
+  /* margin-top: 140px; */
 }
 
 .listingDetails img {
@@ -323,8 +333,8 @@ margin-left: 50px;
     box-shadow: 7px 7px rgba(128, 128, 128, 0.081);
 }
 
-.headerImage {
- /* margin-top:200px */
+.customNav2 {
+  padding-left: 0px;
 }
 
 
@@ -347,8 +357,8 @@ margin-left: 50px;
     /* padding-top: 100px; */
     /* padding-left: 0; */
     margin-top: 170;
-margin-left: 30px;
-margin-right:20px;
+/* margin-left: 30px; */
+/* margin-right:20px; */
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .customNav1 {
@@ -427,7 +437,7 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 header img {
     width: 100%;
-    list-style: none;
+    /* height: 100px; */
 }
 
 
