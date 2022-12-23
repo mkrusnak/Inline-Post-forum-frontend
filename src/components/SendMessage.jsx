@@ -52,8 +52,8 @@ const navigate = useNavigate()
 
   return(
       <>
-  <div>
-  <h1>Message to {props.recipient}</h1>
+  <div className='messageComp'>
+  <h4>Message to {props.recipient}</h4>
    <form onSubmit={submitFormHandler}>
 
        <label>Subject: </label>

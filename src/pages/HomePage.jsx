@@ -36,12 +36,16 @@ const HomePage = () => {
     <h4 className="headerText1">LATEST ARTICLES</h4>
     </div>
       
+      {/* <div className="listingDetails">
 
       {user &&
         <button onClick={handleClick} className="customBttn" role="button">
           Add Article
         </button>
       }
+      </div> */}
+
+      
 
       {isShown && <AddNewsArticle />}
 

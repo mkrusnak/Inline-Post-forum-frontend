@@ -229,14 +229,7 @@ const SingleDiy = () => {
                       </button>
                     )}
 
-                    {isShown[index] && (
-                      <SendMessageComp
-                        postId={linkmessage}
-                        to={comment.author._id}
-                        recipient={comment.author.username}
-                      />
-                    )}
-
+                  
                     <Link to={`/profile/${comment.author._id}`}>
                       <button className="customBttn" role="button">
                         View Profile
@@ -245,6 +238,13 @@ const SingleDiy = () => {
 
 </div>
 
+{isShown[index] && (
+                      <SendMessageComp
+                        postId={linkmessage}
+                        to={comment.author._id}
+                        recipient={comment.author.username}
+                      />
+                    )}
 
 
                   </div>

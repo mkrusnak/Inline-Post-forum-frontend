@@ -96,7 +96,16 @@ const ForumPostPage = () => {
                       </div>
 
                       <div className="commentText">
-                        <h6>{comment.author.username}</h6>
+                        <h6>
+                        <Link to={`/profile/${comment.author._id}`}>
+                      <a >
+                      {comment.author.username}
+                      </a>
+                    </Link>
+                        
+                        
+                        
+                        </h6>
                         <p className="card-text">{comment.text}</p>
                       </div>
                     </div>
@@ -109,7 +118,7 @@ const ForumPostPage = () => {
 
 
 
-                    {user._id === comment.author._id ? null : (
+                    {/* {user._id === comment.author._id ? null : (
                       <button
                         className="customBttn"
                         role="button"
@@ -117,7 +126,7 @@ const ForumPostPage = () => {
                       >
                         Message
                       </button>
-                    )}
+                    )} */}
 
                     {isShown[index] && (
                       <SendMessageComp
@@ -127,11 +136,11 @@ const ForumPostPage = () => {
                       />
                     )}
 
-                    <Link to={`/profile/${comment.author._id}`}>
+                    {/* <Link to={`/profile/${comment.author._id}`}>
                       <button className="customBttn" role="button">
                         View Profile
                       </button>
-                    </Link>
+                    </Link> */}
 
 </div>
 

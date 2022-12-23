@@ -19,6 +19,17 @@
 }
 
 
+
+.commentText a {
+  text-decoration: none;
+  color: black;
+}
+
+.messageComp {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
 .carImages {
   
   width: 100rem;
@@ -46,7 +57,15 @@
   margin: 0px;
 }
 
+.footerStyle {
+  background-color: #327cb0;
+  
+}
 
+.footerBottom a {
+  text-decoration: none;
+  color: white;
+}
 
 .listingDetails img {
     margin: 15px;
@@ -90,6 +109,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.messageBttn2 {
+  display: flex;
+  justify-content: end;
 }
 
 .mssgText p {

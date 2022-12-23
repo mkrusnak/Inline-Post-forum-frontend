@@ -48,21 +48,21 @@ const AddNewsArticle = (props) => {
 
     return(
         <>
-    <div>
-    <h1>Add info:</h1>
+    <div className='listingDetails'>
+    <h4>Add info:</h4>
      <form onSubmit={submitFormHandler}>
 
          <label>Title: </label>
-         <Input name="title" value={state.title}  onChange={updateState}/>
+         <Input className='searchInput' name="title" value={state.title}  onChange={updateState}/>
 
          <label>Text: </label>
-         <Input name="text"  value={state.text} onChange={updateState}/>
+         <Input className='searchInput' name="text"  value={state.text} onChange={updateState}/>
 
          <label>Image: </label>
-         <Input name="image"  value={state.image} onChange={updateState}/>
+         <Input className='searchInput' name="image"  value={state.image} onChange={updateState}/>
 
          <label>Link: </label>
-         <Input name="link"  value={state.link} onChange={updateState}/>
+         <Input className='searchInput' name="link"  value={state.link} onChange={updateState}/>
           
         <button className="customBttn" role="button">Post</button>
      

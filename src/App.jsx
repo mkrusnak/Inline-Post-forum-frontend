@@ -16,8 +16,7 @@ import AddDiy from './pages/AddDiy'
 import DiyPage from './pages/DiyPage'
 import SingleDiy from './pages/SingleDiy'
 import SendMessage from './pages/SendMessage'
-// import AccountSettings from './pages/AccountSettings'
-// import ProfilePage from './pages/ProfilePage'
+import Footer from './components/Footer'
 import UserProfilePage from './pages/UserProfilePage'
 
 
@@ -54,6 +53,7 @@ function App() {
       <Route path="/forum/:forumId" element={<IsPrivate> <ForumPostPage /> </IsPrivate>} />
       <Route path="/listings" element={<IsPrivate> <MarketplacePage /> </IsPrivate>} />
     </Routes>
+    <Footer />
     </div>
   )
 }

@@ -4,19 +4,22 @@ import { useContext } from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SendMessageComp from "../components/SendMessage";
+// import { message } from "antd";
 
 const Messages = () => {
+  // const [isShown, setIsShown] = useState(false);
 
-  const [isShown, setIsShown] = useState(false);
+  const [isShown, setIsShown] = useState([]);
 
-
-  const handleClick = (e) => {
-    setIsShown((current) => !current);
+  const handleClick = (index) => (e) => {
+    const copy = [...isShown];
+    copy[index] = !copy[index];
+    setIsShown(copy);
   };
 
-
-
-
+  // const handleClick = (e) => {
+  //   setIsShown((current) => !current);
+  // };
 
   const { user } = useContext(AuthContext);
 
@@ -40,79 +43,83 @@ const Messages = () => {
     }
   }, [user]);
 
+
+
+  // const linkmessage = `/diy/${diyId}`;
+
+
+
   return (
     <div className="listingDetails">
-   
-    <h1 className="headerText1">Messages</h1>
+      <h1 className="headerText1">Messages</h1>
+
+      {messagesArr.map((singleMessage, index) => {
+        return (
+          <div className="messagesList">
+            <div className="authorCard">
+              <div className="authorImgDiv">
+                <img
+                  className="authorImg"
+                  height="70px"
+                  src={singleMessage.sender.profilePic}
+                  alt="profilePic"
+                />
+              </div>
+
+              <div className="authorText2">
+                <h4>{singleMessage.subject}</h4>
+                <p>
+                  <strong> From:</strong> {singleMessage.sender.username}
+                </p>
+                <p>
+                  <strong>Sent:</strong> {singleMessage.createdAtTime}
+                </p>
+              </div>
+            </div>
+
+            <div className="messageBttn">
+              <div className="mssgText">
+                <p className="indent description ">{singleMessage.body}</p>
+              </div>
+            </div>
 
 
-    {messagesArr.map(singleMessage => {
-       return (<>
 
-<div className="messagesList">
+<div className="messageBttn2"> 
 
-        <div className="authorCard">
-            <div className="authorImgDiv">
-              <img
-                className="authorImg"
-                height="70px"
-                src={singleMessage.sender.profilePic}
-                alt="profilePic"
+
+{user._id === singleMessage.sender._id ? null : (
+              <button
+                className="customBttn"
+                role="button"
+                onClick={handleClick(index)}
+              >
+                Reply
+              </button>
+            )}
+
+
+</div>
+
+           
+
+
+
+
+
+
+            {isShown[index] && (
+              <SendMessageComp
+                // postId={linkmessage}
+                to={singleMessage.sender._id}
+                recipient={singleMessage.sender.username}
               />
-            </div>
-
-            <div className="authorText2">
-            <h4>{singleMessage.subject}</h4>
-              <p>
-               <strong> From:</strong> {singleMessage.sender.username}
-              </p>
-              <p>
-                <strong>Sent:</strong> {singleMessage.createdAtTime}
-              </p>
-            </div>
-        </div>
-
-
-       
-
-
-  
-
-<div className="messageBttn">
-
-
-         <div className="mssgText"><p className="indent description ">{singleMessage.body}</p></div>
-
-
-
-      <div>  <button className="customBttn" role="button" onClick={handleClick}>Reply</button></div>
-
-</div>
-
-</div>
-
-        {isShown && (
-                  <SendMessageComp
-                  link={`messages`}
-                    to={singleMessage.sender._id}
-                    recipient={singleMessage.sender.username}
-                  />
-                )}
-        </>
-       )
-    })}
-
-</div>
-  
+            )}
+          </div>
+        );
+      })}
+    </div>
   );
 };
 
 export default Messages;
-
-
-
-      {/* <h4>From:{singleMessage.sender.username}</h4>
-        <img src={singleMessage.sender.profilePic} width="100px" alt="profilePic" />
-        <h3>{singleMessage.subject}</h3>
-        <p>{singleMessage.body}</p>
-        <p>{singleMessage.createdAtTime}</p> */}

@@ -150,7 +150,10 @@ const UserProfilePage = () => {
 
 
 
-  
+{isShown && (
+            <SendMessageComp to={profile._id} recipient={profile.username} />
+          )}
+
         
 
         
@@ -203,14 +206,19 @@ const UserProfilePage = () => {
 
             </>
           ) : null}
-          <br></br>
+        
 
-          {isShown && (
-            <SendMessageComp to={profile._id} recipient={profile.username} />
-          )}
+         
+
+
+
+
+
 
           {isShownEdit && (
             <ProfileSettings
+            state={profile.state}
+            city={profile.city}
               profilePic={profile.profilePic}
               drivingNow={profile.drivingNow}
               drivingNowImg={profile.drivingNowImg}

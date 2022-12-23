@@ -14,7 +14,7 @@ const ProfileSettings = (props) => {
 
     const [state, setState] = useState({
        city: '',
-       state: '',
+       usstate: '',
        profilePic: '',
        drivingNow: '',
        drivingNowImg: '',
@@ -55,32 +55,32 @@ return(
          
 
          <label>Current car:</label>
-         <Input name="drivingNow" placeholder={props.drivingNow} value={state.drivingNow} onChange={updateState} required/>
+         <Input className='searchInput' name="drivingNow" placeholder={props.drivingNow} value={state.drivingNow} onChange={updateState} required/>
 
          <label>City:</label>
-         <Input name="city" placeholder={state.city}  value={state.city} onChange={updateState} required/>
+         <Input className='searchInput' name="city" placeholder={state.city}  value={state.city} onChange={updateState} required/>
 
          <label>State:</label>
-         <Input name="state"  placeholder={state.state} value={state.state} onChange={updateState} required/>
+         <Input className='searchInput' name="usstate"  placeholder={state.usstate} value={state.usstate} onChange={updateState} required/>
 
 
          <label>Current car photo:</label>
-         <Input name="drivingNowImg" placeholder={props.drivingNowImg} value={state.drivingNowImg} onChange={updateState} required/>
+         <Input className='searchInput' name="drivingNowImg" placeholder={props.drivingNowImg} value={state.drivingNowImg} onChange={updateState} required/>
 
          <label>First car:</label>
-         <Input name="prevCar" placeholder={props.prevCar} value={state.prevCar} onChange={updateState} required/>
+         <Input className='searchInput' name="prevCar" placeholder={props.prevCar} value={state.prevCar} onChange={updateState} required/>
 
          <label>First car photo:</label>
-         <Input name="prevCarImg" placeholder={props.prevCarImg} value={state.prevCarImg} onChange={updateState} required/>
+         <Input className='searchInput' name="prevCarImg" placeholder={props.prevCarImg} value={state.prevCarImg} onChange={updateState} required/>
 
          <label>Status:</label>
-         <Input name="status" placeholder={props.status} value={state.status} onChange={updateState} required/>
+         <Input className='searchInput' name="status" placeholder={props.status} value={state.status} onChange={updateState} required/>
 
          <label>Dream Car:</label>
-         <Input name="dreamCar" placeholder={props.dreamCar} value={state.dreamCar} onChange={updateState} required/>
+         <Input className='searchInput' name="dreamCar" placeholder={props.dreamCar} value={state.dreamCar} onChange={updateState} required/>
 
          <label>Dream car photo:</label>
-         <Input name="dreamCarImg" placeholder={props.dreamCarImg} value={state.dreamCarImg} onChange={updateState} required/>
+         <Input className='searchInput' name="dreamCarImg" placeholder={props.dreamCarImg} value={state.dreamCarImg} onChange={updateState} required/>
          
         <button className="customBttn" role="button">Update</button>
      

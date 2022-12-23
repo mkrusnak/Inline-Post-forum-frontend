@@ -106,7 +106,7 @@ const ListingDetails = () => {
 
 
           <div className="card searchInput" width="100%">
-  <div className="card-header">
+  <div className="card-header headerListing">
   <h4>{listing.makeModel}</h4>
   </div>
   <ul className="list-group list-group-flush">
@@ -183,63 +183,3 @@ const ListingDetails = () => {
 export default ListingDetails;
 
 
-
-  {/* <div className="col-lg-3 col-md-3 col-xs-3 thumb">
-                  <img
-                    className="img-responsive"
-                    width="400px"
-                    src={singleImg}
-                    alt="carPhoto"
-                  />
-                </div> */}
-
-
-
-
-
-
-                    {/* <div class="carImages ">
-
-        <div class="col-md-3 col-sm-6 col-xs-12 listingPad">
-       
-          <img alt="AltText" src={listing.imagesUrl[0]} class="img-responsive img-fluid carImg" />
-        
-        </div>
-
-        <div class="col-md-3 col-sm-6 col-xs-12 listingPad">
-       
-            <img  alt="AltText" src={listing.imagesUrl[1]} class="img-responsive img-fluid  carImg" />
-        
-        </div>
-
-        <div class="col-md-3 col-sm-6 col-xs-12 listingPad">
-        
-            <img src={listing.imagesUrl[2]} alt="AltText" class="img-responsive img-fluid  carImg" />
-       
-        </div>
-
-        <div class="col-md-3 col-sm-6 col-xs-12 listingPad">
-       
-            <img alt="AltText" src={listing.imagesUrl[3]} class="img-responsive img-fluid  carImg" />
-      
-        </div>
-
-
-       
-    </div> */}
-
-
-
-
-    {/* 
-                <div className="row carImages">
-          <div className="col-md-3 col-sm-6 col-xs-12">
-        
-            <img alt="AltText" src={singleImg} className="img-responsive carImg" />
-        
-       
-
-
-
-            </div>
-          </div> */}
