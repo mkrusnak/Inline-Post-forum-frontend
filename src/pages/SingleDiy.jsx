@@ -73,19 +73,13 @@ const SingleDiy = () => {
   };
 
   const linkmessage = `/diy/${diyId}`;
-  
 
   return (
     <>
-      
       <div className="listingDetails">
         {diyPost ? (
           <div className="diyDiv">
             <h2 className="headerText1">{diyPost.title}</h2>
-
-
-
-
 
             <div className="authorCard">
               <div className="authorImgDiv">
@@ -105,32 +99,9 @@ const SingleDiy = () => {
                   <strong>Posted:</strong> {diyPost.createdAtTime}
                 </p>
               </div>
-
-
-
-            
-
             </div>
 
-
-
-
-
-
-
-
-
-
-           
-
-
-
-
-
-
-
-
-            <p  className="description indent">{diyPost.description}</p>
+            <p className="description indent">{diyPost.description}</p>
             <p>
               Required tools: <strong>{diyPost.reqTools}</strong>{" "}
             </p>
@@ -138,56 +109,38 @@ const SingleDiy = () => {
 
             <YoutubeEmbed embedId={diyPost.video} />
 
-
-
-
-
-
-
-
             <div className="postAuthor">
+              {user._id === diyPost.author._id ? (
+                <button
+                  className="customBttn"
+                  role="button"
+                  onClick={deleteHandler}
+                >
+                  Delete Post
+                </button>
+              ) : (
+                <button
+                  className="customBttn"
+                  role="button"
+                  onClick={handleClickEdit}
+                >
+                  Contact
+                </button>
+              )}
+              {isShownEdit && (
+                <SendMessageComp
+                  // postId={linkmessage}
+                  to={diyPost.author._id}
+                  recipient={diyPost.author.username}
+                />
+              )}
 
-
-
-{user._id === diyPost.author._id ? (
-              <button
-                className="customBttn"
-                role="button"
-                onClick={deleteHandler}
-              >
-                Delete Post
-              </button>
-            ) : (
-              <button
-                className="customBttn"
-                role="button"
-                onClick={handleClickEdit}
-              >
-                Contact
-              </button>
-            )}
-            {isShownEdit && (
-              <SendMessageComp
-                // postId={linkmessage}
-                to={diyPost.author._id}
-                recipient={diyPost.author.username}
-              />
-            )}
-
-            <Link to={`/profile/${diyPost.author._id}`}>
-              <button className="customBttn" role="button">
-                View Profile
-              </button>
-            </Link>
-
-
-
-
-
-</div>
-
-
-
+              <Link to={`/profile/${diyPost.author._id}`}>
+                <button className="customBttn" role="button">
+                  View Profile
+                </button>
+              </Link>
+            </div>
 
             <h5>Comments: </h5>
 
@@ -211,42 +164,31 @@ const SingleDiy = () => {
                       </div>
                     </div>
 
+                    <div className="commentButtons">
+                      {user._id === comment.author._id ? null : (
+                        <button
+                          className="customBttn"
+                          role="button"
+                          onClick={handleClick(index)}
+                        >
+                          Message
+                        </button>
+                      )}
 
+                      <Link to={`/profile/${comment.author._id}`}>
+                        <button className="customBttn" role="button">
+                          View Profile
+                        </button>
+                      </Link>
+                    </div>
 
-<div className="commentButtons">
-
-
-
-
-
-                    {user._id === comment.author._id ? null : (
-                      <button
-                        className="customBttn"
-                        role="button"
-                        onClick={handleClick(index)}
-                      >
-                        Message
-                      </button>
-                    )}
-
-                  
-                    <Link to={`/profile/${comment.author._id}`}>
-                      <button className="customBttn" role="button">
-                        View Profile
-                      </button>
-                    </Link>
-
-</div>
-
-{isShown[index] && (
+                    {isShown[index] && (
                       <SendMessageComp
                         postId={linkmessage}
                         to={comment.author._id}
                         recipient={comment.author.username}
                       />
                     )}
-
-
                   </div>
                 </div>
               );

@@ -50,7 +50,7 @@ const ForumPostPage = () => {
     <div className="listingDetails">
       {forumPost ? (
         <div>
-        <div className="authorCard">
+          <div className="authorCard">
             <div className="authorImgDiv">
               <img
                 className="authorImg"
@@ -61,73 +61,43 @@ const ForumPostPage = () => {
             </div>
 
             <div className="authorText2">
-            <h3>{forumPost.subject}</h3>
-              <p>
-                User: {forumPost.author.username}
-              </p>
-              <p>
-                Posted: {forumPost.createdAtTime}
-              </p>
+              <h3>{forumPost.subject}</h3>
+              <p>User: {forumPost.author.username}</p>
+              <p>Posted: {forumPost.createdAtTime}</p>
             </div>
-        </div>
-          
-          <p className="indent description">{forumPost.body}</p>
+          </div>
 
-         
+          <p className="indent description">{forumPost.body}</p>
 
           {forumPost.video && <YoutubeEmbed embedId={forumPost.video} />}
 
           <h5>Comments:</h5>
 
-
-
           {forumPost.comments.map((comment, index) => {
-              return (
-                <div className="card w-100 commentDiv">
-                  <div className="card-body commentBody">
-                    <div className="comment">
-                      <div className="commentHead">
-                        <img
-                          className="authorImg"
-                          src={comment.author.profilePic}
-                          height="50px"
-                          alt="profilePic"
-                        />
-                      </div>
-
-                      <div className="commentText">
-                        <h6>
-                        <Link to={`/profile/${comment.author._id}`}>
-                      <a >
-                      {comment.author.username}
-                      </a>
-                    </Link>
-                        
-                        
-                        
-                        </h6>
-                        <p className="card-text">{comment.text}</p>
-                      </div>
+            return (
+              <div className="card w-100 commentDiv">
+                <div className="card-body commentBody">
+                  <div className="comment">
+                    <div className="commentHead">
+                      <img
+                        className="authorImg"
+                        src={comment.author.profilePic}
+                        height="50px"
+                        alt="profilePic"
+                      />
                     </div>
 
+                    <div className="commentText">
+                      <h6>
+                        <Link to={`/profile/${comment.author._id}`}>
+                          <a>{comment.author.username}</a>
+                        </Link>
+                      </h6>
+                      <p className="card-text">{comment.text}</p>
+                    </div>
+                  </div>
 
-
-<div className="commentButtons">
-
-
-
-
-
-                    {/* {user._id === comment.author._id ? null : (
-                      <button
-                        className="customBttn"
-                        role="button"
-                        onClick={handleClick(index)}
-                      >
-                        Message
-                      </button>
-                    )} */}
-
+                  <div className="commentButtons">
                     {isShown[index] && (
                       <SendMessageComp
                         postId={linkmessage}
@@ -135,60 +105,11 @@ const ForumPostPage = () => {
                         recipient={comment.author.username}
                       />
                     )}
-
-                    {/* <Link to={`/profile/${comment.author._id}`}>
-                      <button className="customBttn" role="button">
-                        View Profile
-                      </button>
-                    </Link> */}
-
-</div>
-
-
-
                   </div>
                 </div>
-              );
-            })}
-
-
-
-
-
-
-          {/* {forumPost.comments.map((comment, index) => {
-            return (
-              <>
-                <img src={comment.profilePic} width="50px" alt="profilePic" />
-                <h5>{comment.author.username}</h5>
-                <p>{comment.text}</p>
-
-                {user._id === comment.author._id ? null : (
-                  <button
-                    className="customBttn"
-                    role="button"
-                    onClick={handleClick(index)}
-                  >
-                    Message
-                  </button>
-                )}
-
-                {isShown[index] && (
-                  <SendMessageComp
-                    postId={forumId}
-                    to={comment.author._id}
-                    recipient={comment.author.username}
-                  />
-                )}
-
-                <Link to={`/profile/${comment.author._id}`}>
-                  <button className="customBttn" role="button">
-                    View Profile
-                  </button>
-                </Link>
-              </>
+              </div>
             );
-          })} */}
+          })}
 
           <AddCommentForum postId={forumPost._id} />
         </div>

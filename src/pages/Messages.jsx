@@ -2,13 +2,10 @@ import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 import { useContext } from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import SendMessageComp from "../components/SendMessage";
-// import { message } from "antd";
 
 const Messages = () => {
-  // const [isShown, setIsShown] = useState(false);
-
   const [isShown, setIsShown] = useState([]);
 
   const handleClick = (index) => (e) => {
@@ -17,17 +14,11 @@ const Messages = () => {
     setIsShown(copy);
   };
 
-  // const handleClick = (e) => {
-  //   setIsShown((current) => !current);
-  // };
-
   const { user } = useContext(AuthContext);
 
   const [messagesArr, setMessagesArr] = useState([]);
 
   useEffect(() => {
-    // console.log(user)
-
     if (user) {
       axios
         .get(`${import.meta.env.VITE_BACKEND_URL}/messages/${user._id}`, {
@@ -43,16 +34,10 @@ const Messages = () => {
     }
   }, [user]);
 
-
-
   // const linkmessage = `/diy/${diyId}`;
-
-
 
   return (
     <div className="listingDetails">
-      {/* <h1 className="headerText1">Messages</h1> */}
-
       {messagesArr.map((singleMessage, index) => {
         return (
           <div className="messagesList">
@@ -83,30 +68,17 @@ const Messages = () => {
               </div>
             </div>
 
-
-
-<div className="messageBttn2"> 
-
-
-{user._id === singleMessage.sender._id ? null : (
-              <button
-                className="customBttn"
-                role="button"
-                onClick={handleClick(index)}
-              >
-                Reply
-              </button>
-            )}
-
-
-</div>
-
-           
-
-
-
-
-
+            <div className="messageBttn2">
+              {user._id === singleMessage.sender._id ? null : (
+                <button
+                  className="customBttn"
+                  role="button"
+                  onClick={handleClick(index)}
+                >
+                  Reply
+                </button>
+              )}
+            </div>
 
             {isShown[index] && (
               <SendMessageComp

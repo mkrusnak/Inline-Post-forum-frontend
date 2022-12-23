@@ -88,137 +88,121 @@ const UserProfilePage = () => {
     <div className="ProjectDetails">
       {profile ? (
         <div className="listingDetails">
+          <div className="card1" width="100">
+            <img
+              className="card-img-top img-fluid noRadiusImg"
+              src={profile.profilePic}
+              alt="profilepic"
+            />
+            <div className="card-body">
+              <h3 className="card-title">{profile.username}</h3>
+              <h6 className="card-text">"{profile.status}.."</h6>
+            </div>
+            <ul className="list-group list-group-flush noBorder profileList">
+              <li className="list-group-item noBorder">
+                Location: {profile.city}, {profile.state}
+              </li>
+              <li className="list-group-item noBorder">
+                Joined: {profile.createdAtTime}
+              </li>
+            </ul>
+            <div className="card-body">
+              {user._id !== profile._id && user.admin && !profile.admin && (
+                <button
+                  className="customBttn"
+                  role="button"
+                  onClick={handleSubmitGiveAdmin}
+                >
+                  Make admin
+                </button>
+              )}
 
+              {user._id !== profile._id && user.admin && profile.admin && (
+                <button
+                  className="customBttn"
+                  role="button"
+                  onClick={handleSubmitRemoveAdmin}
+                >
+                  Remove admin
+                </button>
+              )}
 
-        <div className="card1" width="100">
-  <img className="card-img-top img-fluid noRadiusImg"  src={profile.profilePic}
-   alt="profilepic" />
-  <div className="card-body">
-    <h3 className="card-title">{profile.username}</h3>
-    <h6 className="card-text">"{profile.status}.."</h6>
-  </div>
-  <ul className="list-group list-group-flush noBorder profileList">
-    
-    <li className="list-group-item noBorder">Location: {profile.city}, {profile.state}</li>
-    <li className="list-group-item noBorder">Joined: {profile.createdAtTime}</li>
+              {user._id === profile._id ? null : (
+                <button
+                  className="customBttn"
+                  role="button"
+                  onClick={handleClick}
+                >
+                  Message
+                </button>
+              )}
+              {user._id === profile._id ? (
+                <button
+                  className="customBttn"
+                  role="button"
+                  onClick={handleClickEdit}
+                >
+                  Update profile
+                </button>
+              ) : null}
+            </div>
+          </div>
 
-  </ul>
-  <div className="card-body">
-   
-  {user._id !== profile._id && user.admin && !profile.admin && (
-            <button
-              className="customBttn"
-              role="button"
-              onClick={handleSubmitGiveAdmin}
-            >
-              Make admin
-            </button>
-          )}
-
-          {user._id !== profile._id && user.admin && profile.admin && (
-            <button
-              className="customBttn"
-              role="button"
-              onClick={handleSubmitRemoveAdmin}
-            >
-              Remove admin
-            </button>
-          )}
-
-
-
-          {user._id === profile._id ? null : (
-            <button className="customBttn" role="button" onClick={handleClick}>
-              Message
-            </button>
-          )}
-          {user._id === profile._id ? (
-            <button
-              className="customBttn"
-              role="button"
-              onClick={handleClickEdit}
-            >
-              Update profile
-            </button>
-          ) : null}
-
-  </div>
-</div>
-
-
-
-
-
-
-{isShown && (
+          {isShown && (
             <SendMessageComp to={profile._id} recipient={profile.username} />
           )}
 
-        
-
-        
-
-         
           {profile.drivingNow ? (
             <>
-              
+              <div className="row carsList">
+                <div className="col-12 col-md-6 col-lg-4 mb-4 userCar">
+                  <div className="card carImage noBorder">
+                    <img
+                      className="card-img-top noRadiusImg img-fluid"
+                      src={profile.drivingNowImg}
+                      alt="car"
+                    />
+                    <div className="card-body">
+                      <p className="card-text">
+                        Driving now: {profile.drivingNow}
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
+                <div className="col-12 col-md-6 col-lg-4 mb-4 userCar">
+                  <div className="card carImage noBorder">
+                    <img
+                      className="card-img-top noRadiusImg img-fluid"
+                      src={profile.dreamCarImg}
+                      alt="car"
+                    />
+                    <div className="card-body">
+                      <p className="card-text">Dream car: {profile.dreamCar}</p>
+                    </div>
+                  </div>
+                </div>
 
-
-
-
-            <div className="row carsList">
-
-
-<div className="col-12 col-md-6 col-lg-4 mb-4 userCar">
-    <div className="card carImage noBorder">
-      <img className="card-img-top noRadiusImg img-fluid" src={profile.drivingNowImg} alt="car"/>
-      <div className="card-body">
-        <p className="card-text">Driving now: {profile.drivingNow}</p>
-      </div>
-    </div>
-  </div>
- 
-  <div className="col-12 col-md-6 col-lg-4 mb-4 userCar">
-    <div className="card carImage noBorder">
-      <img className="card-img-top noRadiusImg img-fluid" src={profile.dreamCarImg} alt="car"/>
-      <div className="card-body">
-        <p className="card-text">Dream car: {profile.dreamCar}</p>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div className="col-12 col-md-6 col-lg-4 mb-4 userCar">
-    <div className="card carImage noBorder">
-      <img className="card-img-top noRadiusImg img-fluid" src={profile.prevCarImg} alt="car"/>
-      <div className="card-body">
-        <p className="card-text">First car: {profile.prevCar}</p>
-      </div>
-    </div>
-  </div>
-
-
-
-
-</div>
-
+                <div className="col-12 col-md-6 col-lg-4 mb-4 userCar">
+                  <div className="card carImage noBorder">
+                    <img
+                      className="card-img-top noRadiusImg img-fluid"
+                      src={profile.prevCarImg}
+                      alt="car"
+                    />
+                    <div className="card-body">
+                      <p className="card-text">First car: {profile.prevCar}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </>
           ) : null}
-        
-
-         
-
-
-
-
-
 
           {isShownEdit && (
             <ProfileSettings
-            state={profile.state}
-            city={profile.city}
+              state={profile.state}
+              city={profile.city}
               profilePic={profile.profilePic}
               drivingNow={profile.drivingNow}
               drivingNowImg={profile.drivingNowImg}

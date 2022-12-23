@@ -32,72 +32,50 @@ const HomePage = () => {
 
   return (
     <>
-    <div className="headerText1">
-    {/* <h4 className="headerText1">LATEST ARTICLES</h4> */}
-    </div>
-      
-      {/* <div className="listingDetails">
-
-      {user &&
-        <button onClick={handleClick} className="customBttn" role="button">
-          Add Article
-        </button>
-      }
-      </div> */}
-
-      
+      <div className="headerText1"></div>
 
       {isShown && <AddNewsArticle />}
 
       <section id="gallery">
-        
-      <div className="col-lg-8 mb-6 articleCard"></div>
-            
-              {myNews.map((single) => {
-                return (
-                  <>
-                  <div className="row newsCard">
-                  
+        <div className="col-lg-8 mb-6 articleCard"></div>
 
+        {myNews.map((single) => {
+          return (
+            <>
+              <div className="row newsCard">
+                <div key={single._id} className="card newsCard noRadius">
+                  <img
+                    src={single.image}
+                    width="400px"
+                    alt="carimg"
+                    className="card-img-top noRadius"
+                  />
+                </div>
 
-                    <div key={single._id} className="card newsCard noRadius">
-                      <img src={single.image} width="400px" alt="carimg" className="card-img-top noRadius" />
-                      </div>
-                      
-                      
-                      
-                      
-                      
-                      <div className="card-body ">
-                        <h3 className="card-title newsTitle">{single.title}</h3>
-                        <p className="card-text newsTitle">{single.text}</p>
-                        <p className="card-text newsTitle">{single.createdAtTime}</p>
+                <div className="card-body ">
+                  <h3 className="card-title newsTitle">{single.title}</h3>
+                  <p className="card-text newsTitle">{single.text}</p>
+                  <p className="card-text newsTitle">{single.createdAtTime}</p>
 
-                        <a
-                          href={single.link}
-                          className="customBttn"
-                          target="_blank"
-                          role="button"
-                        >
-                          Read More
-                        </a>
+                  <a
+                    href={single.link}
+                    className="customBttn"
+                    target="_blank"
+                    role="button"
+                  >
+                    Read More
+                  </a>
 
-                        <Link  to={`/profile/${single.author._id}`} >
-                     <button className="customBttn" role="button">Posted by: {single.author.username}</button>
-             </Link>
-
-
-
-</div>
-                      </div>
-                    
-                    
-                  </>
-                );
-              })}
-            
-              
-        
+                  <Link to={`/profile/${single.author._id}`}>
+                    <button className="customBttn" role="button">
+                      Posted by: {single.author.username}
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </>
+          );
+        })}
       </section>
     </>
   );

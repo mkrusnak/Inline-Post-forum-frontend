@@ -67,62 +67,69 @@ const ListingDetails = () => {
 
   return (
     <div className="listingDetails">
-      {/* <h1 className="headerText1">Listing details</h1> */}
-
       {listing ? (
         <div>
           <h3 className="headerText1">{listing.title}</h3>
-         
 
           <div class="row1">
             {listing.imagesUrl.map((singleImg) => {
               return (
-
-
                 <div class="column1">
-    <img src={singleImg} alt="Snow" width="100%" />
-  </div>
-
-            
-
-
-
-
-
-
-
-
-
-              
+                  <img src={singleImg} alt="Snow" width="100%" />
+                </div>
               );
             })}
-         </div>
+          </div>
 
-<div className="description">
-          <p>{listing.description}</p>
-</div>
-
-
-
+          <div className="description">
+            <p>{listing.description}</p>
+          </div>
 
           <div className="card searchInput" width="100%">
-  <div className="card-header headerListing">
-  <h4>{listing.makeModel}</h4>
-  </div>
-  <ul className="list-group list-group-flush">
-    <li className="list-group-item"><h6><strong>Mileage:</strong> {listing.odometr} mi</h6></li>
-    <li className="list-group-item"><h6><strong>Year:</strong> {listing.year}</h6></li>
-    <li className="list-group-item"><h6><strong>Price:</strong> {listing.price} $</h6></li>
-    <li className="list-group-item"><h6><strong>Known flaws:</strong> {listing.knownFlaws}</h6></li>
-   
-    <li className="list-group-item"><h6><strong>Accepting trades:</strong> {listing.tradeOk ? <p>Yes</p> : <p>No</p>}</h6></li>
-    <li className="list-group-item"><h6><strong>Seller:</strong> {listing.owner.username}</h6></li>
-    <li className="list-group-item"><h6><strong>Loaction:</strong> {listing.owner.city}, {listing.owner.state}</h6></li>
+            <div className="card-header headerListing">
+              <h4>{listing.makeModel}</h4>
+            </div>
+            <ul className="list-group list-group-flush">
+              <li className="list-group-item">
+                <h6>
+                  <strong>Mileage:</strong> {listing.odometr} mi
+                </h6>
+              </li>
+              <li className="list-group-item">
+                <h6>
+                  <strong>Year:</strong> {listing.year}
+                </h6>
+              </li>
+              <li className="list-group-item">
+                <h6>
+                  <strong>Price:</strong> {listing.price} $
+                </h6>
+              </li>
+              <li className="list-group-item">
+                <h6>
+                  <strong>Known flaws:</strong> {listing.knownFlaws}
+                </h6>
+              </li>
 
- 
-  </ul>
-</div>
-
+              <li className="list-group-item">
+                <h6>
+                  <strong>Accepting trades:</strong>{" "}
+                  {listing.tradeOk ? <p>Yes</p> : <p>No</p>}
+                </h6>
+              </li>
+              <li className="list-group-item">
+                <h6>
+                  <strong>Seller:</strong> {listing.owner.username}
+                </h6>
+              </li>
+              <li className="list-group-item">
+                <h6>
+                  <strong>Loaction:</strong> {listing.owner.city},{" "}
+                  {listing.owner.state}
+                </h6>
+              </li>
+            </ul>
+          </div>
 
           <Link to={`/profile/${listing.owner._id}`}>
             <button className="customBttn" role="button">
@@ -181,5 +188,3 @@ const ListingDetails = () => {
 };
 
 export default ListingDetails;
-
-

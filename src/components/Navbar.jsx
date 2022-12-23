@@ -2,17 +2,13 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import headerImg from "../assets/header.jpeg";
-import headerImage from '../assets/head4.jpeg'
-import img5 from '../assets/img5.jpeg'
-
-// import {useParams} from 'react-router-dom'
 
 function Navbar() {
   const { user, isLoggedIn, logOutUser } = useContext(AuthContext);
 
   return (
     <header className="headerImage">
-      <img classname="img-fluid"  src={headerImg} alt="headerImg"></img>
+      <img classname="img-fluid" src={headerImg} alt="headerImg"></img>
 
       <nav className="navbar customNav customNav1  navbar-expand-lg  navbar-light">
         <Link className="navbar-brand" to="/home">
@@ -33,8 +29,6 @@ function Navbar() {
 
         <div className="collapse navbar-collapse " id="navbarText">
           <ul className="navbar-nav mr-auto navLeft">
-           
-
             {!isLoggedIn && (
               <>
                 <li className="nav-item ">
@@ -53,10 +47,6 @@ function Navbar() {
 
             {isLoggedIn && (
               <>
-              
-
-               
-
                 <ul className="nav-item dropdown customNav2">
                   <a
                     className="nav-link dropdown-toggle"
@@ -69,7 +59,10 @@ function Navbar() {
                   >
                     Marketplace
                   </a>
-                  <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <div
+                    className="dropdown-menu"
+                    aria-labelledby="navbarDropdown"
+                  >
                     <li className="nav-item ">
                       <Link className="nav-link" to="/listings">
                         Browse Listings
@@ -95,7 +88,10 @@ function Navbar() {
                   >
                     Do It Yourself
                   </a>
-                  <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <div
+                    className="dropdown-menu"
+                    aria-labelledby="navbarDropdown"
+                  >
                     <li className="nav-item ">
                       <Link className="nav-link" to="/diy">
                         Browse DIY's

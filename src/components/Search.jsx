@@ -1,30 +1,30 @@
 import { useState } from "react";
-import { Divider, Input } from 'antd';
+import { Input } from "antd";
 
-
-function Search (props) {
-
-  const {searchPosts} = props;
+function Search(props) {
+  const { searchPosts } = props;
 
   const [searchWord, setSearchWord] = useState("");
 
   const searchHandler = (event) => {
-    setSearchWord(event.target.value)
-    searchPosts(event.target.value)
-  }
+    setSearchWord(event.target.value);
+    searchPosts(event.target.value);
+  };
 
- return (
+  return (
     <div className="searchBar">
-     
-
       <div className="input-group rounded">
-  <Input placeholder="Search.." type="search" className="form-control rounded searchInput" value={searchWord}  onChange={searchHandler}  aria-label="Search" aria-describedby="search-addon" />
-  
-</div>
+        <Input
+          placeholder="Search.."
+          type="search"
+          className="form-control rounded searchInput"
+          value={searchWord}
+          onChange={searchHandler}
+          aria-label="Search"
+          aria-describedby="search-addon"
+        />
+      </div>
 
-
-
-      
       {/* <Input value={searchWord} type="text" onChange={searchHandler} /> */}
     </div>
   );
