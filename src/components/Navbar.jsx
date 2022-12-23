@@ -8,10 +8,10 @@ function Navbar() {
   const { user, isLoggedIn, logOutUser } = useContext(AuthContext);
 
   return (
-    <header>
+    <header className="headerImage">
       <img src={headerImg} alt="headerImg"></img>
 
-      <nav className="navbar customNav customNav1 navbar-expand-lg sticky-top navbar-light">
+      <nav className="navbar customNav customNav1  navbar-expand-lg  navbar-light">
         <Link className="navbar-brand" to="/home">
           Inline-Post
         </Link>

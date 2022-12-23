@@ -51,7 +51,7 @@ const Messages = () => {
 
   return (
     <div className="listingDetails">
-      <h1 className="headerText1">Messages</h1>
+      {/* <h1 className="headerText1">Messages</h1> */}
 
       {messagesArr.map((singleMessage, index) => {
         return (

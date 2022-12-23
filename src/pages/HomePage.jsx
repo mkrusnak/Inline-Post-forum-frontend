@@ -33,7 +33,7 @@ const HomePage = () => {
   return (
     <>
     <div className="headerText1">
-    <h4 className="headerText1">LATEST ARTICLES</h4>
+    {/* <h4 className="headerText1">LATEST ARTICLES</h4> */}
     </div>
       
       {/* <div className="listingDetails">
