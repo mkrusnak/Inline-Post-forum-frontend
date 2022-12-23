@@ -1,3 +1,121 @@
+
+.newsCard {
+        box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.195);
+        border-radius: 2;
+}
+
+.listingDetails {
+    margin: 40px;
+    margin-top: 10px;
+}
+
+.listingDetails img {
+    margin: 15px;
+}
+
+.commentHead {
+  display: flex;
+  flex-direction: row;
+}
+
+.comment {
+  display: flex;
+
+}
+
+.commentText {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.commentDiv {
+  margin-top: 15px;
+  box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.195);
+}
+
+.commentBody {
+  padding: 15px;
+
+}
+
+.authorImg {
+  margin: 0px;
+  padding: 0px;
+  clip-path: circle();
+}
+
+.posts {
+  margin-top: 20px;
+  box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.059);
+}
+
+.authorCard {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.authorImgDiv {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+.authorText {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  padding-bottom: 0px;
+  margin-top: 32px;
+  
+}
+
+.authorText p {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.addDiyForm {
+    margin: 30px;
+    margin-top: 5px;
+}
+
+.headerText1 {
+    display: flex;
+    justify-content: center;
+    font-family: monospace;
+
+}
+
+.searchBar {
+ margin-left: 40px;
+ margin-right: 40px;
+ margin-bottom: 5px;
+
+}
+
+label {
+  margin-top: 8px;
+}
+
+
+.searchInput {
+    box-shadow: 5px 5px rgba(128, 128, 128, 0.081);
+}
+
+
+.marketplaceGroup {
+    margin: 10px;
+    margin-bottom: 50px;
+}
+
+.marketCard {
+    margin: 25px;
+    box-shadow: 7px 7px rgba(128, 128, 128, 0.081);
+}
+
 .customNav {
     background: white;
 }
@@ -11,46 +129,18 @@
     padding-left: 25px;
 }
 
-
-
-
-
-/* .customBttn {
-  background-color: #222;
-  border-radius: 4px;
-  border-style: none;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.5;
-  margin: 0;
-  max-width: none;
-  min-height: 44px;
-  min-width: 10px;
-  outline: none;
-  overflow: hidden;
-  padding: 9px 20px 8px;
-  position: relative;
-  text-align: center;
-  text-transform: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: 100%;
+.description {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 50;
+  text-indent: 30px;
 }
 
-.customBttn:hover,
-.customBttn:focus {
-  opacity: .75;
-} */
+.indent {
+  text-indent: 30px;
+}
 
 
-
-/* CSS */
 .customBttn {
   background-color: #e1ecf4;
   border-radius: 3px;
@@ -64,7 +154,7 @@
   font-size: 13px;
   font-weight: 400;
   line-height: 1.15385;
-  margin: 0;
+  margin: 15px 15px 15px 0px;
   outline: none;
   padding: 8px .8em;
   position: relative;
@@ -95,42 +185,6 @@
 
 
 
-
-/* 
-.customBttn {
-    align-items: center;
-    appearance: button;
-    background-color: #0276FF;
-    border-radius: 8px;
-    border-style: none;
-    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    flex-shrink: 0;
-    font-family: "RM Neue",sans-serif;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-    padding: 10px 21px;
-    text-align: center;
-    text-transform: none;
-    transition: color .13s ease-in-out, background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-  }
-  
-  .customBttn:active {
-    background-color: #006AE8;
-  }
-  
-  .customBttn:hover {
-    background-color: #1C84FF;
-  } */
-
   button a {
     color: #39739d;
     text-decoration: none;
@@ -141,22 +195,22 @@ header img {
     list-style: none;
 }
 
-/* button a {
-    text-decoration: none;
-    color: black;
-} */
 
 .video-responsive {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center; */
+
     overflow: hidden;
-    padding-bottom: 56.25%;
-    position: relative;
-    height: 0;
+    /* padding-bottom: 56.25%; */
+    
+    position:sticky;
+    height: 600px;
   }
   
   .video-responsive iframe {
     left: 0;
     top: 0;
-    /* width: ; */
     position: absolute;
   }
 

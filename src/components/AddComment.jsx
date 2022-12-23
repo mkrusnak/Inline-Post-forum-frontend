@@ -49,7 +49,7 @@ const AddComment = (props) => {
      <form onSubmit={submitFormHandler} >
 
          <label>Add comment: </label>
-         <Input name="text"  value={state.text} onChange={updateState}/>
+         <Input className='searchInput' name="text"  value={state.text} onChange={updateState}/>
 
          <button className="customBttn" role="button">Post</button>
      

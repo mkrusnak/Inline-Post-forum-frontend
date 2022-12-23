@@ -9,32 +9,14 @@ const MarketplacePage = (props) => {
     const [myPosts, setMyPosts] = useState([]);
     const [myPostsCopy, setMyPostsCopy] = useState(myPosts);
   
-
-    // const [listingsArr, setListingsArr] = useState([])
-
-
-
-
     const searchPosts = (word) => {
         console.log(word)
           const results = myPostsCopy.filter((el) => {
-            // console.log('here element' , el)
+       
           return el.makeModel.toLowerCase().includes(word.toLowerCase());
         })
         setMyPosts(results);
       }
-  
-
-
-//   const searchPosts = (word) => {
-//     console.log(word)
-//       const results = myPostsCopy.filter((el) => {
-//         // console.log('here element' , el)
-//       return el.title.toLowerCase().includes(word.toLowerCase());
-//     })
-//     setMyPosts(results);
-//   }
-
 
 useEffect(() => {
     axios.get(`${import.meta.env.VITE_BACKEND_URL}/listings`, {
@@ -52,17 +34,9 @@ useEffect(() => {
 }, [])
 
 
-
-
-
-// const [myPosts, setMyPosts] = useState(listingsArr);
-// const [myPostsCopy, setMyPostsCopy] = useState(listingsArr);
-
-
-
     return(
         <div>
-        <h1>MARKETPLACE </h1>
+        <h1 className="headerText1">MARKETPLACE </h1>
 
 
 
@@ -73,11 +47,36 @@ useEffect(() => {
         
         
         
-        
+        <div className="card-group marketplaceGroup">
         {myPosts.map( single => {
             return (
                 <>
-                <h3>Title: {single.title}</h3>
+
+
+
+                <div key={single._id} className="card marketCard">
+    <img className="card-img-top" src={single.imagesUrl[0]} alt="Card image cap" />
+    <div className="card-body">
+      <h4 className="card-title">{single.makeModel}</h4>
+      <p className="card-text">{single.title}</p>
+      <p className="card-text">Mileage: {single.odometr} mi</p>
+      <h6>Price: {single.price}$</h6>
+      <h6>Seller: {single.owner.username}</h6>
+      
+      <Link to={`/listings/${single._id}`}>
+                     <button className="customBttn" role="button">More details</button>
+                </Link>
+    </div>
+    <div className="card-footer">
+      <small className="text-muted">Posted: {single.createdAtTime}</small>
+     
+    </div>
+  </div>
+
+
+
+
+                {/* <h3>Title: {single.title}</h3>
                 <h3>Make / model: {single.makeModel}</h3>
                 <h4>Seller: {single.owner.username}</h4>
                 <img src={single.imagesUrl[0]} width="300px" alt="photo" />
@@ -91,10 +90,11 @@ useEffect(() => {
                 <Link to={`/listings/${single._id}`}>
                      <button className="customBttn" role="button">More details</button>
                 </Link>
-                </div>
+                </div> */}
                 </>
                 )
         })}
+        </div>
         </div>
     )
 }

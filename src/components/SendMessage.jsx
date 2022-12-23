@@ -57,10 +57,10 @@ const navigate = useNavigate()
    <form onSubmit={submitFormHandler}>
 
        <label>Subject: </label>
-       <Input name="subject" type="text" value={state.subject}  onChange={updateState} required/>
+       <Input className='searchInput' name="subject" type="text" value={state.subject}  onChange={updateState} required/>
 
-       <label>Body: </label>
-       <Input name="body" type="text" value={state.body} onChange={updateState} required/>
+       <label>Message: </label>
+       <Input className='searchInput' name="body" type="text" value={state.body} onChange={updateState} required/>
 
       <button className="customBttn" role="button">Send</button>
    

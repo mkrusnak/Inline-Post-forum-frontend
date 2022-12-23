@@ -65,30 +65,31 @@ const handleSubmit = e => {
 
     return(
         <>
-    <div>
-    <h1>Add your DIY</h1>
+    <div className='addDiyForm'>
+     <h1 className="headerText1" >Add your DIY</h1>
+   
      <form onSubmit={handleSubmit}>
 
          <label>Title: </label>
-         <Input name="title" value={state.title} onChange={updateState}/>
+         <Input className="searchInput" name="title" value={state.title} onChange={updateState}/>
 
          <label>Required tools: </label>
-         <Input name="reqTools" value={state.reqTools} onChange={updateState}/>
+         <Input className="searchInput" name="reqTools" value={state.reqTools} onChange={updateState}/>
 
          <label>Time to complete(minutes): </label>
-         <Input name="time" type="number" value={state.time} onChange={updateState}/>
+         <Input className="searchInput" name="time" type="number" value={state.time} onChange={updateState}/>
 
          <label>Video: </label>
-         <Input name="video" type="text" value={state.video} onChange={updateState}/>
+         <Input className="searchInput" name="video" type="text" value={state.video} onChange={updateState}/>
           
           <label>Description:</label>
-          <Input name="description" value={state.description} onChange={updateState}/>
+          <Input className="searchInput" name="description" value={state.description} onChange={updateState}/>
 
          {imagesArr.map((img, index) => {
           return (
             <>
               <label>Image #{index + 1}:</label>
-              <Input name="imageUrl" value={imagesArr[index]} onChange={updateImagesArr(index)}/>
+              <Input className="searchInput" name="imageUrl" value={imagesArr[index]} onChange={updateImagesArr(index)}/>
               <button className="customBttn" role="button" onClick={decreaseImagesArr(index)}>Delete Image</button>
             </>
             

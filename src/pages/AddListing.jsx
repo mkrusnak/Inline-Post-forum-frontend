@@ -69,53 +69,43 @@ const handleSubmit = e => {
 
     return(
         <>
-    <div>
-    <h1>Add your listing</h1>
+    <div className="addDiyForm ">
+    <h1 className="headerText1">Add your listing</h1>
      <form onSubmit={handleSubmit}>
 
          <label>Title:</label>
-         <Input name="title" value={state.title} onChange={updateState} required/>
+         <Input  className="searchInput" name="title" value={state.title} onChange={updateState} required/>
 
          <label>Make / model:</label>
-         <Input name="makeModel" value={state.makeModel} onChange={updateState} required/>
+         <Input  className="searchInput" name="makeModel" value={state.makeModel} onChange={updateState} required/>
 
          <label>Year:</label>
-         <Input name="year" type="number" value={state.year} onChange={updateState} required/>
+         <Input  className="searchInput" name="year" type="number" value={state.year} onChange={updateState} required/>
 
          <label>Mileage:</label>
-         <Input name="odometr" type="number" value={state.odometr} onChange={updateState} required/>
+         <Input  className="searchInput" name="odometr" type="number" value={state.odometr} onChange={updateState} required/>
           
           <label>Description:</label>
-          <Input name="description" value={state.description} onChange={updateState} required/>
-         {imagesArr.map((img, index) => {
-          return (
-            <>
-              <label>Image #{index + 1}:</label>
-              <Input name="imageUrl" value={imagesArr[index]} onChange={updateImagesArr(index)}/>
-              <button className="customBttn" role="button" onClick={decreaseImagesArr(index)}>Delete Image</button>
-            </>
-            
-          );
-         })}
+          <Input   className="searchInput" name="description" value={state.description} onChange={updateState} required/>
+     
 
 
 
 
-           <button className="customBttn" role="button" onClick={increaseImagesArr}>Add More</button> 
+           
 
        
 
       
 <br></br>
          <label>Price:</label>
-         <Input name="price" type="number" value={state.price} onChange={updateState} required/>
+         <Input  className="searchInput" name="price" type="number" value={state.price} onChange={updateState} required/>
 
          <label>Known flaws:</label>
-         <Input name="knownFlaws" value={state.knownFlaws} onChange={updateState} required/>
+         <Input  className="searchInput" name="knownFlaws" value={state.knownFlaws} onChange={updateState} required/>
 
          <label>Accepting trades:</label>
-         <Input type="checkbox" name="tradeOk" value={state.tradeOk} onChange={e => {
-          //console.log('current value', state.tradeOk, 'new value', !state.tradeOk)
+         <Input  type="checkbox" name="tradeOk" value={state.tradeOk} onChange={e => {
           updateState({
             target: {
               name: 'tradeOk',
@@ -124,8 +114,26 @@ const handleSubmit = e => {
           })
          }}/>
 
+
+
+         {imagesArr.map((img, index) => {
+          return (
+            <>
+              <label>Image #{index + 1}:</label>
+              <Input  className="searchInput" name="imageUrl" value={imagesArr[index]} onChange={updateImagesArr(index)}/>
+              <button className="customBttn" role="button" onClick={decreaseImagesArr(index)}>Delete Image</button>
+            </>
+            
+          );
+         })}
+
+
+
+      
+
+         <button className="customBttn" role="button" onClick={increaseImagesArr}>Add More</button> 
         <button className="customBttn" role="button">Post</button>
-     
+       
      </form>
   </div>
     </>
