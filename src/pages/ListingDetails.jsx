@@ -124,7 +124,7 @@ const ListingDetails = () => {
               </li>
               <li className="list-group-item">
                 <h6>
-                  <strong>Loaction:</strong> {listing.owner.city},{" "}
+                  <strong>Location:</strong> {listing.owner.city},{" "}
                   {listing.owner.state}
                 </h6>
               </li>
