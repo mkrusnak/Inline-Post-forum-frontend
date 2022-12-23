@@ -45,20 +45,20 @@ const UpdateListing = (props) => {
     return(
         <>
     <div>
-    <h1>Update your listing:</h1>
+    <h5>Update your listing:</h5>
      <form onSubmit={submitFormHandler}>
 
          <label>Title: </label>
-         <Input name="title" value={state.title}  onChange={updateState} required/>
+         <Input className='searchInput' name="title" value={state.title}  onChange={updateState} required/>
 
          <label>Price: </label>
-         <Input name="price" type="number" value={state.price} onChange={updateState} required/>
+         <Input className='searchInput' name="price" type="number" value={state.price} onChange={updateState} required/>
 
          <label>Mileage:</label>
-         <Input name="odometr" type="number" value={state.odometr} onChange={updateState} required/>
+         <Input className='searchInput' name="odometr" type="number" value={state.odometr} onChange={updateState} required/>
           
           <label>Description:</label>
-          <Input name="description" value={state.description} onChange={updateState} required/>
+          <Input className='searchInput' name="description" value={state.description} onChange={updateState} required/>
        
 
         <button className="customBttn" role="button">Update</button>

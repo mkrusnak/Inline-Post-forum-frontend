@@ -13,25 +13,70 @@
     margin: 15px;
 }
 
-.commentHead {
+
+.noRadius {
+  border-radius: 0px;
+}
+
+
+.commentButtons {
   display: flex;
   flex-direction: row;
+justify-content: end;
+}
+
+.commentHead {
+
+  display: flex;
+  flex-direction: row;
+
+}
+.noBorder {
+  border: 0px;
 }
 
 .comment {
   display: flex;
-
+flex-direction: row;
 }
+
+.card1 {
+  display: flex;
+  flex-direction: row;
+  box-shadow: 2px 2px 2px 2px rgba(35, 13, 9, 0.195);
+}
+
+.card1 img {
+  width: 25%;
+  /* box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.195); */
+}
+
+.newsTitle {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.cardText  {
+  padding: 5px;
+  margin: 5px;
+}
+
+.cardText1  {
+  padding: 0px;
+  margin: 0px;
+}
+
 
 .commentText {
   display: flex;
   flex-direction: column;
   align-self: center;
+
 }
 
 .commentDiv {
   margin-top: 15px;
-  box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.195);
+  box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.159);
+  border-radius: 0px;
 }
 
 .commentBody {
@@ -61,7 +106,14 @@
   padding: 0px;
 }
 
+.authorText2 h3 {
+  margin: 0px
+}
 
+
+.authorText2 p {
+  margin: 0px;
+}
 
 .authorText {
   display: flex;
@@ -85,7 +137,7 @@
 .headerText1 {
     display: flex;
     justify-content: center;
-    font-family: monospace;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
 
@@ -96,14 +148,30 @@
 
 }
 
+
+
 label {
   margin-top: 8px;
 }
+
+.forumBttnDiv {
+margin-left: 50px;
+}
+
+.forumItem {
+  display: flex;
+  flex-direction: column;
+  /* align-items: stretch; */
+
+}
+
+
 
 
 .searchInput {
     box-shadow: 5px 5px rgba(128, 128, 128, 0.081);
 }
+
 
 
 .marketplaceGroup {
@@ -116,18 +184,37 @@ label {
     box-shadow: 7px 7px rgba(128, 128, 128, 0.081);
 }
 
-.customNav {
-    background: white;
+
+.bttnForum1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
 }
+
+
+
+
+
 .customNav {
-    font-weight: 700;
+    /* font-weight: 550; */
     /* height: 160px; */
     padding-left: 0;
-
+margin-left: 30px;
+margin-right:20px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .customNav1 {
     padding-left: 25px;
 }
+
+
+.postAuthor {
+  
+  padding-left: 10px;
+}
+
+
+
 
 .description {
   text-align: left;

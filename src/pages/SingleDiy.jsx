@@ -77,19 +77,15 @@ const SingleDiy = () => {
 
   return (
     <>
-      <h1 className="headerText1">DIY PAGE</h1>
+      
       <div className="listingDetails">
         {diyPost ? (
           <div className="diyDiv">
             <h2 className="headerText1">{diyPost.title}</h2>
 
-            <p  className="description indent">{diyPost.description}</p>
-            <p>
-              Required tools: <strong>{diyPost.reqTools}</strong>{" "}
-            </p>
-            <p>Time to complete: {diyPost.time} minutes.</p>
 
-            <YoutubeEmbed embedId={diyPost.video} />
+
+
 
             <div className="authorCard">
               <div className="authorImgDiv">
@@ -109,9 +105,51 @@ const SingleDiy = () => {
                   <strong>Posted:</strong> {diyPost.createdAtTime}
                 </p>
               </div>
+
+
+
+            
+
             </div>
 
-            {user._id === diyPost.author._id ? (
+
+
+
+
+
+
+
+
+
+           
+
+
+
+
+
+
+
+
+            <p  className="description indent">{diyPost.description}</p>
+            <p>
+              Required tools: <strong>{diyPost.reqTools}</strong>{" "}
+            </p>
+            <p>Time to complete: {diyPost.time} minutes.</p>
+
+            <YoutubeEmbed embedId={diyPost.video} />
+
+
+
+
+
+
+
+
+            <div className="postAuthor">
+
+
+
+{user._id === diyPost.author._id ? (
               <button
                 className="customBttn"
                 role="button"
@@ -142,12 +180,21 @@ const SingleDiy = () => {
               </button>
             </Link>
 
+
+
+
+
+</div>
+
+
+
+
             <h5>Comments: </h5>
 
             {diyPost.comments.map((comment, index) => {
               return (
-                <div class="card w-100 commentDiv">
-                  <div class="card-body commentBody">
+                <div className="card w-100 commentDiv">
+                  <div className="card-body commentBody">
                     <div className="comment">
                       <div className="commentHead">
                         <img
@@ -158,11 +205,19 @@ const SingleDiy = () => {
                         />
                       </div>
 
-                      <div class="commentText">
+                      <div className="commentText">
                         <h6>{comment.author.username}</h6>
-                        <p class="card-text">{comment.text}</p>
+                        <p className="card-text">{comment.text}</p>
                       </div>
                     </div>
+
+
+
+<div className="commentButtons">
+
+
+
+
 
                     {user._id === comment.author._id ? null : (
                       <button
@@ -187,6 +242,11 @@ const SingleDiy = () => {
                         View Profile
                       </button>
                     </Link>
+
+</div>
+
+
+
                   </div>
                 </div>
               );

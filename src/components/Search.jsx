@@ -15,10 +15,10 @@ function Search (props) {
 
  return (
     <div className="searchBar">
-      <h4 >Search</h4>
+     
 
       <div className="input-group rounded">
-  <input type="search" className="form-control rounded searchInput" value={searchWord}  onChange={searchHandler}  aria-label="Search" aria-describedby="search-addon" />
+  <Input placeholder="Search.." type="search" className="form-control rounded searchInput" value={searchWord}  onChange={searchHandler}  aria-label="Search" aria-describedby="search-addon" />
   
 </div>
 

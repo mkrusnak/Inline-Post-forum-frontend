@@ -42,22 +42,18 @@ const AddForumPost = (props) => {
 
     return(
         <>
-    <div>
-    <h1>Add more info:</h1>
+    <div className="listingDetails">
+    <h4>Add more info:</h4>
      <form onSubmit={submitFormHandler}>
 
          <label>Subject: </label>
-         <Input name="subject" value={state.subject} placeholder="" onChange={updateState}/>
+         <Input className='searchInput' name="subject" value={state.subject} placeholder="" onChange={updateState} required/>
 
          <label>Body: </label>
-         <Input name="body"  value={state.body} onChange={updateState}/>
+         <Input className='searchInput' name="body"  value={state.body} onChange={updateState} required/>
 
-         <label>Image:</label>
-         <Input name="image"  value={state.image} onChange={updateState}/>
-          
-          <label>Video:</label>
-          <Input name="video" value={state.video} onChange={updateState}/>
-       
+           <label>Video:</label>
+          <Input className='searchInput' name="video" value={state.video} onChange={updateState}/> 
 
         <button className="customBttn" role="button">Post</button>
      

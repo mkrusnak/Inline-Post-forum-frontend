@@ -45,7 +45,7 @@ const searchPosts = (word) => {
 
   return (
     <div>
-      <h1 className="headerText1">DIY SECTION</h1>
+      {/* <h1 className="headerText1">DIY SECTION</h1> */}
       <Search searchPosts = {searchPosts} />
       <div className="listingDetails">
       {myPosts.map((single) => {
@@ -55,7 +55,7 @@ const searchPosts = (word) => {
 
 
 
-          <div className="card posts">
+          <div className="card posts moRadius">
   <h5 className="card-header">{single.title}</h5>
   <div className="card-body">
 

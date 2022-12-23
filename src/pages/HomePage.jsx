@@ -33,7 +33,7 @@ const HomePage = () => {
   return (
     <>
     <div className="headerText1">
-    <h1 className="headerText1">NEWS PAGE</h1>
+    <h3 className="headerText1">LATEST ARTICLES</h3>
     </div>
       
 
@@ -46,18 +46,18 @@ const HomePage = () => {
       {isShown && <AddNewsArticle />}
 
       <section id="gallery">
-        <div className="container">
+        <div className="container ">
           <div className="row">
             <div className="col-lg-8 mb-4">
               {myNews.map((single) => {
                 return (
                   <>
-                    <div key={single._id} className="card newsCard">
-                      <img src={single.image} alt="" className="card-img-top" />
-                      <div className="card-body ">
-                        <h5 className="card-title">{single.title}</h5>
-                        <p className="card-text">{single.text}</p>
-                        <p className="card-text">{single.createdAtTime}</p>
+                    <div key={single._id} className="card1 newsCard">
+                      <img  src={single.image} alt="profilePic" className="card-img-top" />
+                      <div className="card-body">
+                        <h4 className="card-title newsTitle">{single.title}</h4>
+                        <p className="card-text newsTitle">{single.text}</p>
+                        <p className="card-text newsTitle">{single.createdAtTime}</p>
 
                         <a
                           href={single.link}

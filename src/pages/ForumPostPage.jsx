@@ -3,7 +3,6 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import YoutubeEmbed from "../components/YoutubeEmbed";
-import EditPost from "../components/EditPost";
 import AddCommentForum from "../components/AddCommentForum";
 import { Link } from "react-router-dom";
 import SendMessageComp from "../components/SendMessage";
@@ -47,67 +46,108 @@ const ForumPostPage = () => {
     getForumDetails();
   }, []);
 
-  //   const deleteHandler = (e) => {
-  //     e.preventDefault();
-  //     axios
-  //       .delete(`${import.meta.env.VITE_BACKEND_URL}/forum/delete/${forumId}`, {
-  //         headers: {
-  //           authorization: `Bearer ${localStorage.getItem("authToken")}`,
-  //         },
-  //       })
-  //       .then((axiosResponse) => {
-  //         console.log(axiosResponse.data);
-  //         navigate("/forum");
-  //       })
-  //       .catch((err) => console.log(err));
-  //   };
-
   return (
-    <div>
+    <div className="listingDetails">
       {forumPost ? (
         <div>
-          <h3>{forumPost.subject}</h3>
-          <p>{forumPost.body}</p>
-          <img src={forumPost.image} width="300px" alt="carPhoto" />
-          <YoutubeEmbed embedId={forumPost.video} />
-          <img
-            src={forumPost.author.profilePic}
-            width="100px"
-            alt="profilePic"
-          />
-          <h2>Author: {forumPost.author.username}</h2>
-          <p>{forumPost.createdAtTime}</p>
+        <div className="authorCard">
+            <div className="authorImgDiv">
+              <img
+                className="authorImg"
+                height="70px"
+                src={forumPost.author.profilePic}
+                alt="profilePic"
+              />
+            </div>
 
-          <Link to={`/profile/${forumPost.author._id}`}>
-            <button className="customBttn" role="button">
-              View Profile
-            </button>
-          </Link>
+            <div className="authorText2">
+            <h3>{forumPost.subject}</h3>
+              <p>
+                User: {forumPost.author.username}
+              </p>
+              <p>
+                Posted: {forumPost.createdAtTime}
+              </p>
+            </div>
+          </div>
+          
+          <p className="indent description">{forumPost.body}</p>
 
-          {user._id === forumPost.author._id ? (
-            <button
-              className="customBttn"
-              role="button"
-              onClick={handleClickEdit}
-            >
-              Edit post
-            </button>
-          ) : null}
+         
 
-          {isShownEdit && (
-            <EditPost
-              body={forumPost.body}
-              subject={forumPost.subject}
-              image={forumPost.image}
-              video={forumPost.video}
-              forumId={forumPost._id}
-            />
-          )}
+          {forumPost.video && <YoutubeEmbed embedId={forumPost.video} />}
 
-          <h2>Comments:</h2>
+          <h5>Comments:</h5>
+
 
 
           {forumPost.comments.map((comment, index) => {
+              return (
+                <div className="card w-100 commentDiv">
+                  <div className="card-body commentBody">
+                    <div className="comment">
+                      <div className="commentHead">
+                        <img
+                          className="authorImg"
+                          src={comment.author.profilePic}
+                          height="50px"
+                          alt="profilePic"
+                        />
+                      </div>
+
+                      <div className="commentText">
+                        <h6>{comment.author.username}</h6>
+                        <p className="card-text">{comment.text}</p>
+                      </div>
+                    </div>
+
+
+
+<div className="commentButtons">
+
+
+
+
+
+                    {user._id === comment.author._id ? null : (
+                      <button
+                        className="customBttn"
+                        role="button"
+                        onClick={handleClick(index)}
+                      >
+                        Message
+                      </button>
+                    )}
+
+                    {isShown[index] && (
+                      <SendMessageComp
+                        postId={linkmessage}
+                        to={comment.author._id}
+                        recipient={comment.author.username}
+                      />
+                    )}
+
+                    <Link to={`/profile/${comment.author._id}`}>
+                      <button className="customBttn" role="button">
+                        View Profile
+                      </button>
+                    </Link>
+
+</div>
+
+
+
+                  </div>
+                </div>
+              );
+            })}
+
+
+
+
+
+
+          {/* {forumPost.comments.map((comment, index) => {
             return (
               <>
                 <img src={comment.profilePic} width="50px" alt="profilePic" />
@@ -139,7 +179,7 @@ const ForumPostPage = () => {
                 </Link>
               </>
             );
-          })}
+          })} */}
 
           <AddCommentForum postId={forumPost._id} />
         </div>

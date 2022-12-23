@@ -87,12 +87,24 @@ const UserProfilePage = () => {
   return (
     <div className="ProjectDetails">
       {profile ? (
-        <div>
-          <img src={profile.profilePic} width="70px" alt="profilePic" />
-          <h2>{profile.username} profile</h2>
-          <p>Joined {profile.createdAtTime}</p>
+        <div className="listingDetails">
 
-          {user._id !== profile._id && user.admin && !profile.admin && (
+
+        <div className="card1" width="100">
+  <img className="card-img-top"  src={profile.profilePic}
+   alt="profilepic" />
+  <div className="card-body">
+    <h3 className="card-title">{profile.username}</h3>
+    <h6 className="card-text">"{profile.status}.."</h6>
+  </div>
+  <ul className="list-group list-group-flush noBorder">
+    <li className="list-group-item noBorder">Joined: {profile.createdAtTime}</li>
+    <li className="list-group-item noBorder">Dapibus ac facilisis in</li>
+    <li className="list-group-item noBorder">Vestibulum at eros</li>
+  </ul>
+  <div className="card-body">
+   
+  {user._id !== profile._id && user.admin && !profile.admin && (
             <button
               className="customBttn"
               role="button"
@@ -112,6 +124,8 @@ const UserProfilePage = () => {
             </button>
           )}
 
+
+
           {user._id === profile._id ? null : (
             <button className="customBttn" role="button" onClick={handleClick}>
               Message
@@ -127,9 +141,27 @@ const UserProfilePage = () => {
             </button>
           ) : null}
 
+
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+  
+        
+
+        
+
+         
           {profile.drivingNow ? (
             <>
-              <h4>"{profile.status}..."</h4>
+              
 
               <h4>Now driving: {profile.drivingNow}</h4>
               <img src={profile.drivingNowImg} width="200px" alt="profilePic" />

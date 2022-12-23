@@ -48,16 +48,16 @@ const EditPost = (props) => {
      <form onSubmit={submitFormHandler}>
 
          <label>Subject: </label>
-         <Input name="subject" value={state.subject} placeholder="" onChange={updateState}/>
+         <Input className='searchInput' name="subject" value={state.subject} placeholder="" onChange={updateState}/>
 
          <label>Body: </label>
-         <Input name="body"  value={state.body} onChange={updateState}/>
+         <Input className='searchInput' name="body"  value={state.body} onChange={updateState}/>
 
          <label>Image:</label>
-         <Input name="image"  value={state.image} onChange={updateState}/>
+         <Input className='searchInput' name="image"  value={state.image} onChange={updateState}/>
           
           <label>Video:</label>
-          <Input name="video" value={state.video} onChange={updateState}/>
+          <Input className='searchInput' name="video" value={state.video} onChange={updateState}/>
        
 
         <button className="customBttn" role="button">Edit</button>

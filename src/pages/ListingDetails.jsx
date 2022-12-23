@@ -67,11 +67,11 @@ const ListingDetails = () => {
 
   return (
     <div className="listingDetails">
-      <h1 className="headerText1">Listing details</h1>
+      {/* <h1 className="headerText1">Listing details</h1> */}
 
       {listing ? (
         <div>
-          <h3 className="headerText1">Title: {listing.title}</h3>
+          <h3 className="headerText1">{listing.title}</h3>
          
 
           <div className="row">
@@ -107,7 +107,7 @@ const ListingDetails = () => {
     <li className="list-group-item"><h6><strong>Known flaws:</strong> {listing.knownFlaws}</h6></li>
    
     <li className="list-group-item"><h6><strong>Accepting trades:</strong> {listing.tradeOk ? <h6>Yes</h6> : <h6>No</h6>}</h6></li>
-    <li className="list-group-item"><p>Seller: {listing.owner.username}</p></li>
+    <li className="list-group-item"><h6><strong>Seller:</strong> {listing.owner.username}</h6></li>
   </ul>
 </div>
 
