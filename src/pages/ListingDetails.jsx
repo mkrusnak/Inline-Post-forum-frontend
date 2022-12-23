@@ -74,20 +74,29 @@ const ListingDetails = () => {
           <h3 className="headerText1">{listing.title}</h3>
          
 
-          <div className="row">
+          <div class="row1">
             {listing.imagesUrl.map((singleImg) => {
               return (
-                <div className="col-lg-3 col-md-3 col-xs-3 thumb">
-                  <img
-                    className="img-responsive"
-                    width="400px"
-                    src={singleImg}
-                    alt="carPhoto"
-                  />
-                </div>
+
+
+                <div class="column1">
+    <img src={singleImg} alt="Snow" width="100%" />
+  </div>
+
+            
+
+
+
+
+
+
+
+
+
+              
               );
             })}
-          </div>
+         </div>
 
 <div className="description">
           <p>{listing.description}</p>
@@ -106,34 +115,14 @@ const ListingDetails = () => {
     <li className="list-group-item"><h6><strong>Price:</strong> {listing.price} $</h6></li>
     <li className="list-group-item"><h6><strong>Known flaws:</strong> {listing.knownFlaws}</h6></li>
    
-    <li className="list-group-item"><h6><strong>Accepting trades:</strong> {listing.tradeOk ? <h6>Yes</h6> : <h6>No</h6>}</h6></li>
+    <li className="list-group-item"><h6><strong>Accepting trades:</strong> {listing.tradeOk ? <p>Yes</p> : <p>No</p>}</h6></li>
     <li className="list-group-item"><h6><strong>Seller:</strong> {listing.owner.username}</h6></li>
+    <li className="list-group-item"><h6><strong>Loaction:</strong> {listing.owner.city}, {listing.owner.state}</h6></li>
+
+ 
   </ul>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-{/* 
-          <h4>Make / model: {listing.makeModel}</h4>
-          <h4>Mileage: {listing.odometr} mi</h4>
-          <h4>Year: {listing.year}</h4>
-          <h4>Price: {listing.price} $</h4>
-          <p>{listing.description}</p>
-          <p>Known flaws: {listing.knownFlaws}</p>
-          <p>Seller: {listing.owner.username}</p>
-          <div>
-            Accepting trades: {listing.tradeOk ? <p>Yes</p> : <p>No</p>}
-          </div> */}
-
-          
 
           <Link to={`/profile/${listing.owner._id}`}>
             <button className="customBttn" role="button">
@@ -192,3 +181,65 @@ const ListingDetails = () => {
 };
 
 export default ListingDetails;
+
+
+
+  {/* <div className="col-lg-3 col-md-3 col-xs-3 thumb">
+                  <img
+                    className="img-responsive"
+                    width="400px"
+                    src={singleImg}
+                    alt="carPhoto"
+                  />
+                </div> */}
+
+
+
+
+
+
+                    {/* <div class="carImages ">
+
+        <div class="col-md-3 col-sm-6 col-xs-12 listingPad">
+       
+          <img alt="AltText" src={listing.imagesUrl[0]} class="img-responsive img-fluid carImg" />
+        
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12 listingPad">
+       
+            <img  alt="AltText" src={listing.imagesUrl[1]} class="img-responsive img-fluid  carImg" />
+        
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12 listingPad">
+        
+            <img src={listing.imagesUrl[2]} alt="AltText" class="img-responsive img-fluid  carImg" />
+       
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12 listingPad">
+       
+            <img alt="AltText" src={listing.imagesUrl[3]} class="img-responsive img-fluid  carImg" />
+      
+        </div>
+
+
+       
+    </div> */}
+
+
+
+
+    {/* 
+                <div className="row carImages">
+          <div className="col-md-3 col-sm-6 col-xs-12">
+        
+            <img alt="AltText" src={singleImg} className="img-responsive carImg" />
+        
+       
+
+
+
+            </div>
+          </div> */}

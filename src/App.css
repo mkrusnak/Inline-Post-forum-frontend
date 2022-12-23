@@ -1,23 +1,100 @@
 
 .newsCard {
-        box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.195);
-        border-radius: 2;
+  
+        box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.059);
+        border-radius: 0;
+        margin: 20px;
+        padding: 0px;
 }
+
+.newsCard img {
+  width: 400px;
+}
+
+
 
 .listingDetails {
     margin: 40px;
     margin-top: 10px;
 }
 
-.listingDetails img {
-    margin: 15px;
+
+.carImages {
+  
+  width: 100rem;
+ display: flex;
+ /* flex-direction: row; */
+ justify-content: center;
+
 }
 
+
+
+
+.row1 {
+  display: flex;
+  margin-right: 20px;
+}
+
+.column1 {
+  flex: 33.33%;
+  padding: 5px;
+  margin: 0px;
+}
+
+.column1 img {
+  margin: 0px;
+}
+
+
+
+.listingDetails img {
+    margin: 15px;
+
+}
+
+
+.listingPad {
+  margin: 10px;
+  padding: 0px;
+}
+
+
+
+.carImg img{
+  margin: 0px;
+
+}
+
+
+.carImg {
+  width: 400px;
+
+}
 
 .noRadius {
   border-radius: 0px;
 }
 
+.authorText2 h4 {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+
+.messagesList {
+  box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.059); ;
+}
+
+.messageBttn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.mssgText p {
+  margin: 0px;
+}
 
 .commentButtons {
   display: flex;
@@ -43,12 +120,12 @@ flex-direction: row;
 .card1 {
   display: flex;
   flex-direction: row;
-  box-shadow: 2px 2px 2px 2px rgba(35, 13, 9, 0.195);
+  box-shadow: 2px 2px 2px 2px rgba(35, 13, 9, 0.059);
 }
 
 .card1 img {
   width: 25%;
-  /* box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.195); */
+  /* box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.059); */
 }
 
 .newsTitle {
@@ -60,9 +137,23 @@ flex-direction: row;
   margin: 5px;
 }
 
+.userCars {
+  margin-top: 20px;
+  padding: 0px;
+}
+
+
+
+
+
 .cardText1  {
   padding: 0px;
   margin: 0px;
+}
+
+.articleCard {
+  margin: 0px;
+  padding: 0px;
 }
 
 
@@ -75,7 +166,7 @@ flex-direction: row;
 
 .commentDiv {
   margin-top: 15px;
-  box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.159);
+  box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.059);
   border-radius: 0px;
 }
 
@@ -84,10 +175,32 @@ flex-direction: row;
 
 }
 
+.profileList {
+  margin-top: 20px;
+}
+
+.carImage img {
+  margin: 0px;
+}
+
+.carsList {
+  margin-top: 20px;
+  box-shadow: 3px 3px 3px 3px rgba(35, 13, 9, 0.059);
+  margin-right: 0px;
+}
+
 .authorImg {
   margin: 0px;
   padding: 0px;
   clip-path: circle();
+}
+
+.userCar {
+  margin-top: 10px;
+}
+
+.noRadiusImg {
+  border-radius: 0px;
 }
 
 .posts {

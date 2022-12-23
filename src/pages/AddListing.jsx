@@ -70,7 +70,7 @@ const handleSubmit = e => {
     return(
         <>
     <div className="addDiyForm ">
-    <h1 className="headerText1">Add your listing</h1>
+    <h4 className="headerText1">Add your listing</h4>
      <form onSubmit={handleSubmit}>
 
          <label>Title:</label>

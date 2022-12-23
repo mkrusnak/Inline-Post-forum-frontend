@@ -33,29 +33,39 @@ const HomePage = () => {
   return (
     <>
     <div className="headerText1">
-    <h3 className="headerText1">LATEST ARTICLES</h3>
+    <h4 className="headerText1">LATEST ARTICLES</h4>
     </div>
       
 
-      {user.admin ? (
+      {user &&
         <button onClick={handleClick} className="customBttn" role="button">
           Add Article
         </button>
-      ) : null}
+      }
 
       {isShown && <AddNewsArticle />}
 
       <section id="gallery">
-        <div className="container ">
-          <div className="row">
-            <div className="col-lg-8 mb-4">
+        
+      <div className="col-lg-8 mb-6 articleCard"></div>
+            
               {myNews.map((single) => {
                 return (
                   <>
-                    <div key={single._id} className="card1 newsCard">
-                      <img  src={single.image} alt="profilePic" className="card-img-top" />
-                      <div className="card-body">
-                        <h4 className="card-title newsTitle">{single.title}</h4>
+                  <div className="row newsCard">
+                  
+
+
+                    <div key={single._id} className="card newsCard noRadius">
+                      <img src={single.image} width="400px" alt="carimg" className="card-img-top noRadius" />
+                      </div>
+                      
+                      
+                      
+                      
+                      
+                      <div className="card-body ">
+                        <h3 className="card-title newsTitle">{single.title}</h3>
                         <p className="card-text newsTitle">{single.text}</p>
                         <p className="card-text newsTitle">{single.createdAtTime}</p>
 
@@ -74,15 +84,16 @@ const HomePage = () => {
 
 
 
-
+</div>
                       </div>
-                    </div>
+                    
+                    
                   </>
                 );
               })}
-            </div>
-          </div>
-        </div>
+            
+              
+        
       </section>
     </>
   );

@@ -91,16 +91,17 @@ const UserProfilePage = () => {
 
 
         <div className="card1" width="100">
-  <img className="card-img-top"  src={profile.profilePic}
+  <img className="card-img-top img-fluid noRadiusImg"  src={profile.profilePic}
    alt="profilepic" />
   <div className="card-body">
     <h3 className="card-title">{profile.username}</h3>
     <h6 className="card-text">"{profile.status}.."</h6>
   </div>
-  <ul className="list-group list-group-flush noBorder">
+  <ul className="list-group list-group-flush noBorder profileList">
+    
+    <li className="list-group-item noBorder">Location: {profile.city}, {profile.state}</li>
     <li className="list-group-item noBorder">Joined: {profile.createdAtTime}</li>
-    <li className="list-group-item noBorder">Dapibus ac facilisis in</li>
-    <li className="list-group-item noBorder">Vestibulum at eros</li>
+
   </ul>
   <div className="card-body">
    
@@ -141,10 +142,6 @@ const UserProfilePage = () => {
             </button>
           ) : null}
 
-
-
-
-
   </div>
 </div>
 
@@ -163,12 +160,47 @@ const UserProfilePage = () => {
             <>
               
 
-              <h4>Now driving: {profile.drivingNow}</h4>
-              <img src={profile.drivingNowImg} width="200px" alt="profilePic" />
-              <h4>Previous car: {profile.prevCar}</h4>
-              <img src={profile.prevCarImg} width="200px" alt="profilePic" />
-              <h4>Dream car: {profile.dreamCar}</h4>
-              <img src={profile.dreamCarImg} width="200px" alt="profilePic" />
+
+
+
+
+            <div className="row carsList">
+
+
+<div className="col-12 col-md-6 col-lg-4 mb-4 userCar">
+    <div className="card carImage noBorder">
+      <img className="card-img-top noRadiusImg img-fluid" src={profile.drivingNowImg} alt="car"/>
+      <div className="card-body">
+        <p className="card-text">Driving now: {profile.drivingNow}</p>
+      </div>
+    </div>
+  </div>
+ 
+  <div className="col-12 col-md-6 col-lg-4 mb-4 userCar">
+    <div className="card carImage noBorder">
+      <img className="card-img-top noRadiusImg img-fluid" src={profile.dreamCarImg} alt="car"/>
+      <div className="card-body">
+        <p className="card-text">Dream car: {profile.dreamCar}</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div className="col-12 col-md-6 col-lg-4 mb-4 userCar">
+    <div className="card carImage noBorder">
+      <img className="card-img-top noRadiusImg img-fluid" src={profile.prevCarImg} alt="car"/>
+      <div className="card-body">
+        <p className="card-text">First car: {profile.prevCar}</p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
             </>
           ) : null}
           <br></br>

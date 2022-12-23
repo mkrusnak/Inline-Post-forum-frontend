@@ -30,18 +30,24 @@ const handleSubmit = e => {
 
 return(
     <>
-    <div className="AddApartmentPage">
-    <h1>Create new account</h1>
+    <div className="listingDetails">
+    <h4>Create new account</h4>
      <form onSubmit={handleSubmit}>
 
          <label>Username:</label>
-         <Input name="username" value={state.username} onChange={updateState}/>
+         <Input className='searchInput' name="username" value={state.username} onChange={updateState}/>
 
          <label>Email:</label>
-         <Input name="email" value={state.email} onChange={updateState}/>
+         <Input className='searchInput' name="email" value={state.email} onChange={updateState}/>
+
+         <label>City:</label>
+         <Input className='searchInput' name="city" value={state.city} onChange={updateState}/>
+
+         <label>State:</label>
+         <Input className='searchInput' name="state" value={state.state} onChange={updateState}/>
 
          <label>Password:</label>
-         <Input name="password" type="password" value={state.password} onChange={updateState}/>
+         <Input className='searchInput' name="password" type="password" value={state.password} onChange={updateState}/>
 
         <button className="customBttn" role="button">Sign Up</button>
      

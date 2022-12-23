@@ -69,7 +69,7 @@ const ForumPostPage = () => {
                 Posted: {forumPost.createdAtTime}
               </p>
             </div>
-          </div>
+        </div>
           
           <p className="indent description">{forumPost.body}</p>
 

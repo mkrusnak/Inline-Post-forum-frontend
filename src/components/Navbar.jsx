@@ -134,7 +134,7 @@ function Navbar() {
           </ul>
           {isLoggedIn && (
             <>
-              <span className="navbar-text">Welcome, {user.username}</span>
+              <span className="navbar-text">Hello, {user.username}!</span>
             </>
           )}
         </div>

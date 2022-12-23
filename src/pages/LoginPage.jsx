@@ -36,15 +36,15 @@ const handleSubmit = e => {
 
 return(
     <>
-    <div>
-    <h1>Log In</h1>
+    <div className='listingDetails'>
+    <h4>Log In</h4>
      <form onSubmit={handleSubmit}>
 
          <label>Email:</label>
-         <Input name="email" value={state.email} onChange={updateState}/>
+         <Input className='searchInput' name="email" value={state.email} onChange={updateState}/>
 
          <label>Password:</label>
-         <Input name="password" type="password" value={state.password} onChange={updateState}/>
+         <Input className='searchInput' name="password" type="password" value={state.password} onChange={updateState}/>
 
         <button className="customBttn" role="button">Log In</button>
      

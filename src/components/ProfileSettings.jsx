@@ -13,6 +13,8 @@ const ProfileSettings = (props) => {
    const navigate = useNavigate();
 
     const [state, setState] = useState({
+       city: '',
+       state: '',
        profilePic: '',
        drivingNow: '',
        drivingNowImg: '',
@@ -49,18 +51,26 @@ return(
      <form onSubmit={handleSubmit}>
 
          <label>Profile picture:</label>
-         <Input name="profilePic" placeholder={props.profilePic} value={state.profilePic} onChange={updateState} required/>
+         <Input className='searchInput' name="profilePic" placeholder={props.profilePic} value={state.profilePic} onChange={updateState} required/>
          
+
          <label>Current car:</label>
          <Input name="drivingNow" placeholder={props.drivingNow} value={state.drivingNow} onChange={updateState} required/>
+
+         <label>City:</label>
+         <Input name="city" placeholder={state.city}  value={state.city} onChange={updateState} required/>
+
+         <label>State:</label>
+         <Input name="state"  placeholder={state.state} value={state.state} onChange={updateState} required/>
+
 
          <label>Current car photo:</label>
          <Input name="drivingNowImg" placeholder={props.drivingNowImg} value={state.drivingNowImg} onChange={updateState} required/>
 
-         <label>Previous car:</label>
+         <label>First car:</label>
          <Input name="prevCar" placeholder={props.prevCar} value={state.prevCar} onChange={updateState} required/>
 
-         <label>Previous car photo:</label>
+         <label>First car photo:</label>
          <Input name="prevCarImg" placeholder={props.prevCarImg} value={state.prevCarImg} onChange={updateState} required/>
 
          <label>Status:</label>

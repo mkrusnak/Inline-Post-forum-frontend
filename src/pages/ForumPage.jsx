@@ -55,7 +55,7 @@ useEffect(() => {
 
     return (
       <div className="forumPage ">
-        <h1 className="headerText1">FORUM</h1>
+        {/* <h1 className="headerText1">FORUM</h1> */}
         <Search searchPosts = {searchPosts} />
         
 <div className="forumBttnDiv">

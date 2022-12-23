@@ -41,24 +41,55 @@ const Messages = () => {
   }, [user]);
 
   return (
-    <div>
+    <div className="listingDetails">
    
-    <h1>your messages</h1>
+    <h1 className="headerText1">Messages</h1>
 
 
     {messagesArr.map(singleMessage => {
        return (<>
-        <h4>Sender:{singleMessage.sender.username}</h4>
-        <img src={singleMessage.sender.profilePic} width="100px" alt="profilePic" />
-        <h3>{singleMessage.subject}</h3>
-        <p>{singleMessage.body}</p>
-        <p>{singleMessage.createdAtTime}</p>
+
+<div className="messagesList">
+
+        <div className="authorCard">
+            <div className="authorImgDiv">
+              <img
+                className="authorImg"
+                height="70px"
+                src={singleMessage.sender.profilePic}
+                alt="profilePic"
+              />
+            </div>
+
+            <div className="authorText2">
+            <h4>{singleMessage.subject}</h4>
+              <p>
+               <strong> From:</strong> {singleMessage.sender.username}
+              </p>
+              <p>
+                <strong>Sent:</strong> {singleMessage.createdAtTime}
+              </p>
+            </div>
+        </div>
+
+
+       
+
+
+  
+
+<div className="messageBttn">
+
+
+         <div className="mssgText"><p className="indent description ">{singleMessage.body}</p></div>
 
 
 
-        <button className="customBttn" role="button" onClick={handleClick}>Reply</button>
+      <div>  <button className="customBttn" role="button" onClick={handleClick}>Reply</button></div>
 
+</div>
 
+</div>
 
         {isShown && (
                   <SendMessageComp
@@ -77,3 +108,11 @@ const Messages = () => {
 };
 
 export default Messages;
+
+
+
+      {/* <h4>From:{singleMessage.sender.username}</h4>
+        <img src={singleMessage.sender.profilePic} width="100px" alt="profilePic" />
+        <h3>{singleMessage.subject}</h3>
+        <p>{singleMessage.body}</p>
+        <p>{singleMessage.createdAtTime}</p> */}

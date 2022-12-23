@@ -66,7 +66,7 @@ const handleSubmit = e => {
     return(
         <>
     <div className='addDiyForm'>
-     <h1 className="headerText1" >Add your DIY</h1>
+     <h4 className="headerText1" >Post your DIY</h4>
    
      <form onSubmit={handleSubmit}>
 
@@ -85,7 +85,7 @@ const handleSubmit = e => {
           <label>Description:</label>
           <Input className="searchInput" name="description" value={state.description} onChange={updateState}/>
 
-         {imagesArr.map((img, index) => {
+         {/* {imagesArr.map((img, index) => {
           return (
             <>
               <label>Image #{index + 1}:</label>
@@ -94,9 +94,9 @@ const handleSubmit = e => {
             </>
             
           );
-         })}
+         })} */}
 
-         <button className="customBttn" role="button" onClick={increaseImagesArr}>Add Image</button>
+         {/* <button className="customBttn" role="button" onClick={increaseImagesArr}>Add Image</button> */}
 
 
 
