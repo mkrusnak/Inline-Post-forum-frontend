@@ -18,28 +18,28 @@ function AuthProviderWrapper(props) {
   };
 
   const authenticateUser = () => {
-    //  <==  ADD
-    // Get the stored token from the localStorage
+
+    // Get token back from localStorage
     const storedToken = localStorage.getItem("authToken");
 
-    // If the token exists in the localStorage
+    // If token
     if (storedToken) {
-      // We must send the JWT token in the request's "Authorization" Headers
+      // Send JWT token info in request header "Authentication"
       axios
         .get(`${import.meta.env.VITE_BACKEND_URL}/auth/verify`, {
           headers: { Authorization: `Bearer ${storedToken}` },
         })
         .then((response) => {
-          // If the server verifies that JWT token is valid
+          // If server likes token
           const user = response.data;
-          // Update state variables
+          // Update state vars
           setIsLoggedIn(true);
           setIsLoading(false);
           setUser(user);
         })
         .catch((error) => {
-          // If the server sends an error response (invalid token)
-          // Update state variables
+          // if server doesn't like token
+          // Update state vars
           setIsLoggedIn(false);
           setIsLoading(false);
           setUser(null);
