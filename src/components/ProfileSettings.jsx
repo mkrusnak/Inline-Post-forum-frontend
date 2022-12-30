@@ -76,7 +76,7 @@ const ProfileSettings = (props) => {
           <Input
             className="searchInput"
             name="city"
-            placeholder={state.city}
+            placeholder={props.city}
             value={state.city}
             onChange={updateState}
             required
@@ -86,7 +86,7 @@ const ProfileSettings = (props) => {
           <Input
             className="searchInput"
             name="usstate"
-            placeholder={state.usstate}
+            placeholder={props.usstate}
             value={state.usstate}
             onChange={updateState}
             required

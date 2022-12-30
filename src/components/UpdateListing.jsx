@@ -40,7 +40,6 @@ const UpdateListing = (props) => {
       .then((axiosResponse) => {
         console.log(axiosResponse.data);
         props.getListingDetails();
-
         navigate(`/listings/${props.listingId}`);
       })
       .catch((err) => console.log(err));
