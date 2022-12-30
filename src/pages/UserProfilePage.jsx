@@ -148,6 +148,21 @@ const UserProfilePage = () => {
             </div>
           </div>
 
+          {isShownEdit && (
+            <ProfileSettings
+              state={profile.state}
+              city={profile.city}
+              profilePic={profile.profilePic}
+              drivingNow={profile.drivingNow}
+              drivingNowImg={profile.drivingNowImg}
+              prevCar={profile.prevCar}
+              prevCarImg={profile.prevCarImg}
+              status={profile.status}
+              dreamCar={profile.dreamCar}
+              dreamCarImg={profile.dreamCarImg}
+            />
+          )}
+
           {isShown && (
             <SendMessageComp to={profile._id} recipient={profile.username} />
           )}
@@ -199,7 +214,7 @@ const UserProfilePage = () => {
             </>
           ) : null}
 
-          {isShownEdit && (
+          {/* {isShownEdit && (
             <ProfileSettings
               state={profile.state}
               city={profile.city}
@@ -212,7 +227,7 @@ const UserProfilePage = () => {
               dreamCar={profile.dreamCar}
               dreamCarImg={profile.dreamCarImg}
             />
-          )}
+          )} */}
         </div>
       ) : (
         <p>loading...</p>
