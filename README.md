@@ -1,4 +1,4 @@
-# project3-forum-frontend "Inline-Post"
+# Inline-Post frontend
 
 This is frontend part of my Inline-Post project.
 
