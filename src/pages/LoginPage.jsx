@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Input } from "antd";
-import e from "cors";
+
 
 const LoginPage = () => {
   const { storeToken, authenticateUser } = useContext(AuthContext);
