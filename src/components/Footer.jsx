@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="text-center text-white footerStyle  ">
+    <footer className="text-center footerFixed text-white ">
       <div className="text-center  p-3 footerBottom">
         <p>
           Inline-Post 2022 ©{" "}

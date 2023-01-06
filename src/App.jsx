@@ -27,19 +27,15 @@ function App() {
 
   return (
     <div className="App">
+    <div id="pageContainer" >
+  
+
     <Navbar />
     <Routes>
 
       <Route path="/" element={<IsPrivate> <HomePage /> </IsPrivate> } />
-      
       <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
       <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
-
-
-
-      
-
-
       <Route path="/home" element={<IsPrivate> <HomePage /> </IsPrivate> } />
       <Route path="/profile/:guestId" element={<IsPrivate>  <UserProfilePage /> </IsPrivate> } />
       <Route path="/addlisting" element={<IsPrivate>  <AddListing />  </IsPrivate> } />
@@ -52,9 +48,12 @@ function App() {
       <Route path="/listings/:listingId" element={<IsPrivate> <ListingDetails /> </IsPrivate>} />
       <Route path="/forum/:forumId" element={<IsPrivate> <ForumPostPage /> </IsPrivate>} />
       <Route path="/listings" element={<IsPrivate> <MarketplacePage /> </IsPrivate>} />
+    
     </Routes>
+    </div>
     <Footer />
     </div>
+    
   )
 }
 

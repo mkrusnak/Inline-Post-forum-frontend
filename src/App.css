@@ -5,6 +5,22 @@
   padding: 0px;
 }
 
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+.footerFixed {
+  background-color: #327cb0;
+
+  height: 50px;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
 .newsCard img {
   width: 400px;
 }
@@ -12,6 +28,19 @@
 .listingDetails {
   margin: 40px;
   margin-top: 10px;
+}
+
+.testLogin {
+  padding: 5px;
+  padding-bottom: 2px;
+  background-color: rgba(117, 215, 137, 0.241);
+  max-width: fit-content;
+  border-radius: 5px;
+  border: 2px rgba(112, 197, 123, 0.626) solid;
+}
+
+.testLogin p {
+  margin: 2px;
 }
 
 .commentText a {
@@ -46,17 +75,12 @@
   margin: 0px;
 }
 
-.footerStyle {
-  background-color: #327cb0;
 
-  height: 50px;
-  margin-bottom: 0px;
+.footerBottom  {
+  padding: 0;
+  margin: 0;
 }
 
-.footerBottom p {
-  margin-bottom: 0px;
-  padding: 0px;
-}
 
 .footerBottom a {
   text-decoration: none;

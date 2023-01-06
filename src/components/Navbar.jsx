@@ -8,7 +8,7 @@ function Navbar() {
 
   return (
     <header className="headerImage">
-      <img classname="img-fluid" src={headerImg} alt="headerImg"></img>
+      <img className="img-fluid" src={headerImg} alt="headerImg"></img>
 
       <nav className="navbar customNav customNav1  navbar-expand-lg  navbar-light">
         <Link className="navbar-brand" to="/home">

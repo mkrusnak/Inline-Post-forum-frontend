@@ -4,9 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Input } from "antd";
+import e from "cors";
 
 const LoginPage = () => {
   const { storeToken, authenticateUser } = useContext(AuthContext);
+
+  const [testInfo, setTestInfo] = useState(false);
 
   const navigate = useNavigate();
 
@@ -14,6 +17,14 @@ const LoginPage = () => {
     email: "",
     password: "",
   });
+
+  const handleGuestLogin = () => {
+    setTestInfo(!testInfo)
+    setState({
+      email: "v@gmail.com",
+      password: "asdfasdf"
+    })
+  }
 
   const updateState = (event) =>
     setState({
@@ -39,7 +50,7 @@ const LoginPage = () => {
     <>
       <div className="listingDetails">
         <h4>Log In</h4>
-        <form onSubmit={handleSubmit}>
+        <form>
           <label>Email:</label>
           <Input
             className="searchInput"
@@ -57,10 +68,25 @@ const LoginPage = () => {
             onChange={updateState}
           />
 
-          <button className="customBttn" role="button">
+          <button onClick={handleSubmit} className="customBttn" role="button">
             Log In
           </button>
+
+          <button
+            onClick={handleGuestLogin}
+            className="customBttn"
+            type="button"
+          >
+            Guest Login
+          </button>
         </form>
+
+        {testInfo && (
+          <div className="testLogin">
+            <p>Use these credentials to browse around:</p>
+            <p>Email: v@gmail.com | Password: asdfasdf</p>
+          </div>
+        )}
       </div>
     </>
   );
